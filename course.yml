@@ -1,9 +1,10 @@
 title            : "Causal Inference Bootcamp: Introduction"
-instructors      :  
+description      : This course provides a foundation for the concepts covered in the Causal Inference Bootcamp.
+instructors      :
  - speckart@duke.edu
+ - ransom@ou.edu
  - bdaronson@gmail.com
  - cooper@duke.edu
-description      : This course provides a foundation for the concepts covered in the Causal Inference Bootcamp.
 university       : DataCamp
 difficulty_level : 2
 time_needed      : 1 hour
