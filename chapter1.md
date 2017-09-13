@@ -1,7 +1,8 @@
 --- 
 title       : “Introduction to the Causal Inference Bootcamp”
 description : "These videos introduce the starting concepts behind determining causality in empirical research“
-  
+---
+
 --- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
 ## Introduction to the Causal Inference Bootcamp
 *** =video_link
