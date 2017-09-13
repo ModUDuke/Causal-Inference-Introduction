@@ -1,41 +1,41 @@
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:1b7bc85492
 ## Introduction to the Causal Inference Bootcamp
 *** =video_link
 //player.vimeo.com/video/230621577
  
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:94317a4867
 ## Measurement
 *** =video_link
 //player.vimeo.com/video/230621760
 
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:f8ced7fb09
 ## Description
 *** =video_link
 //player.vimeo.com/video/230622159
 
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:0f66a8c3f0
 ## Correlation vs. Causation
 *** =video_link
 //player.vimeo.com/video/230622365
 
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:df9b958a75
 ## The Average Treatment Effect
 *** =video_link
 //player.vimeo.com/video/230622767
 
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:5ebfd9aaa0
 ## The Unit Level Effect
 *** =video_link
 //player.vimeo.com/video/230623038
 
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:6238dbab2d
 ## Understanding Your Unit Level Causal Effect 
 Multiple choice question: Suppose you want to learn your own unit level causal effect of eating breakfast on how hungry you are at dinner time. Monday you eat breakfast and write down how hungry you are later on. Tuesday you don't eat breakfast and write down how hungry you are later on. Then your unit level causal effect is the difference between these two numbers.
 *** =instructions
@@ -49,12 +49,12 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2))
 ```
 
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:6fc38f8905
 ## The Conditional Average Treatment Effect
 *** =video_link
 //player.vimeo.com/video/230623221
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:2bbbcc3971
 ## Calculating Ice Cream Recipe Changes 
 Suppose Edy's wants to know the effect of changing to a new recipe for chocolate ice cream on how many cartons of ice cream someone buys next month. Consider the following population. There are three people who are regular customers (buy Edy's at least once a month), with unit level causal effects of -10, -6, -5. For example, the first person will buy 10 fewer cartons if Edy's uses the new receipe. There are three people who are not regular customers, with unit level causal effects of -1, 0, 2. What is the difference between CATE(regular customers) and CATE(not regular customers)?
 *** =instructions
@@ -71,13 +71,13 @@ msg4 = "Try again: CATE(regular) = [(-10) + (-6) + (-5)]/3 = -7. CATE(not regula
 test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:5c37f21710
 ## Confounders
 *** =video_link
 //player.vimeo.com/video/230623543
 
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:ac9bc35c31
 ## Understanding Confounders
 Why are confounding variables a potential problem?
 *** =instructions
@@ -94,13 +94,13 @@ msg4 = “Unobserved variables are not always a problem in causal inference, bec
 test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:6e830d0422
 ## Counterfactuals
 *** =video_link
 //player.vimeo.com/video/230623577
 
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:97e0c3c1ec
 ## Counterfactuals and You 
 Suppose you hadn't watched this video just now, and weren't reading this question. Instead, you went outside and enjoyed the day with a stroll and ate an ice cream cone, which unfortunately was affected by a terrible curse that would have thwarted your every desire for the rest of your life. So not eating that ice cream and instead taking this course right now has literally saved you from this terrible curse. Right?
 *** =instructions
@@ -116,13 +116,13 @@ msg3 = "Oops! Think about the data you have about your world, and the data about
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:ddb24adc92
 ## Statistical Inference vs. Causal Inference
 *** =video_link
 //player.vimeo.com/video/230623833
 
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:11e02ba59d
 ## Big Data and Causal Inference 
 If I have an enormous amount of data, do I still have to worry about causal inference?
 *** =instructions
@@ -139,13 +139,13 @@ test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:a13b7c2ffd
 ## p Hacking and Talking to Ghosts
 *** =video_link
 //player.vimeo.com/video/230618095
 
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:c2f06f68fd
 ## Bonus Video: How to Read Empirical Papers
 *** =video_link
 //player.vimeo.com/video/230624036
