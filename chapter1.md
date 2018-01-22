@@ -121,6 +121,11 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
 *** =video_link
 //player.vimeo.com/video/230623833
 
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+## Splitting Samples, Dimensionality, and Big Data
+*** =video_link
+//player.vimeo.com/video/230616790
+
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:11e02ba59d
 ## Big Data and Causal Inference 
