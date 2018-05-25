@@ -1,5 +1,6 @@
-title            : Causal Inference Bootcamp 1: Introduction
+title            : Causal Inference Bootcamp 1 - Introduction
 description      : This course will get you started on the concepts and lessons of the Causal Inference Bootcamp
+programming_language: r
 instructors      :
  - speckart@duke.edu
  - ransom@ou.edu
