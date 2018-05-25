@@ -292,13 +292,22 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 *** =video_link
 //player.vimeo.com/video/230622365
 
+
+
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4b7a7da2a4
 ## Learn Engineering by Eating Cheese?
 As you can see in this chart, the per capita consumption of mozzarella cheese in the US is highly correlated with the number of PhDs awarded annually in Civil Engineering in the US. In fact, it’s a 95% correlation. Therefore, does this strong data prove that these two variables are **causally** connected? 
 
+
 *** =instructions
 - Definitely. 95% correlations do not just happen in real life—there must be a cause and effect reason behind it, even if we don’t know what it is.
 - No. This is just a spurious correlation between random variables, and even very strong correlations do not imply causation.
+
+*** =sample_code
+```{r}
+load.image(https://assets.datacamp.com/production/repositories/1444/datasets/fdf1e1ca75881f0c95ccd9c843580761cda5612e/chart.jpeg)
+```
+
 
 *** =sct
 ```{r}
