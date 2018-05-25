@@ -75,7 +75,7 @@ test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3))
 *** =video_link
 //player.vimeo.com/video/230618095
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:b1da122e43
 ## Creating a Simple Counterfactual
 Last year, a small town baseball team called The Hammers was hoping to attract bigger audiences to their home games, so halfway through their season they started a social media advertising campaign. Let’s see what we can find out if it worked through the data they collected.  
 
@@ -103,7 +103,7 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
 
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:0ecec920ef
 ## Is Our Initial Data Enough?
 Okay, let’s take a look at how many games this particular individual actually attended in July, the first month of the advertising campaign.
 
@@ -129,7 +129,7 @@ test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 
 
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:2d4f173966
 ## Checking our Counterfactual
 Since we know we need to look at the entire season to get the real causal answer, let’s take a look at how many games this individual actually attended during the entire advertising campaign.
 
@@ -151,7 +151,7 @@ msg2 = “This may look like unconvincing and like it might be statistical noise
 test_mc(correct = 1, feedback_msgs = c(msg1,msg2))
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4a0d3cf7b9
 ## Looking for Confounders with Positive Correlations
 Now you look at the other variables that you have in the data that might affect this individual’s baseball game attendance. They are: Mean Daily High Temperature (in F and C), Quality of Stadium Food Consumed (scale 0-10), and National Ranking of Team (from 1-30).
 Here is a table of all available data for this individual, with the months of the season along the top and variables down the side:
@@ -183,7 +183,7 @@ msg3 = “The team’s performance varies pretty significantly through the seaso
 test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:c379b36151
 ## Looking for Confounders with Negative Correlations
 Now that we’ve seen what other variables are positively correlated with attendance, what about the opposite?  Here’s the table again:
 
@@ -213,7 +213,7 @@ msg3 = “Correct! At first glance, the National Ranking of the team goes down a
 test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:23e5c17fe0
 ## Looking for Variables with No Correlations
 Now that we’ve seen what other variables are positively and negatively correlated with attendance, are there any variables that are totally uncorrelated with attendance, and hence are not confounders?  Here’s the table again:
 
@@ -243,7 +243,7 @@ msg3 = “The National Ranking of the team seems goes down as the attendance goe
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:d5098c9a23
 ## Do We Have Confounder Problems?
 Let’s look again at the variables in our data that seem to be either positively or negatively correlated. Here’s the table again:
 
