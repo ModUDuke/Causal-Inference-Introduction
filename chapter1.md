@@ -298,6 +298,11 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ## Learn Engineering by Eating Cheese?
 As you can see in this chart, the per capita consumption of mozzarella cheese in the US is highly correlated with the number of PhDs awarded annually in Civil Engineering in the US. In fact, it’s a 95% correlation. Therefore, does this strong data prove that these two variables are **causally** connected? 
 
+***=pre_exercise_code
+```{r}
+cheese<-load.image("https://assets.datacamp.com/production/repositories/1444/datasets/fdf1e1ca75881f0c95ccd9c843580761cda5612e/chart.jpeg")
+plot(cheese)
+```
 
 *** =instructions
 - Definitely. 95% correlations do not just happen in real life—there must be a cause and effect reason behind it, even if we don’t know what it is.
@@ -305,7 +310,8 @@ As you can see in this chart, the per capita consumption of mozzarella cheese in
 
 *** =sample_code
 ```{r}
-load.image(https://assets.datacamp.com/production/repositories/1444/datasets/fdf1e1ca75881f0c95ccd9c843580761cda5612e/chart.jpeg)
+cheese<-load.image("https://assets.datacamp.com/production/repositories/1444/datasets/fdf1e1ca75881f0c95ccd9c843580761cda5612e/chart.jpeg")
+plot(cheese)
 ```
 
 
