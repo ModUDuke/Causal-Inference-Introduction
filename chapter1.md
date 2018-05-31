@@ -4,13 +4,13 @@ description : "This chapter will introduce you to the basic concepts behind caus
  
 
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:1b7bc85492
 ## Introduction to the Causal Inference Bootcamp
 *** =video_link
 //player.vimeo.com/video/230621577
  
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:e9705bb45c
 ## Correlation vs Causation
 In that video, we saw how a football player scored a touchdown on a running play. How much credit do we give the coach for calling for that play? 
 
@@ -36,7 +36,7 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 //player.vimeo.com/video/230621760
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:22d5129784
 ## Soggy Cereal I
 The food scientists at breakfast cereal manufacturer Puritan Wheat Inc. have developed a new cereal product called TechnoCrunch that has a biodegradable nanomaterial coating that the hope will keep the cereal crispy in milk for longer than their competitor's product. Their objective is to is to determine the difference in liquid absorption between the two cereals. Puritan Wheat generates some data from a sample of individual flakes in a box of TechnoCrunch and a box from its primary competitor, NeoPuffs.
 
@@ -135,7 +135,7 @@ success_msg("Good work! It is often important to get a sense of your data before
 *** =video_link
 //player.vimeo.com/video/230622159
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:caa5b2cf8b
 ## Soggy Cereal II
 Before running any direct comparisons models between TechnoCrunch and NeoPuffs, Puritan Wheat Inc. now wants you to get some detailed descriptive statistics about the `time` variable in its dataset. Using the dataframe `Soggy`, determine the following:
 
@@ -292,7 +292,7 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 *** =video_link
 //player.vimeo.com/video/230622365
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4b7a7da2a4
 ## Learn Engineering by Eating Cheese?
 As you can see in this chart, the per capita consumption of mozzarella cheese in the US is highly correlated with the number of PhDs awarded annually in Civil Engineering in the US. In fact, it’s a 95% correlation. Therefore, does this strong data prove that these two variables are **causally** connected? 
 
@@ -307,7 +307,7 @@ msg2 = "Correct! You will find many correlations in your data, sometimes very st
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2))
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:bfa70779e1
 ## Does Fan Behavior Affect Sports Teams?
 During last year's football season, Britney's home team, the Durham Dolphins, sadly lost the MegaBowl. As a huge fan, Britney always dressed up on game days in the team jersey and hat, but because the MegaBowl was a special occasion, for that game Britney also painted her nails in the team colors for extra good luck. But her team lost anyway. Britney is convinced that painting her nails hurt the Dolphin's performance, in part because Britney remembers the Dolphins losing when she previously painted her nails.  
 
