@@ -8,7 +8,7 @@ description : "This chapter will introduce you to individual, group, and average
 *** =video_link
 //player.vimeo.com/video/230622767
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:869592714b
 ## Soggy Cereal III
 
 Since there were no significant errors in their dataset, Puritan Wheat Inc. now wants you to determine whether their cereal, TechnoCrunch lasts a longer amount of `time` before it gets soggy than NeoPuffs. They also want to know whether `milk` absorption or `fiber` content are correlated with `time` before sogginess. That is, conduct the  the following steps:
@@ -131,7 +131,7 @@ msg4 = "Try again: CATE(regular) = [(-10) + (-6) + (-5)]/3 = -7. CATE(not regula
 test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:311670fb1a
 ## Practice identifying heterogeneous outcomes (Part 1)
 The transportation network company, Unter Technologies, is interested in improving their employee morale and reducing employee turnover rate by downsizing their Human Resources (HR) Department.
 
@@ -177,7 +177,7 @@ test_object("Solution1")
 success_msg("Good work! It seems that reducing the size of HR reduced Unter employees' intentions to leave their jobs")
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:6217752659
 ## Practice identifying heterogeneous outcomes (Part 2)
 Since reducing the size of HR seems to reduce the rate of employee turnover, the CEO of Unter Technologies is now heavily considering this option.
 
@@ -227,7 +227,7 @@ test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:a4ab5d9f9b
 ## Practice identifying heterogeneous outcomes (Part 3)
 Let's further analyze the heterogeneous effect of the treatment on men vs. women in Unter Technologies. With the dataframe, `UnterHR`, determine the average treatment effect of reducing the size of Unter's HR department on employee turnover by gender (`Female`).
 
