@@ -317,6 +317,7 @@ MeanDailyHighTempSept<-sapply((rnorm(31,65,8)),as.integer)
 
 
 #generate random count of games attended that match basic table
+#there are home games about half of the days each month, so that count is either 13 and 14
 GamesAttendedAPerDayApril<-rbinom(14,1,0)
 GamesAttendedMPerDayMay<-rbinom(13,1,0.07692307692)
 GamesAttendedPerDayJune<-rbinom(14,1,0.14285714285)
