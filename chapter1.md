@@ -305,7 +305,7 @@ As you can see in this chart, the per capita consumption of mozzarella cheese in
 msg1 = "It can be so tempting to assume that any strong correlations in our data are telling us about the cause and effect relationships going on in real life, but don’t give into that temptation! We’ll need to do more to find a causality. Try again."
 msg2 = "Correct! You will find many correlations in your data, sometimes very strong ones like this, but that does not mean there’s any causal relationship between them. Sometimes a correlation may help you ask better questions about what’s going on, but don’t assume they are causal by themselves."
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2))
-
+```
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:bfa70779e1
 ## Does Fan Behavior Affect Sports Teams?

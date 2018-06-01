@@ -416,3 +416,4 @@ MeanNumberDailyAdsServedPerPersonAug<-rand_vect(31,160)
 MeanNumberDailyAdsServedPerPersonSept<-rand_vect(rnorm(30,70)
 
 
+#ad company creates campaign for second haf of season. The MC is just looking at one person. But do they work overall. Here's a more statistically valid way. Explore the data a bit. Then compare means/CATEs. Did the ads work. Are they confounded.
