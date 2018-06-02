@@ -11,14 +11,14 @@ description : "This chapter will introduce you to individual, group, and average
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:869592714b
 ## Soggy Cereal III
 
-Since there were no significant errors in their dataset, Puritan Wheat Inc. now wants you to determine whether their cereal, TechnoCrunch lasts a longer amount of `time` before it gets soggy than NeoPuffs. They also want to know whether `milk` absorption or `fiber` content are correlated with `time` before sogginess. That is, conduct the  the following steps:
+Since we found no significant errors in their dataset in Chapter 1, Puritan Wheat Inc. now wants us to determine whether their cereal, TechnoCrunch lasts a longer amount of `time` before it gets soggy than NeoPuffs. They also want to know whether `milk` absorption or `fiber` content are correlated with `time` before sogginess. That is, conduct the  the following steps:
 
 *** =instructions
-- Use the `mean` function to estimate the mean `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`
-- Use the `mean` function to estimate the mean `time` in dataframe `Soggy` just for flakes that were in NeoPuffs `cereal`
-- In dataframe `Soggy`, subtract the mean `time` for flakes in NeoPuffs `cereal` from the mean `time` for flakes in TechnoCrunch `cereal` to determine which cereal lasts longer before it gets soggy.
-- Use the `cor` function to estimate the correlation between `milk` and `time`
-- Use the `cor` function to estimate the correlation between `fiber` and `time`
+- 1) Use the `mean` function to estimate the mean `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`
+- 2) Use the `mean` function to estimate the mean `time` in dataframe `Soggy` just for flakes that were in NeoPuffs `cereal`
+- 3) In dataframe `Soggy`, subtract the mean `time` for flakes in NeoPuffs `cereal` from the mean `time` for flakes in TechnoCrunch `cereal` to determine which cereal lasts longer before it gets soggy
+- 4) Use the `cor` function to estimate the correlation between `milk` and `time`
+- 5) Use the `cor` function to estimate the correlation between `fiber` and `time`
 
 
 *** =pre_exercise_code
@@ -54,20 +54,25 @@ set.seed(1)
 ```
 *** =sample_code
 ```{r}
-#Use the `mean` function to estimate the mean `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`. Remember that we had entered max(Soggy$time[Soggy$cereal=="TechnoCrunch"]) to get the maximum `time` in dataframe `Soggy`
+# Note: The following questions require you to subset the data. Remember that in Chapter 1, we had entered max(Soggy$time[Soggy$cereal=="TechnoCrunch"]) to get the maximum `time` in dataframe `Soggy`
 
-#Use the `mean` function to estimate the mean `time` in dataframe `Soggy` just for flakes that were in NeoPuffs `cereal`
 
-#In dataframe `Soggy`, subtract the mean `time` for flakes in NeoPuffs `cereal` from the mean `time` for flakes in TechnoCrunch `cereal` to determine which cereal lasts longer before it gets soggy.
+# 1) Use the `mean` function to estimate the mean `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`. 
 
-#As an example for how to use the cor function for the following questions, we produce the correlation between milk and fiber below
+
+# 2) Use the `mean` function to estimate the mean `time` in dataframe `Soggy` just for flakes that were in NeoPuffs `cereal`
+
+
+# 3) In dataframe `Soggy`, subtract the mean `time` for flakes in NeoPuffs `cereal` from the mean `time` for flakes in TechnoCrunch `cereal` to determine which cereal lasts longer before it gets soggy
+
+
+# Note: The following questions require use of the cor function. As an example, we produce the correlation between milk and fiber below.
     cor(Soggy$milk,Soggy$fiber)
 
-#Use the `cor` function to estimate the correlation between `milk` and `time`
-
-#Use the `cor` function to estimate the correlation between `fiber` and `time`
+# 4) Use the `cor` function to estimate the correlation between `milk` and `time`
 
 
+# 5)Use the `cor` function to estimate the correlation between `fiber` and `time`
 
 
 ```
@@ -95,28 +100,36 @@ success_msg("Good work! It appears that TechnoCrunch's crunchiness lasts longer 
 //player.vimeo.com/video/230623038
 
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:6238dbab2d
-## Understanding Your Unit Level Causal Effect 
-Multiple choice question: Suppose you want to learn your own unit level causal effect of eating breakfast on how hungry you are at dinner time. Monday you eat breakfast and write down how hungry you are later on. Tuesday you don't eat breakfast and write down how hungry you are later on. Then your unit level causal effect is the difference between these two numbers.
-*** =instructions
-- True
-- False
-*** =sct
-```{r}
-msg1 = "Unit level causal effects require all over variables to be held constant. In this example, the day of the week is not held constant, and hence is a potential confounder. Try again."
-msg2 = "Correct. Unit level causal effects require all over variables to be held constant. In this example, the day of the week is not held constant, and hence is a potential confounder. In order to learn this causal effect directly from data, you would have to eat breakfast on Monday, and write down how hungry you are later on. Then, you would also have to not eat breakfast on that very same Monday, and write down how hungry you are later on. This is impossible, and so you cannot learn the unit level causal effect from the data. Instead, you will have to make assumptions, such as: the day of the week does not affect my hunger. We will talk ideas like this throughout the rest of the videos."
-test_mc(correct = 2, feedback_msgs = c(msg1,msg2))
-```TotalAttendancePerGameAprilTreatment<-sapply((rnorm(14,21,2)),as.integer)
-
-
 --- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:6fc38f8905
 ## The Conditional Average Treatment Effect
 *** =video_link
 //player.vimeo.com/video/230623221
 
+
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:6238dbab2d
+## Calculating Ice Cream Recipe Changes I
+Suppose Edy's wants to know the effect of changing to a new recipe for chocolate ice cream on how many cartons of ice cream someone buys next month. They try distributing their new chocolate ice cream to one grocery store, and after a month, they survey three regular Edy's customers at this store. The first person surveyed bought 10 fewer cartons of Edy's ice cream after changing the recipe, the second bought 6 more cartons, and the third 5 fewer cartons. Assuming that no other factors that influenced their ice cream consumption, this would mean that the experiment's unit-level causal effects were -10, 6, -5 cartons of ice cream (that is, Based on this sample, what was the average treatment effect (ATE) of changing the Edy's chocolate ice cream recipe on ice cream consumption?
+*** =instructions
+- 3
+- 10
+- -7
+- -3
+
+*** =sct
+```{r}
+msg1 = "What does (-10 + 6 + -5)/3 equal? Try again."
+msg2 = "What does (-10 + 6 + -5)/3 equal? Try again."
+msg3 = "What does (-10 + 6 + -5)/3 equal? Try again."
+msg4 = "Correct!"
+test_mc(correct = 4, feedback_msgs = c(msg1,msg2,msg3,msg4))
+```
+
+
+
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:2bbbcc3971
-## Calculating Ice Cream Recipe Changes 
-Suppose Edy's wants to know the effect of changing to a new recipe for chocolate ice cream on how many cartons of ice cream someone buys next month. Consider the following population. There are three people who are regular customers (buy Edy's at least once a month), with unit level causal effects of -10, -6, -5. For example, the first person will buy 10 fewer cartons if Edy's uses the new receipe. There are three people who are not regular customers, with unit level causal effects of -1, 0, 2. What is the difference between CATE(regular customers) and CATE(not regular customers)?
+## Calculating Ice Cream Recipe Changes II
+Edy's then surveyed three people who were not regular Edy's customers. Their unit level causal effects of the change in the chocolate ice cream recipe were -1, 0, 2. If the experiment's unit-level causal effects on regular Edy's customers was -10, 6, -5 cartons of ice cream
+What is the difference between CATE (regular customers) and CATE(not regular customers)?
 *** =instructions
 - -3.33
 - -7.33
@@ -124,10 +137,10 @@ Suppose Edy's wants to know the effect of changing to a new recipe for chocolate
 - 20
 *** =sct
 ```{r}
-msg1 = "Correct! CATE(regular) = [(-10) + (-6) + (-5)]/3 = -7. CATE(not regular) = (-1 + 0 + 2)/3 = 1/3. So the difference is -7 - 1/3 = -7.33. We see that the average effect on regular customers is much different than on non-regulars: the regular customers will buy a lot less ice cream on average."
-msg2 = "Try again: CATE(regular) = [(-10) + (-6) + (-5)]/3 = -7. CATE(not regular) = (-1 + 0 + 2)/3 = 1/3."
-msg3 = "Try again: CATE(regular) = [(-10) + (-6) + (-5)]/3 = -7. CATE(not regular) = (-1 + 0 + 2)/3 = 1/3."
-msg4 = "Try again: CATE(regular) = [(-10) + (-6) + (-5)]/3 = -7. CATE(not regular) = (-1 + 0 + 2)/3 = 1/3."
+msg1 = "Correct! CATE(regular) = [(-10) + (6) + (-5)]/3 = -3. CATE(not regular) = (-1 + 0 + 2)/3 = 1/3. So the difference is -3 - 1/3 = -3.33. We see that the average effect on regular customers is much different than on non-regulars: the regular customers will buy a lot less ice cream on average."
+msg2 = "Try again: CATE(regular) = [(-10) + (6) + (-5)]/3 = -3. CATE(not regular) = (-1 + 0 + 2)/3 = 1/3."
+msg3 = "Try again: CATE(regular) = [(-10) + (6) + (-5)]/3 = -3. CATE(not regular) = (-1 + 0 + 2)/3 = 1/3."
+msg4 = "Try again: CATE(regular) = [(-10) + (6) + (-5)]/3 = -3. CATE(not regular) = (-1 + 0 + 2)/3 = 1/3."
 test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
 
@@ -140,10 +153,12 @@ To make sure this would not antagonize their workforce, Unter conducts an experi
 With the dataframe, `UnterHR`, determine whether there is a negative or positive average treatment effect of reducing the size of Unter's HR department on employee turnover:
 
 *** =instructions
-- Determine the average effect of reducing the size of HR (`treatment`) on whether employees plan to leave their job in the following year (`LeaveJob`) by subtracting the mean rate of people's intention to leave their job in the control condition from the mean rate of people's intention to leave their job in the treatment condition.
+- 1) Determine the average effect of reducing the size of HR (`treatment`) on whether employees plan to leave their job in the following year (`LeaveJob`).
+- Note 1: The average treatment effect is simply the mean outcome of the treatment group minus the mean outcome of the control group.
+- Note 2: You will need to use the `mean` function, and will need to `subset` the data into treatment and control groups.
+
 *** =hint
-- You will need to use the `mean` and `subset` commands.
-- Try breaking the task into pieces. First find the mean rate of `LeaveJob`in the control condition (`Treatment=0`) then find the mean rate of `LeaveJob`in the treatment condition (`Treatment=1`).
+- Try breaking the task into pieces. First find the mean rate of `LeaveJob`in the control condition (`Treatment==0`) then find the mean rate of `LeaveJob`in the treatment condition (`Treatment==1`).
 *** =pre_exercise_code
 ```{r}
 set.seed(1)
@@ -160,11 +175,9 @@ n=382
 ```
 *** =sample_code
 ```{r}
-# The average treatment effect is simply the mean outcome of the treatment group minus the mean outcome of the control group.
-
-#---- Question 1-------------------------------------#
+# 1) Determine the average effect of reducing the size of HR (`treatment`) on whether employees plan to leave their job in the following year (`LeaveJob`). Assign this value to Solution1.
     Solution1<- 
-#----------------------------------------------------#
+  
 ```
 *** =solution
 ```{r}
@@ -232,8 +245,8 @@ test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3,msg4))
 Let's further analyze the heterogeneous effect of the treatment on men vs. women in Unter Technologies. With the dataframe, `UnterHR`, determine the average treatment effect of reducing the size of Unter's HR department on employee turnover by gender (`Female`).
 
 *** =instructions
-- Determine the average effect of reducing the size of HR (`treatment`) on whether male employees (`Female = 0`) plan to leave the job in the following year (`LeaveJob`).
-- Determine the average effect of reducing the size of HR (`treatment`) on whether female employees (`Female = 1`) plan to leave the job in the following year (`LeaveJob`).
+- 1) Determine the average effect of reducing the size of HR (`treatment`) on whether male employees (`Female = 0`) plan to leave the job in the following year (`LeaveJob`).
+- 2) Determine the average effect of reducing the size of HR (`treatment`) on whether female employees (`Female = 1`) plan to leave the job in the following year (`LeaveJob`).
 *** =hint
 - Remember, you can determine the ATE by subtracting the mean rate of the outcome in the control condition by the mean rate of the outcome in the treatment condition.
 - You will need to use the `mean` and `subset` commands.
@@ -254,20 +267,16 @@ n=382
 ```
 *** =sample_code
 ```{r}
-# Since we are interested in understanding the rates of intention to leave by treatment and gender, we might want to examine a three way table of this relationship first. The following syntax prints the numbers of men and women who intend to leave work by treatment group and gender.
+# Note: Since we are interested in understanding the rates of intention to leave by treatment and gender, we might want to examine a three way table of this relationship first. The following syntax prints the numbers of men and women who intend to leave work by treatment group and gender.
     xtabs(~LeaveJob+Treatment+Female, data=UnterHR)
 
-# Since the treatment and control groups among women are of relatively similar sizes, it is fairly easy to get a sense of how treatment affects women's intention to leave Unter; the majority of women in the treatment group appear to want to leave, whereas the majority of women in the control group do not. But to be sure, let's actually calculate the differences in the average treatment effects among men and women.
+# Note: Since the treatment and control groups among women are of relatively similar sizes, it is fairly easy to get a sense of how treatment affects women's intention to leave Unter; the majority of women in the treatment group appear to want to leave, whereas the majority of women in the control group do not. But to be sure, let's actually calculate the average treatment effects among men and women.
 
-# Question 1: Determine the average treatment effect among men.
-#---- Question 1-------------------------------------#
+# 1) Determine the average treatment effect among men. Assign this value to Solution1.
     Solution1<- 
-#----------------------------------------------------#
 
-# Question 2: Determine the average treatment effect among women.
-#---- Question 2-------------------------------------#
+# 2) Determine the average treatment effect among women. Assign this value to Solution2.
     Solution2<- 
-#----------------------------------------------------#
 
 ```
 *** =solution

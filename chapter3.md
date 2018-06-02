@@ -11,19 +11,17 @@ description : "This chapter will introduce you the important issues of confounde
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:ac9bc35c31
 ## Understanding Confounders
-Why are confounding variables a potential problem?
+Why are confounding variables a potential problem for causal inference?
 *** =instructions
-- Because treatment is not randomly assigned
-- Because the control groups and treatment groups are not identical
+- Because confounding variables prevent the treatment from being randomly assigned
 - Because the treatment variable is correlated with an unobserved variable that might affect outcomes
 - Because confounders are not observed
 *** =sct
 ```{r}
-msg1 = "The main reason we worry about confounders has to do with outcomes, not treatment assignment. Try again."
-msg2 = "The main reason we worry about confounders has to do with outcomes, not our sampling technique. Try again."
-msg3 = "Correct! Confounders are called *confounders* for a reason---because when they are present, we cannot distinguish the effect of treatment from the effect of the confounder. To learn causal effects, we want to compare people with treatment and people without treatment. If those two groups of people differ in their values of some potential confounding variable, then we can't tell if differences in outcomes are due to differences in treatment, or differences in the confounder."
-msg4 = "Unobserved variables are not always a problem in causal inference, because they may not have any effect on outomes. Try again"
-test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3,msg4))
+msg1 = "Almost, but remember, the main reason we worry about confounders has to do with effects on the outcome, not on treatment assignment. Try again."
+msg2 = "Correct! Confounders are called *confounders* for a reason---because when they are present, we cannot distinguish the effect of treatment from the effect of the confounder. To learn causal effects, we want to compare people with treatment and people without treatment. If those two groups of people differ in their values of some potential confounding variable, then we can't tell if differences in outcomes are due to differences in treatment, or differences in the confounder."
+msg3 = "Unobserved variables are not always a problem in causal inference, because they may not have any effect on outomes. Try again"
+test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
 --- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:6e830d0422
@@ -34,18 +32,17 @@ test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3,msg4))
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:97e0c3c1ec
 ## Counterfactuals and You 
-Suppose you hadn't watched this video just now, and weren't reading this question. Instead, you went outside and enjoyed the day with a stroll and ate an ice cream cone from a mysterious store. The ice cream cone was affected by a terrible curse, and you would have terrible luck for the rest of your life. But by taking this DataCamp course instead of eating that ice cream has literally saved you from this terrible curse. Right?
+Suppose this was the best DataCamp course ever, and over the course of the past hour, we delivered a cup of ice cream to every DataCamp user's front door. We surveyed our participants, and found out that half of them decided to eat our free ice cream. Can we be certain that providing this free ice cream increased the amount of ice cream that each user would have eaten today if we hadn't provided any free ice cream? 
+
 *** =instructions
 - Yes
-- I can't tell you either way
 - No
 
 *** =sct
 ```{r}
-msg1 = "Oops! Think about the data you have about your world, and the data about the counterfactual that you don't have. Try again."
-msg2 = "Correct! The question proposed a counterfactual world where not watching these modules ends in disaster for you, and thus the unit level causal effect of taking the course is to avoid this disaster. Well, you did watch this video and so we will never know what happened if you didn't. It's possible that such a disaster may have happened, but we just don't know. So while you may think this sounds a bit implausible, it can't be refuted with the data you directly observe."
-msg3 = "Oops! Think about the data you have about your world, and the data about the counterfactual that you don't have. Try again."
-test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
+msg1 = "Oops! Think about the data we provided you. Is this really enough to make that conclusion? Try again."
+msg2 = "Correct! The question proposed an experiment and an outcome, but we do not know the counterfactual. While it seems likely that having access to free ice cream would increase our users ice cream consumption, there is no way to know for certain that they would not have eaten ice cream otherwise. For example, maybe some of our user's would have eaten ice cream anyway, or decided to eat more ice cream than what we provided to them. Maybe some users were going to eat ice cream, but changed their mind after seeing a melted scoop of ice cream on their door steps. In sum, the null hypothesis cannot be refuted without knowing the counterfactual."
+test_mc(correct = 2, feedback_msgs = c(msg1,msg2))
 ```
 
 --- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:ddb24adc92
@@ -55,18 +52,16 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
 
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:11e02ba59d
-## Big Data and Causal Inference 
+## Big Data and Statistical Inference 
 If I have an enormous amount of data, do I still have to worry about causal inference?
 *** =instructions
-- It depends
 - Yes
 - No
 *** =sct
 ```{r}
-msg1 = "Correct. In some cases, we don't care about causality. For example, if we are trying to make predictions *in a stable environment* where we are *not* intervening to change policy, then often we don't have to worry about causal inference. A good example of this is weather forecasting. If you want to know what the weather in your town will be like next summer, your best prediction is probably going to just depend on the weather in the previous summers. But if you want to predict the weather next summer after implementing a nationwide cloud-seeding policy to increase the number of clouds on Earth in an effort to cool global temperatures, then you would want to understand the causal effects of treatments on the weather system than just relying on past data. For that difficult question, all the data on weather that exists might not be sufficient to answer your causal question."
-msg2 = "If this were the case, education would confound the relationship between having and not having the death penalty. We would expect that states with the death penalty have higher underlying homicide rates of homicide, so whatever deterrent effect of the death penalty that we estimated would be smaller than the true deterrent effect. Try again."
-msg3 = "Big Data does not solve all problems by magic! Depending on your data and your questions, you may need to worry about causal inference. Try again."
-test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3))
+msg1 = "Correct. Big data might give you more power to make statistical inferences with your data, but all statistics still need to be interpreted carefully in order to make any causal inferences about the patterns you see."
+msg2 = "Big Data does not solve all problems by magic! No matter the size of your data, you will always need to think about how to interpret your results. Try again."
+test_mc(correct = 1, feedback_msgs = c(msg1,msg2))
 ```
 
 
@@ -76,16 +71,16 @@ test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3))
 //player.vimeo.com/video/230618095
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:b1da122e43
-## Creating a Simple Counterfactual
-Last year, a small town baseball team called The Hammers was hoping to attract bigger audiences to their home games, so halfway through their season they started a social media advertising campaign. Let’s see what we can find out if it worked through the data they collected.  
+## Determining a Reasonable Counterfactual
+Last year, a small town baseball team called The Hammers was hoping to attract bigger audiences to their home games, so halfway through their season they started a social media advertising campaign. Let’s see how well it worked.
 
-We will explore the data by tracking the behavior of just a single individual in the dataset. Let’s start with a table showing games attended and social media ads served for this individual for the 1st half of the season: 
-|                            | April |  May  | June  | 
-|----------------------------|------:|------:|------:|
-|       Games Attended/Month |   0   |   1   |   2   |     
-| Number of Ads Served/Month |   0   |   0   |   0   |  
+Below is a table tracking the games attended per month of just a single individual who was exposed to the advertising campaign: 
+|                            | April |  May  | June  | July  |  Aug  | Sept  |
+|----------------------------|------:|------:|------:|------:|------:|------:|
+|       Games Attended/Month |   0   |   1   |   2   |   5   |   4   |   5   |  
+| Number of Ads Served/Month |   0   |   0   |   0   |   7   |   8   |   6   |  
 
-Now let’s make a counterfactual: what do you think would happen if the ads had no affect at all on attendance? Based on the average number of games attended in the first 3 months, what would you use as a conservative counterfactual for average number of games attended in each month of the second half?
+It appears that being exposed to ads was associated with going to baseball games for this individual. If we assumed that the individual went to more baseball games in the latter months only because of the ad campaign, how many games per month do you think the individual would have gone to if he were not exposed to ads in the second three months? In other words, based on the average number of games attended in the first 3 months, what would you use as a conservative counterfactual for average number of games attended in each month of the second half?
 
 *** =instructions
 - 0
@@ -104,70 +99,43 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:0ecec920ef
-## Is Our Initial Data Enough?
-Okay, let’s take a look at how many games this particular individual actually attended in July, the first month of the advertising campaign.
+## Interpreting our Data
+Let’s take another look at how many games this particular individual attended during the baseball season.
 
 |                            | April |  May  | June  | July  |  Aug  | Sept  |
 |----------------------------|------:|------:|------:|------:|------:|------:|
-|       Games Attended/Month |   0   |   1   |   2   |   5   |       |       |  
-| Number of Ads Served/Month |   0   |   0   |   0   |  72   |       |       |  
+|       Games Attended/Month |   0   |   1   |   2   |   5   |   4   |   5   |  
+| Number of Ads Served/Month |   0   |   0   |   0   |   7   |   8   |   6   |  
 
-You compare the July results to your counterfactual of 1 game per month. Would you say the social media ads (our treatment variable) caused people to go to more games?
+Since the number of baseball games that this individual went to appears to be associated with how many ads he was served, can we conclude that the advertising campaign caused the individual to go to more games?
 
 *** =instructions
-- Yes, treatment had a positive effect on the outcome variable
-- No, treatment had no effect.
+- Yes, the treatment had a positive effect on the outcome variable
+- No, the treatment had no effect.
 - It's too soon to tell.
 
 *** =sct
 ```{r}
-msg1 = "Not yet! This is a form of p-hacking: stopping the experiment as soon as you get the result you were looking for. Try again!”
-msg2 = “Not yet! This is a form of p-hacking: stopping the experiment as soon as you get any result. Try again!”
+msg1 = 'Not yet! We do not know whether the difference in games attended after being exposed to the ad-campaign was statistically significant, nor do we have a sense for what the counterfactual would be (i.e. maybe he would have gone to more games anyway)'
+msg2 = 'Not yet! We do not know whether the difference in games attended after being exposed to the ad-campaign was statistically significant, nor do we have a sense for what the counterfactual would be (i.e. maybe he would have gone to more games anyway)'
 msg3 = “Correct! We want to let this experiment run throughout the rest of the advertising campaign, which will avoid the temptpation of stopping as soon as we get an answer that we like. That would be hacking our results!”
 test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
 
-
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:2d4f173966
-## Checking our Counterfactual
-Since we know we need to look at the entire season to get the real causal answer, let’s take a look at how many games this individual actually attended during the entire advertising campaign.
-
-|                            | April |  May  | June  | July  |  Aug  | Sept  |
-|----------------------------|------:|------:|------:|------:|------:|------:|
-|       Games Attended/Month |   0   |   1   |   2   |   5   |   4   |   0   |
-| Number of Ads Served/Month |   0   |   0   |   0   |  72   |  157  |  71   |
-
-You compare these numbers to your counterfactual of 1 game per month. Would you say the social media ads (our treatment variable) caused people to go to more games?
-
-*** =instructions
-- Yes, treatment had a positive effect on the outcome variable
-- No, treatment had no effect.
-
-*** =sct
-```{r}
-msg1 = "Yes, for now. On average, they attended 3 games per month during treatment, which is significantly more than before treatment. Now let’s look at the other available data to see if the situation is actually more complex than we thought.”
-msg2 = “This may look like unconvincing and like it might be statistical noise, but we’re keeping it simple for now, so count up the average number of games attended per month during treatment and try again.”
-test_mc(correct = 1, feedback_msgs = c(msg1,msg2))
-```
-
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4a0d3cf7b9
 ## Looking for Confounders with Positive Correlations
-Now you look at the other variables that you have in the data that might affect this individual’s baseball game attendance. They are: Mean Daily High Temperature (in F and C), Quality of Stadium Food Consumed (scale 0-10), and National Ranking of Team (from 1-30).
-Here is a table of all available data for this individual, with the months of the season along the top and variables down the side:
-
+Let's look at some other variables that might affect this individual’s baseball game attendance. We gather information on the Mean Daily High Temperature, and National Ranking of Team (from 1-30). Here is our updated table:
 
 |                            | April |  May  | June  | July  |  Aug  | Sept  |
 |----------------------------|------:|------:|------:|------:|------:|------:|
-|       Games Attended/Month |   0   |   1   |   2   |   5   |   4   |   0   |
-| Number of Ads Served/Month |   0   |   0   |   0   |  72   |  157  |  71   |
+|       Games Attended/Month |   0   |   1   |   2   |   5   |   4   |   5   |
+| Number of Ads Served/Month |   0   |   0   |   0   |   7   |   8   |   6   |
 |   Mean Daily High Temp (F) |  56   |   66  |  77   |  86   |  75   |  65   |
-|   Mean Daily High Temp (C) |  13   |   19  |  25   |  30   |  24   |  18   |
-|    Quality of Stadium Food |   4   |   6   |   6   |   4   |   5   |   5   |
-|      Nat’l Ranking of Team |  21   |  15   |  11   |   4   |   7   |  13   |
+|    Nat’l Ranking of Team |  21   |   15  |  11   |   4   |   7   |  13   |
 
 
-What variable looks like it is **positively** correlated with attendance?
+We inserted this table into the R workspace What variable looks like it is **positively** correlated with attendance?
 
 *** =instructions
 - Mean Daily High Temperature
@@ -177,7 +145,7 @@ What variable looks like it is **positively** correlated with attendance?
 
 *** =sct
 ```{r}
-msg1 = "Correct! As attendance goes up, the temperature does too, so these are likely to be positively correlated”
+msg1 = 'Correct! As attendance goes up, the temperature does too, so these are likely to be positively correlated”'
 msg2 = “The quality of stadium food seems hover around 5, so it doesn’t seem to vary significantly throughout the season. Try again.”
 msg3 = “The team’s performance varies pretty significantly through the season, but that number goes down as the attendance goes up, so it’s not a positive correlation. Try again.”
 test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3))

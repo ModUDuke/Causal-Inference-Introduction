@@ -91,10 +91,10 @@ set.seed(1)
 ```
 *** =sample_code
 ```{r}
-# 1) Based on the prompt, identify the unit of analysis in Puritan Wheat's dataset. Is it: a) cereal, b) time, or c) flakes. Answer with either "a", "b", or "c". 
+# 1) Based on the prompt, identify the unit of analysis in Puritan Wheat's dataset. Is it: a) cereal, b) time, or c) flakes. Answer with either "a", "b", or "c". Assign this value to Solution1.
       Solution1<-""
 
-# 2) Based on the prompt, identify the dependent variable in Puritan Wheat's dataset. Is it: a) cereal, b) time, or c) flakes. Answer with either "a", "b", or "c". 
+# 2) Based on the prompt, identify the dependent variable in Puritan Wheat's dataset. Is it: a) cereal, b) time, or c) flakes. Answer with either "a", "b", or "c". Assign this value to Solution2.
       Solution2<-""
 
 # 3) Use the `head` function to examine the first few rows of the variable `time` in dataframe `Soggy`
@@ -102,8 +102,10 @@ set.seed(1)
 
 # 4) Use the `tail` function to examine the last few rows of all variables in dataframe `Soggy`
 
+      
 # 5) Use the `class` function to examine the format of the variable `fiber` in dataframe `Soggy`
 
+      
 # 6) Use the `table` function to examine the distribution of `cereal` within the sample  `Soggy`
 
 
@@ -186,10 +188,13 @@ set.seed(1)
 # 2) Use the `median` function to examine the median `time` in dataframe `Soggy`
 
 
-# 3) Use the `sd` function to examine the standard deviation of `time` in dataframe `Soggy`. As a reminder, standard deviation is a measure of a variable's variance. High standard deviations suggest that observations of a variable are not very centered around their mean.
+# Note: The next question has us compute a standard deviation. As a reminder, standard deviation is a measure of a variable's variance. High standard deviations suggest that observations of a variable are not very centered around their mean.
 
 
-# Note) The next questions require you to subset the data. We provide an example of one way to subset data below. The following code estimates the max `time` for flakes that were in TechnoCrunch. The syntax can be interpreted as "show the max `time` in dataset `Soggy` where `Soggy` `cereal` is "TechnoCrunch".
+# 3) Use the `sd` function to examine the standard deviation of `time` in dataframe `Soggy`. 
+
+
+# Note: The next questions require you to subset the data. We provide an example of one way to subset data below. The following code estimates the max `time` for flakes that were in TechnoCrunch. The syntax can be interpreted as "show the max `time` in dataset `Soggy` where `Soggy` `cereal` is "TechnoCrunch".
     max(Soggy$time[Soggy$cereal=="TechnoCrunch"])
     
 # 4) Use the `min` function to estimate the minimum `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`.
@@ -317,9 +322,9 @@ During last year's football season, Britney's home team, the Durham Dolphins, sa
 Using the dataset, `Nails`, find out whether Britney is at blame for the loss. Specifically:
 
 *** =instructions
-- Using the `cor` function, estimate whether the variables `painted` and `wins` within the dataset `Nails` are correlated.
-- Using the `ggplot` function, generate a scatterplot and regression line showing the above correlation.
-- Based on the above, answer following: "Should Britney have painted her nails?"
+- 1) Using the `cor` function, estimate whether the variables `painted` and `wins` within the dataset `Nails` are correlated.
+- 2) Using the `ggplot` function, generate a scatterplot and regression line showing the above correlation.
+- 3) Based on the above, answer following: "Should Britney have painted her nails?"
 
 *** =pre_exercise_code
 ```{r}
@@ -347,19 +352,16 @@ library(ggplot2)
 ```
 *** =sample_code
 ```{r}
-#Using the `cor` function, estimate whether the variables `painted` and `wins` within the dataset `Nails` are correlated.
+# 1) Using the `cor` function, estimate whether the variables `painted` and `wins` within the dataset `Nails` are correlated.
 
-#Using the `ggplot` function, generate a scatterplot and regression line showing the above correlation. To do this, replace "df"", "x1", and "y1", with the dataset name, and names of the x and y axes. None of these should be in quotes.
-  ggplot(data=Nails, aes(x=wins, y=painted)) + 
+
+# 2) Using the `ggplot` function, generate a scatterplot and regression line showing the above correlation. To do this, replace "df", "x1", and "y1", with the dataset name, and names of the x and y axes. None of these should be in quotes.
+  ggplot(data=df, aes(x=x1, y=y1)) + 
   geom_jitter(width = 0, height = 0.1) +
   geom_smooth(method = "lm", se = FALSE)
 
-#Based on the above, answer following: "Should Britney have painted her nails?" Answer options = a)Yes, b)No, c)It depends how they look. Answer with either "a", "b", or "c". 
-
-
-#---- Question 3-------------------------------------#
-      Solution3<-""
-#----------------------------------------------------#
+# 3) Based on what we found the above, answer following: "Should Britney have painted her nails?" Replace Solution3 with one of the following answer options = a)Yes, b)No, c)It depends how they look. Answer with either "a", "b", or "c". 
+  Solution3<-""
 
 ```
 *** =solution
