@@ -12,7 +12,7 @@ description : "This chapter will introduce you to the basic concepts behind caus
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:e9705bb45c
 ## Correlation vs Causation
-In that video, we saw how a football player scored a touchdown on a running play. How much credit do we give the coach for calling for that play? 
+In the previous video, we saw how a football player scored a touchdown on a running play. When we examine any previous event, be it a football match or an ad-campaign, we often want to figure out what had caused our outcome. Based on your intuition, how much credit should we give the coach for calling that play? 
 
 *** =instructions
 - All the credit: he chose his players, he chose the play, he’s in complete control
@@ -23,7 +23,7 @@ In that video, we saw how a football player scored a touchdown on a running play
 *** =sct
 ```{r}
 msg1 = "While some people believe that people at the top of a power hierarchy have the most causal impact, others believe the opposite, and probably the truth lies somewhere in the middle. Try again."
-msg2 = "Correct, some of the credit. It’s the intuitive answer, and also the right one, because we know that the real world is really complex, and it can be hard to tell exactly what causality is. But we also know that often some answers are better than others!)"
+msg2 = "Correct, some of the credit. It’s the intuitive answer, and also the right one. The real world is really complex, and it can be hard to tell exactly what is the cause of an event. In general, without good data, it is best to assume that a variety of factors contribute to any outcome.)"
 msg3 = "This is an argument you will often hear among sports analysts, but team sports involve actors on both sides, so the causality will involve some combination of each, so try again."
 msg4 = "While some form of astrological determinism may provoke an interesting philosophical viewpoint for some people, it’s not related to causal inference, so try again."
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
@@ -50,12 +50,12 @@ Puritan Wheat wants you to hire you to compare the `time` it takes for flakes in
 
 
 *** =instructions
-- Identify the unit of analysis in Puritan Wheat's dataset
-- Identify the dependent variable in Puritan Wheat's dataset
-- Use the `head` function to examine the first few rows of the variable `time` in dataframe `Soggy`
-- Use the `tail` function to examine the last few rows of all variables in dataframe `Soggy`
-- Use the `class` function to examine the format of the variable `fiber` in dataframe `Soggy`
-- Use the `table` function to examine the distribution of `coating` within the sample  `Soggy`
+- 1) Based on the prompt, identify the unit of analysis in Puritan Wheat's dataset
+- 2) Based on the prompt, identify the dependent variable in Puritan Wheat's dataset
+- 3) Use the `head` function to examine the first few rows of the variable `time` in dataframe `Soggy`
+- 4) Use the `tail` function to examine the last few rows of all variables in dataframe `Soggy`
+- 5) Use the `class` function to examine the format of the variable `fiber` in dataframe `Soggy`
+- 6) Use the `table` function to examine the distribution of `coating` within the sample  `Soggy`
 
 
 *** =pre_exercise_code
@@ -91,20 +91,20 @@ set.seed(1)
 ```
 *** =sample_code
 ```{r}
-#Identify the unit of analysis in Puritan Wheat's dataset. Is it: a) cereal, b) time, or c) flakes. Answer with either "a", "b", or "c". 
+# 1) Based on the prompt, identify the unit of analysis in Puritan Wheat's dataset. Is it: a) cereal, b) time, or c) flakes. Answer with either "a", "b", or "c". 
       Solution1<-""
 
-#Identify the dependent variable in Puritan Wheat's dataset. Is it: a) cereal, b) time, or c) flakes. Answer with either "a", "b", or "c". 
+# 2) Based on the prompt, identify the dependent variable in Puritan Wheat's dataset. Is it: a) cereal, b) time, or c) flakes. Answer with either "a", "b", or "c". 
       Solution2<-""
 
-#Use the `head` function to examine the first few rows of the variable `time` in dataframe `Soggy`
+# 3) Use the `head` function to examine the first few rows of the variable `time` in dataframe `Soggy`
       head()
 
-#Use the `tail` function to examine the last few rows of all variables in dataframe `Soggy`
+# 4) Use the `tail` function to examine the last few rows of all variables in dataframe `Soggy`
 
-#Use the `class` function to examine the format of the variable `fiber` in dataframe `Soggy`
+# 5) Use the `class` function to examine the format of the variable `fiber` in dataframe `Soggy`
 
-#Use the `table` function to examine the distribution of `cereal` within the sample  `Soggy`
+# 6) Use the `table` function to examine the distribution of `cereal` within the sample  `Soggy`
 
 
 ```
@@ -140,11 +140,11 @@ success_msg("Good work! It is often important to get a sense of your data before
 Before running any direct comparisons models between TechnoCrunch and NeoPuffs, Puritan Wheat Inc. now wants you to get some detailed descriptive statistics about the `time` variable in its dataset. Using the dataframe `Soggy`, determine the following:
 
 *** =instructions
-- Use the `mean` function to estimate the mean `time` in dataframe `Soggy`
-- Use the `median` function to estimate the median `time` in dataframe `Soggy`
-- Use the `sd` function to estimate the standard deviation of `time` in dataframe `Soggy`
-- Use the `min` function to estimate the minimum `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`
-- Use the `summary` function to produce descriptive statistics for `time` in dataframe `Soggy` just for flakes that were in NeoPuffs `cereal`
+- 1) Use the `mean` function to estimate the mean `time` in dataframe `Soggy`
+- 2) Use the `median` function to estimate the median `time` in dataframe `Soggy`
+- 3) Use the `sd` function to estimate the standard deviation of `time` in dataframe `Soggy`
+- 4) Use the `min` function to estimate the minimum `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`
+- 5) Use the `summary` function to produce descriptive statistics for `time` in dataframe `Soggy` just for flakes that were in NeoPuffs `cereal`
 
 
 *** =pre_exercise_code
@@ -180,21 +180,22 @@ set.seed(1)
 ```
 *** =sample_code
 ```{r}
-#Use the `mean` function to examine the mean `time` in dataframe `Soggy`
+# 1) Use the `mean` function to examine the mean `time` in dataframe `Soggy`
     mean()
 
-#Use the `median` function to examine the median `time` in dataframe `Soggy`
+# 2) Use the `median` function to examine the median `time` in dataframe `Soggy`
 
-#Use the `sd` function to examine the standard deviation of `time` in dataframe `Soggy`. As a reminder, standard deviation is a measure of a variable's variance. High standard deviations suggest that observations of a variable are not very centered around their mean.
 
-#As an example of one way to subset data, We estimated the max time for flakes in TechnoCrunch for you. The syntax can be interpreted as "show the max `time` in dataset `Soggy` where `Soggy` `cereal` is "TechnoCrunch".
+# 3) Use the `sd` function to examine the standard deviation of `time` in dataframe `Soggy`. As a reminder, standard deviation is a measure of a variable's variance. High standard deviations suggest that observations of a variable are not very centered around their mean.
+
+
+# Note) The next questions require you to subset the data. We provide an example of one way to subset data below. The following code estimates the max `time` for flakes that were in TechnoCrunch. The syntax can be interpreted as "show the max `time` in dataset `Soggy` where `Soggy` `cereal` is "TechnoCrunch".
     max(Soggy$time[Soggy$cereal=="TechnoCrunch"])
     
-#Now use the `min` function to estimate the minimum `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`. 
+# 4) Use the `min` function to estimate the minimum `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`.
 
-#Use the `summary` function to produce descriptive statistics for `time` in dataframe `Soggy` just for flakes that were in NeoPuffs `cereal`
-
-
+    
+# 5) Use the `summary` function to produce descriptive statistics for `time` in dataframe `Soggy` just for flakes that were in NeoPuffs `cereal`
 
 
 ```
@@ -226,8 +227,8 @@ On the right are a series of numerical distributions. The correlations between t
 
 *** =instructions
 - The graphs are identical.
-- Correlations are not a perfect summary of datapoint distributions.
-- There is no meaningful difference in the distribution of datapoints.
+- Correlations do not give a perfect summary of how a dataset is distributed.
+- There is no meaningful difference in the distribution of datapoints across these graphs.
 - R's correlation function is broken.
 *** =pre_exercise_code
 ```{r}
@@ -279,7 +280,7 @@ grid.arrange(plot1, plot2, plot3, plot4, top='Anscombe Quadrant -- Correlation D
 *** =sct
 ```{r}
 msg1 = "Look at the graphs to the right of the page. Are you sure they look identical?"
-msg2 = "Yup. This is statisticians have created so many different types of summary statistics, and why we encourage understanding so many of them."
+msg2 = "Yup. This is why statisticians have created so many different types of summary statistics, and why we encourage understanding so many of them."
 msg3 = "Not necessarily. The distributions certainly appear different."
 msg4 = "Come on..."
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
@@ -294,6 +295,8 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4b7a7da2a4
 ## Learn Engineering by Eating Cheese?
+![](https://assets.datacamp.com/production/repositories/1444/datasets/fdf1e1ca75881f0c95ccd9c843580761cda5612e/chart.jpeg)
+
 As you can see in this chart, the per capita consumption of mozzarella cheese in the US is highly correlated with the number of PhDs awarded annually in Civil Engineering in the US. In fact, it’s a 95% correlation. Therefore, does this strong data prove that these two variables are **causally** connected? 
 
 *** =instructions
