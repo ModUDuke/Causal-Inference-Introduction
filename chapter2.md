@@ -11,7 +11,7 @@ description : "This chapter will introduce you to individual, group, and average
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:869592714b
 ## Soggy Cereal III
 
-Since we found no significant errors in their dataset in Chapter 1, Puritan Wheat Inc. now wants us to determine whether their cereal, TechnoCrunch lasts a longer amount of `time` before it gets soggy than NeoPuffs. They also want to know whether `milk` absorption or `fiber` content are correlated with `time` before sogginess. That is, conduct the  the following steps:
+Since we found no significant errors in their dataset in Chapter 1, Puritan Wheat Inc. now wants us to determine whether their cereal TechnoCrunch lasts a longer amount of `time` before it gets soggy than NeoPuffs. They also want to know whether `milk` absorption or `fiber` content are correlated with `time` before sogginess. That is, conduct the  the following steps:
 
 *** =instructions
 - 1) Use the `mean` function to estimate the mean `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`
@@ -108,7 +108,7 @@ success_msg("Good work! It appears that TechnoCrunch's crunchiness lasts longer 
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:6238dbab2d
 ## Calculating Ice Cream Recipe Changes I
-Suppose Edy's wants to know the effect of changing to a new recipe for chocolate ice cream on how many cartons of ice cream someone buys next month. They try distributing their new chocolate ice cream to one grocery store, and after a month, they survey three regular Edy's customers at this store. The first person surveyed bought 10 fewer cartons of Edy's ice cream after changing the recipe, the second bought 6 more cartons, and the third 5 fewer cartons. Assuming that no other factors that influenced their ice cream consumption, this would mean that the experiment's unit-level causal effects were -10, 6, -5 cartons of ice cream (that is, Based on this sample, what was the average treatment effect (ATE) of changing the Edy's chocolate ice cream recipe on ice cream consumption?
+Suppose Eddie's Ice Cream wants to know the effect of a new chocolate ice cream recipe on how many cartons of ice cream someone buys next month. They try distributing their new chocolate ice cream to one grocery store, and after a month, they survey three regular Eddie's customers at this store. The first person surveyed bought 10 fewer cartons of Eddie's ice cream after changing the recipe, the second bought 6 more cartons, and the third bought 5 fewer cartons. Assuming that no other factors that influenced their ice cream consumption, this would mean that the experiment's unit-level causal effects were -10, 6, -5 cartons of ice cream. Based on this sample, what was the average treatment effect (ATE) of changing the Eddie's chocolate ice cream recipe on ice cream consumption?
 *** =instructions
 - 3
 - 10
