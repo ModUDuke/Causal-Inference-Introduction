@@ -118,7 +118,7 @@ Since the number of baseball games that this individual went to appears to be as
 ```{r}
 msg1 = 'Not yet! We do not know whether the difference in games attended after being exposed to the ad-campaign was statistically significant, nor do we have a sense for what the counterfactual would be (i.e. maybe he would have gone to more games anyway)'
 msg2 = 'Not yet! We do not know whether the difference in games attended after being exposed to the ad-campaign was statistically significant, nor do we have a sense for what the counterfactual would be (i.e. maybe he would have gone to more games anyway)'
-msg3 = “Correct! We want to let this experiment run throughout the rest of the advertising campaign, which will avoid the temptpation of stopping as soon as we get an answer that we like. That would be hacking our results!”
+msg3 = “Correct! We want to let this experiment run throughout the rest of the advertising campaign, which will avoid the temptation of stopping as soon as we get an answer that we like. That would be hacking our results!”
 test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
@@ -132,7 +132,7 @@ Let's look at some other variables that might affect this individual’s basebal
 |       Games Attended/Month |   0   |   1   |   2   |   5   |   4   |   5   |
 | Number of Ads Served/Month |   0   |   0   |   0   |   7   |   8   |   6   |
 |   Mean Daily High Temp (F) |  56   |   66  |  77   |  86   |  75   |  65   |
-|    Nat’l Ranking of Team |  21   |   15  |  11   |   4   |   7   |  13   |
+|    Nat’l Ranking of Team   |  21   |   15  |  11   |   4   |   7   |  13   |
 
 
 We inserted this table into the R workspace What variable looks like it is **positively** correlated with attendance?
