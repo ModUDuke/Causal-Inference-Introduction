@@ -12,10 +12,10 @@ description : "This chapter will introduce you to the basic concepts behind caus
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:e9705bb45c
 ## Correlation vs Causation
-In the previous video, we saw how a football player scored a touchdown on a running play. When we examine any previous event, be it a football match or an ad-campaign, we often want to figure out what had caused our outcome. Based on your intuition, how much credit should we give the coach for calling that play? 
+One example we saw in the previous video was when a football player scored a touchdown on a running play. When we examine how two events are connected in our data, whether it's from a football match or from the business world, we often want to figure out which factors are most responsible for causing our outcome. In the case of the football play we saw in the video, how much credit should we give the **coach** for calling that play? 
 
 *** =instructions
-- All the credit: he chose his players, he chose the play, he’s in complete control
+- All the credit: he chose the players on the field, he chose the play, he’s in complete control
 - Some of the credit: The players sometimes ignore the coach and just do what they want, and they have to react to what the other team is doing too
 - None of the credit: The offense can only do what the defense allows, so it’s the defensive mistakes that creates the score
 - It’s not a valid question: the astrological position of the sun and the stars determined the outcome of the play when the universe was created, not the coaches or players.
@@ -285,9 +285,9 @@ grid.arrange(plot1, plot2, plot3, plot4, top='Anscombe Quadrant -- Correlation D
 *** =sct
 ```{r}
 msg1 = "Look at the graphs to the right of the page. Are you sure they look identical?"
-msg2 = "Yup. This is why statisticians have created so many different types of summary statistics, and why we encourage understanding so many of them."
-msg3 = "Not necessarily. The distributions certainly appear different."
-msg4 = "Come on..."
+msg2 = "Yes. This is why statisticians have created so many different types of summary statistics, and why we encourage understanding so many of them."
+msg3 = "Not necessarily. The distributions certainly appear different to the eye, and so perhaps different dynamics are at work in each graph. Try again."
+msg4 = "Unless the webserver just broke, the correlation function is working perfectly, and it's not the reason these graphs seem different. Try again."
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
 
