@@ -55,7 +55,7 @@ Puritan Wheat wants you to hire you to compare the `time` it takes for flakes in
 - 3) Use the `head` function to examine the first few rows of the variable `time` in dataframe `Soggy`
 - 4) Use the `tail` function to examine the last few rows of all variables in dataframe `Soggy`
 - 5) Use the `class` function to examine the format of the variable `fiber` in dataframe `Soggy`
-- 6) Use the `table` function to examine the distribution of `coating` within the sample  `Soggy`
+- 6) Use the `table` function to examine the distribution of `cereal` within the sample  `Soggy`
 
 
 *** =pre_exercise_code
