@@ -9,7 +9,7 @@ description : "This chapter will introduce you to individual, group, and average
 //player.vimeo.com/video/230622767
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:0eb921aaf9
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1
 ## Soggy Cereal VII - Average Treatment
 
 Since we found no significant errors in their dataset in Chapter 1, Puritan Wheat Inc. now wants us to determine whether their cereal TechnoCrunch lasts a longer amount of `time` before it gets soggy than NeoPuffs. Conduct the  the following steps:
@@ -76,14 +76,13 @@ set.seed(1)
 *** =sct
 ```{r}
 test_function("mean", incorrect_msg = "Did you use the `mean` function?")
-test_function("cor", incorrect_msg = "Did you use the `cor` function?")
 test_error()
 success_msg("Good work! It appears that TechnoCrunch's crunchiness lasts longer than does NeoPuffs. But could there be any factors that are confounding this relationship?")
 ```
 
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:7fd76a360d
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1
 ## Soggy Cereal VIII - Confounders
 Puritan Wheat Inc. wants to know if there are any factors that might contribute to the difference in the time it took for TechnoCrunch and Neopuffs to get soggy. Puritan Wheat suggests exploring whether `milk` absorption or `fiber` content are correlated with `time` before sogginess. That is, conduct the the following steps:
 
@@ -138,16 +137,11 @@ set.seed(1)
 ```
 *** =solution
 ```{r}
-    mean(Soggy$time[Soggy$cereal=="TechnoCrunch"])
-    mean(Soggy$time[Soggy$cereal=="NeoPuffs"])
-    mean(Soggy$time[Soggy$cereal=="TechnoCrunch"])-mean(Soggy$time[Soggy$cereal=="NeoPuffs"])
     cor(Soggy$milk,Soggy$time)
     cor(Soggy$fiber,Soggy$time)
-    
 ```
 *** =sct
 ```{r}
-test_function("mean", incorrect_msg = "Did you use the `mean` function?")
 test_function("cor", incorrect_msg = "Did you use the `cor` function?")
 test_error()
 success_msg("Good work! There is a positive correlation between fiber and time. It is possible that this correlation might confound the relationship between time and cereal brand, but Puritan Wheat Inc. seems to be satisfied with these results!")
