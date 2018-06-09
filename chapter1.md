@@ -1,4 +1,4 @@
---- 
+﻿--- 
 title       : "Getting Started With The Basics"
 description : "This chapter will introduce you to the basic concepts behind causal inference, and will let you learn and practice through R"
  
@@ -34,7 +34,7 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 //player.vimeo.com/video/230621760
 
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:362bf33c36
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1
 ## Soggy Cereal I - Dependent Variables
 The food scientists at breakfast cereal manufacturer Puritan Wheat Inc. have developed a new cereal product called TechnoCrunch that has a biodegradable nanomaterial coating for keeping the cereal crispy in milk for longer. Puritan Wheat wants to compare the `time` it takes for flakes in TechnoCrunch to get soggy versus the `time` it takes for flakes in NeoPuffs to get Soggy. Based on this prompt, which of the following is the dependent variable in Puritan Wheat's analysis?
 
@@ -54,7 +54,7 @@ test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
 
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:50d28d8b25
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1
 ## Soggy Cereal II - Units of Analysis
 Puritan Wheat generates some data from a sample of individual flakes in a box of TechnoCrunch and from a box of its competitor's cereal, NeoPuff's. TechnoCrunch intends to examine the average time it takes for each flake to become soggy. What is the unit of analysis in this study?
 
@@ -75,7 +75,7 @@ test_mc(correct = 4, feedback_msgs = c(msg1,msg2,msg3,msg4))
 
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:db20453890
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
 ## Soggy Cereal III - Getting Familiar with the data.
 Before hiring you to explore which cereal takes longer to get soggy, Puritan Wheat  wants to make sure you know how to look at the variables that it provides in its dataset, `Soggy`. Its variables are defined as follows:
 
@@ -94,7 +94,7 @@ To get familiar with the data, follow the following instructions:
 
 *** =pre_exercise_code
 ```{r}
-library(tidyverse)
+library(dplyer)
 n=731
 set.seed(1)
 #Create rnorm function that allows for min and max
@@ -151,7 +151,7 @@ success_msg("Good work! It is often important to get a sense of your data before
 ```
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:7371edb7d2
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
 ## Soggy Cereal IV - Variable attributes and Distributions.
 Before comparing how long it actually takes for each flake of cereal in TechnoCrunch and NeoPuffs to get soggy, Puritan Wheat suggests we summarize information about some of the variables in its dataset, `Soggy` in case there are any errors that might cause further analyses.
 
@@ -163,7 +163,7 @@ Follow the instructions below:
 
 *** =pre_exercise_code
 ```{r}
-library(tidyverse)
+library(dplyer)
 n=731
 set.seed(1)
 #Create rnorm function that allows for min and max
@@ -241,7 +241,7 @@ Before running any direct comparisons between TechnoCrunch and NeoPuffs, Puritan
 
 *** =pre_exercise_code
 ```{r}
-library(tidyverse)
+library(dplyer)
 n=731
 set.seed(1)
 #Create rnorm function that allows for min and max
@@ -300,8 +300,8 @@ success_msg("Good work! As a reminder, the difference in the median and mean of 
 ```
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:0c0382bd2a
-## Soggy Cereal V - Means, Medians, and Standard Deviations
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:caa5b2cf8b
+## Soggy Cereal VI - Minimums, Maximums, and Summaries
 Before running any direct comparisons between TechnoCrunch and NeoPuffs, Puritan Wheat Inc. now wants you to get some descriptive about flakes that are just in TechnoCrunch cereal. Using the dataframe `Soggy`, determine the following:
 
 *** =instructions
@@ -311,7 +311,7 @@ Before running any direct comparisons between TechnoCrunch and NeoPuffs, Puritan
 
 *** =pre_exercise_code
 ```{r}
-library(tidyverse)
+library(dplyer)
 n=731
 set.seed(1)
 #Create rnorm function that allows for min and max
@@ -380,7 +380,7 @@ On the right are a series of numerical distributions. The correlations between t
 - R's correlation function is broken.
 *** =pre_exercise_code
 ```{r}
-library(tidyverse)
+library(dplyer)
 library(gridExtra)
 library(ggplot2)
 
@@ -474,7 +474,7 @@ Using the dataset, `Nails`, find out whether Britney is at blame for the loss. S
 ```{r}
 n=34
 set.seed(1)
-library(tidyverse)
+library(dplyer)
 library(ggplot2)
 #Create rnorm function that allows for min and max
   rtnorm <- function(n, mean, sd, min = -Inf, max = Inf){
