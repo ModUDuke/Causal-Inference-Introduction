@@ -3,7 +3,6 @@ title       : "Getting Started With The Basics"
 description : "This chapter will introduce you to the basic concepts behind causal inference, and will let you learn and practice through R"
  
 
-
 --- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:1b7bc85492
 ## Introduction to the Causal Inference Bootcamp
 *** =video_link
@@ -29,18 +28,56 @@ msg4 = "While some form of astrological determinism may provoke an interesting p
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
 
-
 --- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:94317a4867
 ## Measurement
 *** =video_link
 //player.vimeo.com/video/230621760
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:22d5129784
-## Soggy Cereal I
-The food scientists at breakfast cereal manufacturer Puritan Wheat Inc. have developed a new cereal product called TechnoCrunch that has a biodegradable nanomaterial coating that the hope will keep the cereal crispy in milk for longer than their competitor's product. Their objective is to is to determine the difference in liquid absorption between the two cereals. Puritan Wheat generates some data from a sample of individual flakes in a box of TechnoCrunch and a box from its primary competitor, NeoPuffs.
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1
+## Soggy Cereal I - Dependent Variables
+The food scientists at breakfast cereal manufacturer Puritan Wheat Inc. have developed a new cereal product called TechnoCrunch that has a biodegradable nanomaterial coating for keeping the cereal crispy in milk for longer. Puritan Wheat wants to compare the `time` it takes for flakes in TechnoCrunch to get soggy versus the `time` it takes for flakes in NeoPuffs to get Soggy. Based on this prompt, which of the following is the dependent variable in Puritan Wheat's analysis?
 
-Puritan Wheat wants you to hire you to compare the `time` it takes for flakes in TechnoCrunch to get soggy versus the `time` it takes for flakes in NeoPuffs, to get soggy. However, before Puritan Wheat hires you, it wants to make sure you know how to look at the variables that it provides in its dataset, `Soggy`, and to test whether you understand its unit of analysis and outcome (dependent) variable. The variables are defined as follows:
+*** =instructions
+- The brand of cereal.
+- The amount of milk that each flake of cereal can absorb.
+- The time it takes for the cereal to get soggy.
+- Individual flakes.
+
+*** =sct
+```{r}
+msg1 = "This is the experimental condition that causes the outcome (i.e. an independent variable."
+msg2 = "This is likely correlated with how the dependent variable, but is not mentioned in the prompt. Try again"
+msg3 = "Correct! The dependent variable is one's outcome of interest."
+msg4 = "Not quite. Try again"
+test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3,msg4))
+```
+
+
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1
+## Soggy Cereal II - Units of Analysis
+Puritan Wheat generates some data from a sample of individual flakes in a box of TechnoCrunch and from a box of its competitor's cereal, NeoPuff's. TechnoCrunch intends to examine the average time it takes for each flake to become soggy. What is the unit of analysis in this study?
+
+*** =instructions
+- The brand of cereal.
+- The amount of milk that each flake of cereal can absorb.
+- The time it takes for the cereal to get soggy.
+- Individual flakes.
+
+*** =sct
+```{r}
+msg1 = "This is the experimental condition that causes the outcome (i.e. an independent variable)."
+msg2 = "Not quite. Try again"
+msg3 = "This is the dependent variable in our analysis, try again."
+msg4 = "Correct! The unit of analysis is 'what' or 'who' is being studied/sampled. Often our unit of analyses are individual people, but in this example, we are studying a sample of cereal flakes."
+test_mc(correct = 4, feedback_msgs = c(msg1,msg2,msg3,msg4))
+```
+
+
+
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
+## Soggy Cereal III - Getting Familiar with the data.
+Before hiring you to explore which cereal takes longer to get soggy, Puritan Wheat  wants to make sure you know how to look at the variables that it provides in its dataset, `Soggy`. Its variables are defined as follows:
 
 -`id` = The ID that Puritan Wheat assigned to each flake in its sample
 -`cereal` = The cereal brand of the individual flake
@@ -48,18 +85,16 @@ Puritan Wheat wants you to hire you to compare the `time` it takes for flakes in
 -`time` = The amount of time (in seconds) that the flake weas crispy
 -`fiber` = The number of mg in fiber for each flake of cereal
 
+To get familiar with the data, follow the following instructions:
 
 *** =instructions
-- 1) Based on the prompt, identify the unit of analysis in Puritan Wheat's dataset
-- 2) Based on the prompt, identify the dependent variable in Puritan Wheat's dataset
-- 3) Use the `head` function to examine the first few rows of the variable `time` in dataframe `Soggy`
-- 4) Use the `tail` function to examine the last few rows of all variables in dataframe `Soggy`
-- 5) Use the `class` function to examine the format of the variable `fiber` in dataframe `Soggy`
-- 6) Use the `table` function to examine the distribution of `cereal` within the sample  `Soggy`
+- 1) Use the `head` function to examine the first few rows of the variable `time` in dataframe `Soggy`
+- 2) Use the `tail` function to examine the last few rows of all variables in dataframe `Soggy`
 
 
 *** =pre_exercise_code
 ```{r}
+library(tidyverse)
 n=731
 set.seed(1)
 #Create rnorm function that allows for min and max
@@ -91,45 +126,101 @@ set.seed(1)
 ```
 *** =sample_code
 ```{r}
-# 1) Based on the prompt, identify the unit of analysis in Puritan Wheat's dataset. Is it: a) cereal, b) time, or c) flakes. Answer with either "a", "b", or "c". Assign this value to Solution1.
-      Solution1<-""
+# Note: Below is an example of how to examine the first few rows of the variable `fiber`, in dataset `soggy`.
+    head(Soggy$fiber)
 
-# 2) Based on the prompt, identify the dependent variable in Puritan Wheat's dataset. Is it: a) cereal, b) time, or c) flakes. Answer with either "a", "b", or "c". Assign this value to Solution2.
-      Solution2<-""
+# 1) Use the `head` function to examine the first few rows of the variable `time` in dataframe `Soggy`. 
 
-# 3) Use the `head` function to examine the first few rows of the variable `time` in dataframe `Soggy`
-      head()
 
-# 4) Use the `tail` function to examine the last few rows of all variables in dataframe `Soggy`
-
-      
-# 5) Use the `class` function to examine the format of the variable `fiber` in dataframe `Soggy`
-
-      
-# 6) Use the `table` function to examine the distribution of `cereal` within the sample  `Soggy`
+# 2) Use the `tail` function to examine the last few rows of all variables in dataframe `Soggy`
 
 
 ```
 *** =solution
 ```{r}
-    Solution1<-"c"
-    Solution2<-"b"
     head(Soggy$time)
     tail(Soggy)
+```
+*** =sct
+```{r}
+test_function("head", incorrect_msg = "Did you use the `head` function?")
+test_function("tail", incorrect_msg = "Did you use the `tail` function?")
+
+test_error()
+success_msg("Good work! It is often important to get a sense of your data before running any analyses with it. Using the head and tail functions is a common and easy way to observe what your data actually looks like.") 
+```
+
+
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
+## Soggy Cereal IV - Variable attributes and Distributions.
+Before comparing how long it actually takes for each flake of cereal in TechnoCrunch and NeoPuffs to get soggy, Puritan Wheat suggests we summarize information about some of the variables in its dataset, `Soggy` in case there are any errors that might cause further analyses.
+
+Follow the instructions below:
+
+*** =instructions
+- 1) Use the `class` function to examine the format of the variable `fiber` in dataframe `Soggy`
+- 2) Use the `table` function to examine the distribution of `cereal` within the sample `Soggy`
+
+*** =pre_exercise_code
+```{r}
+library(tidyverse)
+n=731
+set.seed(1)
+#Create rnorm function that allows for min and max
+  rtnorm <- function(n, mean, sd, min = -Inf, max = Inf){
+      qnorm(runif(n, pnorm(min, mean, sd), pnorm(max, mean, sd)), mean, sd)
+  }
+#Create rounding function that allows to round to numbers above 1
+  mround <- function(x,base){
+          base*round(x/base)
+  }
+#Create scaling function that puts number between 0 and 1
+  scale <- function(x){
+    (x - min(x))/(max(x)-min(x))
+    }
+#Dataframe
+  x=rtnorm(n=n,mean=1,sd=.3,min=.5,max=1.5)
+  x2=rtnorm(n=n,mean=.8,sd=.1,min=.1,max=1.5)
+    
+  Soggy<-data.frame(
+    ID=1:n,
+    cereal=rbinom(n,1,.4*x*x2),
+    milk=mround(rtnorm(n=n,mean=3,sd=2,min=0,max=8)*x,.1),
+    time=mround(rtnorm(n=n,mean=212,sd=20,min=99,max=399)*x2,1),
+    fiber=mround(rtnorm(n=n,mean=30,sd=5,min=15,max=66)*x2^(1/2),1)
+    )
+  Soggy$time<-Soggy$time+Soggy$cereal*rtnorm(n=n,mean=10,sd=3,min=0,max=20)
+  Soggy$cereal<-ifelse(Soggy$cereal==1,"TechnoCrunch","NeoPuffs")
+
+```
+*** =sample_code
+```{r}
+# Note: Below is an example of how to examine the class and frequency of values for the variable `milk`, in dataset `Soggy`.
+    class(Soggy$milk)
+    table(Soggy$milk)
+
+# 1) Use the `class` function to examine the format of the variable `fiber` in dataframe `Soggy`
+
+      
+# 2) Use the `table` function to examine the distribution of `cereal` within the sample `Soggy`
+
+
+```
+*** =solution
+```{r}
     class(Soggy$fiber)
     table(Soggy$cereal)
 ```
 *** =sct
 ```{r}
-test_object("Solution1")
-test_object("Solution2")
-test_function("head", incorrect_msg = "Did you use the `head` function?")
-test_function("tail", incorrect_msg = "Did you use the `tail` function?")
 test_function("class", incorrect_msg = "Did you use the `class` function?")
 test_function("table", incorrect_msg = "Did you use the `table` function?")
+
 test_error()
-success_msg("Good work! It is often important to get a sense of your data before running any analyses with it. All of the above functions may come in handy. The class function is particularly important, because many functions only work with certain types of variables. For example, it is meaningless (and impossible) to estimate the 'mean' of a character variable.")
+success_msg("Good work! The above functions will often come in handy as you continue to code in R. The class function is particularly important, because many functions only work with certain types of variables. For example, it is meaningless (and impossible) to estimate the 'mean' of a character variable.") 
 ```
+
+
 
 
 --- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:f8ced7fb09
@@ -138,19 +229,19 @@ success_msg("Good work! It is often important to get a sense of your data before
 //player.vimeo.com/video/230622159
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:caa5b2cf8b
-## Soggy Cereal II
-Before running any direct comparisons models between TechnoCrunch and NeoPuffs, Puritan Wheat Inc. now wants you to get some detailed descriptive statistics about the `time` variable in its dataset. Using the dataframe `Soggy`, determine the following:
+## Soggy Cereal V - Means, Medians, and Standard Deviations
+Before running any direct comparisons between TechnoCrunch and NeoPuffs, Puritan Wheat Inc. now wants you to get some detailed descriptive statistics about the `time` variable in its dataset. Using the dataframe `Soggy`, determine the following:
 
 *** =instructions
 - 1) Use the `mean` function to estimate the mean `time` in dataframe `Soggy`
 - 2) Use the `median` function to estimate the median `time` in dataframe `Soggy`
 - 3) Use the `sd` function to estimate the standard deviation of `time` in dataframe `Soggy`
-- 4) Use the `min` function to estimate the minimum `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`
-- 5) Use the `summary` function to produce descriptive statistics for `time` in dataframe `Soggy` just for flakes that were in NeoPuffs `cereal`
+
 
 
 *** =pre_exercise_code
 ```{r}
+library(tidyverse)
 n=731
 set.seed(1)
 #Create rnorm function that allows for min and max
@@ -188,19 +279,7 @@ set.seed(1)
 # 2) Use the `median` function to examine the median `time` in dataframe `Soggy`
 
 
-# Note: The next question has us compute a standard deviation. As a reminder, standard deviation is a measure of a variable's variance. High standard deviations suggest that observations of a variable are not very centered around their mean.
-
-
 # 3) Use the `sd` function to examine the standard deviation of `time` in dataframe `Soggy`. 
-
-
-# Note: The next questions require you to subset the data. We provide an example of one way to subset data below. The following code estimates the max `time` for flakes that were in TechnoCrunch. The syntax can be interpreted as "show the max `time` in dataset `Soggy` where `Soggy` `cereal` is "TechnoCrunch".
-    max(Soggy$time[Soggy$cereal=="TechnoCrunch"])
-    
-# 4) Use the `min` function to estimate the minimum `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`.
-
-    
-# 5) Use the `summary` function to produce descriptive statistics for `time` in dataframe `Soggy` just for flakes that were in NeoPuffs `cereal`
 
 
 ```
@@ -209,20 +288,84 @@ set.seed(1)
     mean(Soggy$time)
     median(Soggy$time)
     sd(Soggy$time)
-    min(Soggy$time)
-    summary(Soggy$time)
 ```
 *** =sct
 ```{r}
 test_function("mean", incorrect_msg = "Did you use the `mean` function?")
 test_function("median", incorrect_msg = "Did you use the `median` function?")
 test_function("sd", incorrect_msg = "Did you use the `sd` function?")
-test_function("min", incorrect_msg = "Did you use the `min` function?")
-test_function("summary", incorrect_msg = "Did you use the `summary` function?")
+
 test_error()
-success_msg("Good work! As you may have noticed, the summary function is often a great tool for summarizing data, but in practice, you may find yourself needing the other functions as well.")
+success_msg("Good work! As a reminder, the difference in the median and mean of a variable is that the median represents the 'middle' value of a variable whereas the mean represents what we tpyicially think of as the `average` value of a variable. These statistics are often meaningfully (excuse the pun) different; for example, a variable with a much higher mean than median often has observations that are extreme outliers that are much higher than the rest of the observations. Also, remember that the standard deviation is a measure of a variable's variance. If this variable's standard deviation was very high, it would suggest that that most observed values of the variable `time` were not very centered around their mean.")
 ```
 
+
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:caa5b2cf8b
+## Soggy Cereal V - Means, Medians, and Standard Deviations
+Before running any direct comparisons between TechnoCrunch and NeoPuffs, Puritan Wheat Inc. now wants you to get some descriptive about flakes that are just in TechnoCrunch cereal. Using the dataframe `Soggy`, determine the following:
+
+*** =instructions
+- 1) Use the `min` function to estimate the minimum `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`
+- 2) Use the `summary` function to produce descriptive statistics for `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`
+
+
+*** =pre_exercise_code
+```{r}
+library(tidyverse)
+n=731
+set.seed(1)
+#Create rnorm function that allows for min and max
+  rtnorm <- function(n, mean, sd, min = -Inf, max = Inf){
+      qnorm(runif(n, pnorm(min, mean, sd), pnorm(max, mean, sd)), mean, sd)
+  }
+#Create rounding function that allows to round to numbers above 1
+  mround <- function(x,base){
+          base*round(x/base)
+  }
+#Create scaling function that puts number between 0 and 1
+  scale <- function(x){
+    (x - min(x))/(max(x)-min(x))
+    }
+#Dataframe
+  x=rtnorm(n=n,mean=1,sd=.3,min=.5,max=1.5)
+  x2=rtnorm(n=n,mean=.8,sd=.1,min=.1,max=1.5)
+    
+  Soggy<-data.frame(
+    ID=1:n,
+    cereal=rbinom(n,1,.4*x*x2),
+    milk=mround(rtnorm(n=n,mean=3,sd=2,min=0,max=8)*x,.1),
+    time=mround(rtnorm(n=n,mean=212,sd=20,min=99,max=399)*x2,1),
+    fiber=mround(rtnorm(n=n,mean=30,sd=5,min=15,max=66)*x2^(1/2),1)
+    )
+  Soggy$time<-Soggy$time+Soggy$cereal*rtnorm(n=n,mean=10,sd=3,min=0,max=20)
+  Soggy$cereal<-ifelse(Soggy$cereal==1,"TechnoCrunch","NeoPuffs")
+
+```
+*** =sample_code
+```{r}
+# Note: The next questions require you to subset the data. We provide an example of one way to subset data below. The following code estimates the maximum `time` for flakes that were in TechnoCrunch. The syntax can be interpreted as "show the max of the `time` variable in dataset `Soggy` where the `cereal` variable in dataset `Soggy` is "TechnoCrunch".
+    max(Soggy$time[Soggy$cereal=="TechnoCrunch"])
+    
+# 1) Use the `min` function to estimate the minimum `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`.
+
+    
+# 2) Use the `summary` function to produce descriptive statistics for `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`
+
+
+```
+*** =solution
+```{r}
+    min(Soggy$time[Soggy$cereal=="TechnoCrunch"]))
+    summary(Soggy$time[Soggy$cereal=="TechnoCrunch"]))
+```
+*** =sct
+```{r}
+test_function("min", incorrect_msg = "Did you use the `min` function?")
+test_function("summary", incorrect_msg = "Did you use the `summary` function?")
+
+test_error()
+success_msg("Good work! As you may have noticed, the summary function is often a great tool for summarizing data, but in practice, you may find yourself needing the other functions as well. In addition, you will often need to `subset` or `select` values in a dataset or vector that meet a specific criteria. We recommend that you practice and become comfortable with subsetting techniques as you continue your learning!")
+```
 
 
 
@@ -237,6 +380,7 @@ On the right are a series of numerical distributions. The correlations between t
 - R's correlation function is broken.
 *** =pre_exercise_code
 ```{r}
+library(tidyverse)
 library(gridExtra)
 library(ggplot2)
 
@@ -330,6 +474,7 @@ Using the dataset, `Nails`, find out whether Britney is at blame for the loss. S
 ```{r}
 n=34
 set.seed(1)
+library(tidyverse)
 library(ggplot2)
 #Create rnorm function that allows for min and max
   rtnorm <- function(n, mean, sd, min = -Inf, max = Inf){
