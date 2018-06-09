@@ -8,21 +8,21 @@ description : "This chapter will introduce you to individual, group, and average
 *** =video_link
 //player.vimeo.com/video/230622767
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:869592714b
-## Soggy Cereal III
 
-Since we found no significant errors in their dataset in Chapter 1, Puritan Wheat Inc. now wants us to determine whether their cereal TechnoCrunch lasts a longer amount of `time` before it gets soggy than NeoPuffs. They also want to know whether `milk` absorption or `fiber` content are correlated with `time` before sogginess. That is, conduct the  the following steps:
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1
+## Soggy Cereal VII - Average Treatment
+
+Since we found no significant errors in their dataset in Chapter 1, Puritan Wheat Inc. now wants us to determine whether their cereal TechnoCrunch lasts a longer amount of `time` before it gets soggy than NeoPuffs. Conduct the  the following steps:
 
 *** =instructions
 - 1) Use the `mean` function to estimate the mean `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`
 - 2) Use the `mean` function to estimate the mean `time` in dataframe `Soggy` just for flakes that were in NeoPuffs `cereal`
 - 3) In dataframe `Soggy`, subtract the mean `time` for flakes in NeoPuffs `cereal` from the mean `time` for flakes in TechnoCrunch `cereal` to determine which cereal lasts longer before it gets soggy
-- 4) Use the `cor` function to estimate the correlation between `milk` and `time`
-- 5) Use the `cor` function to estimate the correlation between `fiber` and `time`
 
 
 *** =pre_exercise_code
 ```{r}
+library(dplyr)
 n=731
 set.seed(1)
 #Create rnorm function that allows for min and max
@@ -54,10 +54,10 @@ set.seed(1)
 ```
 *** =sample_code
 ```{r}
-# Note: The following questions require you to subset the data. Remember that in Chapter 1, we had entered max(Soggy$time[Soggy$cereal=="TechnoCrunch"]) to get the maximum `time` in dataframe `Soggy`
+# Note: The following questions require you to subset the data. Remember that in Chapter 1, we had entered the following to get the maximum `time` in dataframe `Soggy` 
+    max(Soggy$time[Soggy$cereal=="TechnoCrunch"]) 
 
-
-# 1) Use the `mean` function to estimate the mean `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`. 
+# 1) Use the `mean` function to estimate the mean `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal` 
 
 
 # 2) Use the `mean` function to estimate the mean `time` in dataframe `Soggy` just for flakes that were in NeoPuffs `cereal`
@@ -66,13 +66,73 @@ set.seed(1)
 # 3) In dataframe `Soggy`, subtract the mean `time` for flakes in NeoPuffs `cereal` from the mean `time` for flakes in TechnoCrunch `cereal` to determine which cereal lasts longer before it gets soggy
 
 
-# Note: The following questions require use of the cor function. As an example, we produce the correlation between milk and fiber below.
+```
+*** =solution
+```{r}
+    mean(Soggy$time[Soggy$cereal=="TechnoCrunch"])
+    mean(Soggy$time[Soggy$cereal=="NeoPuffs"])
+    mean(Soggy$time[Soggy$cereal=="TechnoCrunch"])-mean(Soggy$time[Soggy$cereal=="NeoPuffs"])
+```
+*** =sct
+```{r}
+test_function("mean", incorrect_msg = "Did you use the `mean` function?")
+test_function("cor", incorrect_msg = "Did you use the `cor` function?")
+test_error()
+success_msg("Good work! It appears that TechnoCrunch's crunchiness lasts longer than does NeoPuffs. But could there be any factors that are confounding this relationship?")
+```
+
+
+
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1
+## Soggy Cereal VIII - Confounders
+Puritan Wheat Inc. wants to know if there are any factors that might contribute to the difference in the time it took for TechnoCrunch and Neopuffs to get soggy. Puritan Wheat suggests exploring whether `milk` absorption or `fiber` content are correlated with `time` before sogginess. That is, conduct the the following steps:
+
+*** =instructions
+- 1) Use the `cor` function to estimate the correlation between `milk` and `time`
+- 2) Use the `cor` function to estimate the correlation between `fiber` and `time`
+
+
+*** =pre_exercise_code
+```{r}
+library(dplyr)
+n=731
+set.seed(1)
+#Create rnorm function that allows for min and max
+  rtnorm <- function(n, mean, sd, min = -Inf, max = Inf){
+      qnorm(runif(n, pnorm(min, mean, sd), pnorm(max, mean, sd)), mean, sd)
+  }
+#Create rounding function that allows to round to numbers above 1
+  mround <- function(x,base){
+          base*round(x/base)
+  }
+#Create scaling function that puts number between 0 and 1
+  scale <- function(x){
+    (x - min(x))/(max(x)-min(x))
+    }
+#Dataframe
+  x=rtnorm(n=n,mean=1,sd=.3,min=.5,max=1.5)
+  x2=rtnorm(n=n,mean=.8,sd=.1,min=.1,max=1.5)
+    
+  Soggy<-data.frame(
+    ID=1:n,
+    cereal=rbinom(n,1,.4*x*x2),
+    milk=mround(rtnorm(n=n,mean=3,sd=2,min=0,max=8)*x,.1),
+    time=mround(rtnorm(n=n,mean=212,sd=20,min=99,max=399)*x2,1),
+    fiber=mround(rtnorm(n=n,mean=30,sd=5,min=15,max=66)*x2^(1/2),1)
+    )
+  Soggy$time<-Soggy$time+Soggy$cereal*rtnorm(n=n,mean=10,sd=3,min=0,max=20)
+  Soggy$cereal<-ifelse(Soggy$cereal==1,"TechnoCrunch","NeoPuffs")
+
+```
+*** =sample_code
+```{r}
+# Note: The following questions require use of the cor function. The cor function requires two variables as inputs, separated by a comma. As an example, we produce the correlation between milk and fiber below.
     cor(Soggy$milk,Soggy$fiber)
 
-# 4) Use the `cor` function to estimate the correlation between `milk` and `time`
+# 1) Use the `cor` function to estimate the correlation between `milk` and `time`
 
 
-# 5)Use the `cor` function to estimate the correlation between `fiber` and `time`
+# 2)Use the `cor` function to estimate the correlation between `fiber` and `time`
 
 
 ```
@@ -90,7 +150,7 @@ set.seed(1)
 test_function("mean", incorrect_msg = "Did you use the `mean` function?")
 test_function("cor", incorrect_msg = "Did you use the `cor` function?")
 test_error()
-success_msg("Good work! It appears that TechnoCrunch's crunchiness lasts longer than does NeoPuffs. However, you may have noticed that there is a positive correlation between fiber and time. We may eventually want to explore whether this correlation confounds the relationship between time and cereal brand.")
+success_msg("Good work! There is a positive correlation between fiber and time. It is possible that this correlation might confound the relationship between time and cereal brand, but Puritan Wheat Inc. seems to be satisfied with these results!")
 ```
 
 
@@ -154,13 +214,13 @@ With the dataframe, `UnterHR`, determine whether there is a negative or positive
 
 *** =instructions
 - 1) Determine the average effect of reducing the size of HR (`treatment`) on whether employees plan to leave their job in the following year (`LeaveJob`).
-- Note 1: The average treatment effect is simply the mean outcome of the treatment group minus the mean outcome of the control group.
-- Note 2: You will need to use the `mean` function, and will need to `subset` the data into treatment and control groups.
+
 
 *** =hint
 - Try breaking the task into pieces. First find the mean rate of `LeaveJob`in the control condition (`Treatment==0`) then find the mean rate of `LeaveJob`in the treatment condition (`Treatment==1`).
 *** =pre_exercise_code
 ```{r}
+library(dplyr)
 set.seed(1)
 n=382
 #Dataframe
@@ -175,6 +235,12 @@ n=382
 ```
 *** =sample_code
 ```{r}
+# Note 1: The average treatment effect is simply the mean outcome of the treatment group minus the mean outcome of the control group. The mean outcome overall is calculated below.
+    mean(UnterHR$LeaveJob)
+
+# Note 2: You will need to `subset` the data into treatment and control groups. For example, we create a data frame for just those in the treatment group below:
+    dfTreated<-UnterHR[UnterHR$Treatment==1,]
+
 # 1) Determine the average effect of reducing the size of HR (`treatment`) on whether employees plan to leave their job in the following year (`LeaveJob`). Assign this value to Solution1.
     Solution1<- 
   
@@ -203,6 +269,7 @@ However, his chief operating officer (COO) warns him that reducing the size of H
 - While the pooled average treatment effect is slightly positive, and the average treatment effect for men is negative, the average treatment effect for women is positive.
 *** =pre_exercise_code
 ```{r}
+library(dplyr)
 set.seed(1)
 n=382
 #Dataframe
@@ -253,6 +320,7 @@ Let's further analyze the heterogeneous effect of the treatment on men vs. women
 - Try breaking the task into pieces. First find the mean rate of `LeaveJob`in the control condition (`Treatment=0`) then find the mean rate of `LeaveJob`in the treatment condition (`Treatment=1`).
 *** =pre_exercise_code
 ```{r}
+library(dplyr)
 set.seed(1)
 n=382
 #Dataframe
@@ -270,7 +338,8 @@ n=382
 # Note: Since we are interested in understanding the rates of intention to leave by treatment and gender, we might want to examine a three way table of this relationship first. The following syntax prints the numbers of men and women who intend to leave work by treatment group and gender.
     xtabs(~LeaveJob+Treatment+Female, data=UnterHR)
 
-# Note: Since the treatment and control groups among women are of relatively similar sizes, it is fairly easy to get a sense of how treatment affects women's intention to leave Unter; the majority of women in the treatment group appear to want to leave, whereas the majority of women in the control group do not. But to be sure, let's actually calculate the average treatment effects among men and women.
+# Note: This question is tricky because we want to subset the data based on two condition (i.e. whether someone is treated and whether someone is female). Below is an example of how to get the mean rate of leaving a job for men who were treated. The `&` symbol is used to add an additional condition.
+    mean(UnterHR$LeaveJob[UnterHR$Treatment==1 & UnterHR$Female==0])
 
 # 1) Determine the average treatment effect among men. Assign this value to Solution1.
     Solution1<- 
