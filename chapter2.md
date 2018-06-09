@@ -9,7 +9,7 @@ description : "This chapter will introduce you to individual, group, and average
 //player.vimeo.com/video/230622767
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:0eb921aaf9
 ## Soggy Cereal VII - Average Treatment
 
 Since we found no significant errors in their dataset in Chapter 1, Puritan Wheat Inc. now wants us to determine whether their cereal TechnoCrunch lasts a longer amount of `time` before it gets soggy than NeoPuffs. Conduct the  the following steps:
@@ -82,7 +82,7 @@ success_msg("Good work! It appears that TechnoCrunch's crunchiness lasts longer 
 
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:7fd76a360d
 ## Soggy Cereal VIII - Confounders
 Puritan Wheat Inc. wants to know if there are any factors that might contribute to the difference in the time it took for TechnoCrunch and Neopuffs to get soggy. Puritan Wheat suggests exploring whether `milk` absorption or `fiber` content are correlated with `time` before sogginess. That is, conduct the the following steps:
 
