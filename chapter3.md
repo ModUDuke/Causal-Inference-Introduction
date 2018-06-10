@@ -94,10 +94,10 @@ It appears that being exposed to ads was associated with going to baseball games
 
 *** =sct
 ```{r}
-msg1 = "This person has already shown that they go to some games without ads, so it’s probably safe to assume they’ll go to at least one. Try again.”"
-msg2 = "“Correct. This person has gone to 3 games in 3 months, so on average this person goes to 1 game per month. If you are optimistic, you could read this as a rising trend leading to either +1 game per month, or even 2x games per month, but let’s just stick with the average of 1 game per month for now”"
-msg3 = "“This could be a safe guess if you think they’ll continue at their last count. But they’ve shown variability before, so it’s probably wise to back off this. Try again.”"
-msg4 = "“This could be a safe guess if you think their attendance rate will keep increasing. But they’ve shown variability before, so it’s probably wise to back off this. Try again.”"
+msg1 = "This person has already shown that they go to some games without ads, so it’s probably safe to assume they’ll go to at least one. Try again."
+msg2 = "Correct. This person has gone to 3 games in 3 months, so on average this person goes to 1 game per month. If you are optimistic, you could read this as a rising trend leading to either +1 game per month, or even 2x games per month, but let’s just stick with the average of 1 game per month for now"
+msg3 = "This could be a safe guess if you think they’ll continue at their last count. But they’ve shown variability before, so it’s probably wise to back off this. Try again."
+msg4 = "This could be a safe guess if you think their attendance rate will keep increasing. But they’ve shown variability before, so it’s probably wise to back off this. Try again."
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
 
@@ -125,7 +125,7 @@ Since the number of baseball games that this individual went to appears to be as
 ```{r}
 msg1 = "Not yet! We do not know whether the difference in games attended after being exposed to the ad-campaign was statistically significant, nor do we have a sense for what the counterfactual would be (i.e. maybe he would have gone to more games anyway)"
 msg2 = "Not yet! We do not know whether the difference in games attended after being exposed to the ad-campaign was statistically significant, nor do we have a sense for what the counterfactual would be (i.e. maybe he would have gone to more games anyway)"
-msg3 = "“Correct! We want to let this experiment run throughout the rest of the advertising campaign, which will avoid the temptation of stopping as soon as we get an answer that we like. That would be hacking our results!”"
+msg3 = "Correct! We want to let this experiment run throughout the rest of the advertising campaign, which will avoid the temptation of stopping as soon as we get an answer that we like. That would be hacking our results!"
 test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
@@ -153,9 +153,9 @@ Which of the following variables look **positively** correlated with attendance?
 
 *** =sct
 ```{r}
-msg1 = 'Correct! As attendance goes up, the temperature does too, so these are likely to be positively correlated”'
-msg2 = “The quality of stadium food seems hover around 5, so it doesn’t seem to vary significantly throughout the season. Try again.”
-msg3 = “The team’s performance varies pretty significantly through the season, but that number goes down as the attendance goes up, so it’s not a positive correlation. Try again.”
+msg1 = "Correct! As attendance goes up, the temperature does too, so these are likely to be positively correlated"
+msg2 = "The quality of stadium food seems hover around 5, so it doesn’t seem to vary significantly throughout the season. Try again."
+msg3 = "The team’s performance varies pretty significantly through the season, but that number goes down as the attendance goes up, so it’s not a positive correlation. Try again."
 test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
@@ -163,15 +163,14 @@ test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3))
 ## Looking for Confounders with Negative Correlations
 Now that we’ve seen what other variables are positively correlated with attendance, what about the opposite?  Here’s the table again:
 
-|                            | April |  May  | June  | July  |  Aug  | Sept  |
-|----------------------------|------:|------:|------:|------:|------:|------:|
-|       Games Attended/Month |   0   |   1   |   2   |   5   |   4   |   0   |
-| Number of Ads Served/Month |   0   |   0   |   0   |  72   |  157  |  71   |
-|   Mean Daily High Temp (F) |  56   |   66  |  77   |  86   |  75   |  65   |
-|   Mean Daily High Temp (C) |  13   |   19  |  25   |  30   |  24   |  18   |
-|    Quality of Stadium Food |   4   |   6   |   6   |   4   |   5   |   5   |
-|      Nat’l Ranking of Team |  21   |  15   |  11   |   4   |   7   |  13   |
-
+| Month    |Attended|Ads Served|Temp(F)|Ranking|
+|----------|-------:|---------:|------:|------:|
+| April    |   0    |   0      |   56  |  21   |
+| May      |   0    |   1      |   66  |  15   |
+| June     |   0    |   2      |   77  |  11   |
+| July     |   7    |   5      |   86  |   4   |
+| August   |   8    |   4      |   81  |   7   |
+| September|   6    |   5      |   70  |  13   |
 
 What variable looks like it is **negatively** correlated with attendance?
 
@@ -180,216 +179,315 @@ What variable looks like it is **negatively** correlated with attendance?
 - Quality of Stadium Food
 - National Ranking of Team
 
-
 *** =sct
 ```{r}
-msg1 = "As attendance goes up, the temperature does too, so these are likely to be positively correlated, not negatively correlated, so try again.”
-msg2 = “The quality of stadium food seems hover around 5, so it doesn’t seem to vary significantly throughout the season. Try again.”
-msg3 = “Correct! At first glance, the National Ranking of the team goes down as the attendance goes up, so it’s likely a negative correlation.”
-test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3))
+msg1 = "As attendance goes up, the temperature does too, so these are likely to be positively correlated, not negatively correlated, so try again."
+msg2 = "The quality of stadium food seems hover around 5, so it doesn’t seem to vary significantly throughout the season. Try again."
+msg3 = "Correct! At first glance, the National Ranking of the team goes down as the attendance goes up, so it’s likely a negative correlation. Note that this wording is sort of tricky because a `lower` ranking implies that a team is performing `better`, whereas `negative` is often used colloquially to mean something is `worse`."
+test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:23e5c17fe0
-## Looking for Variables with No Correlations
-Now that we’ve seen what other variables are positively and negatively correlated with attendance, are there any variables that are totally uncorrelated with attendance, and hence are not confounders?  Here’s the table again:
-
-|                            | April |  May  | June  | July  |  Aug  | Sept  |
-|----------------------------|------:|------:|------:|------:|------:|------:|
-|       Games Attended/Month |   0   |   1   |   2   |   5   |   4   |   0   |
-| Number of Ads Served/Month |   0   |   0   |   0   |  72   |  157  |  71   |
-|   Mean Daily High Temp (F) |  56   |   66  |  77   |  86   |  75   |  65   |
-|   Mean Daily High Temp (C) |  13   |   19  |  25   |  30   |  24   |  18   |
-|    Quality of Stadium Food |   4   |   6   |   6   |   4   |   5   |   5   |
-|      Nat’l Ranking of Team |  21   |  15   |  11   |   4   |   7   |  13   |
-
-
-What variable looks like it is **uncorrelated** with attendance?
-
-*** =instructions
-- Mean Daily High Temperature
-- Quality of Stadium Food
-- National Ranking of Team
-
-
-*** =sct
-```{r}
-msg1 = "As attendance goes up, the temperature does too, so these are likely to be positively correlated, not negatively correlated, so try again.”
-msg2 = “Correct! The stadium food seems to be consistently mediocre, so it doesn’t seem to be connected to any of our other variables.”
-msg3 = “The National Ranking of the team seems goes down as the attendance goes up, so it’s likely a negative correlation. Try again.”
-test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
-```
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:d5098c9a23
 ## Do We Have Confounder Problems?
-Let’s look again at the variables in our data that seem to be either positively or negatively correlated. Here’s the table again:
-
-|                            | April |  May  | June  | July  |  Aug  | Sept  |
-|----------------------------|------:|------:|------:|------:|------:|------:|
-|       Games Attended/Month |   0   |   1   |   2   |   5   |   4   |   0   |
-| Number of Ads Served/Month |   0   |   0   |   0   |  72   |  157  |  71   |
-|   Mean Daily High Temp (F) |  56   |   66  |  77   |  86   |  75   |  65   |
-|   Mean Daily High Temp (C) |  13   |   19  |  25   |  30   |  24   |  18   |
-|      Nat’l Ranking of Team |  21   |  15   |  11   |   4   |   7   |  13   |
-
-Would you say that the relationship between your treatment variable, Number of Ads Served per Month, and your outcome variable, Number of Games Attended per Month, is **confounded** by the other variables?
+We found that temperature and team ranking are also associated with how frequently this individual attends baseball games. Is it likely that the the relationship between your treatment variable, Number of Ads Served per Month, and your outcome variable, Number of Games Attended per Month, are **confounded** by these two other variables?
 
 *** =instructions
 - Yes
 - No
-- Maybe
 
 *** =sct
 ```{r}
-msg1 = "Yes, we seem to have confounder problems, which means that our attempts to find any causal effects of our treatment might be confused by other factors. That means we have to work a bit harder, and our answer might not be as clear as we’d like.”
-msg2 = “”
-msg3 = “”
-test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3))
+msg1 = "Yes, we seem to have confounder problems, which means that our attempts to find any causal effects of our treatment might be confused by other factors. That means we have to work a bit harder, and our answer might not be as clear as we’d like."
+msg2 = "Try Again"
+test_mc(correct = 1, feedback_msgs = c(msg1,msg2))
 ```
 
 
-#In case these become coding questions, some data generation!
 
-***=pre_exercise_code
+
+
+
+
+
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1
+## Homerun Ad Campaign I - Exploring Data
+This series of question will test your knowledge on what we have learned so far, and will introduce some new functions.
+
+The Hammers decided to expand their sample to examine how effective their social media camapign was. They collected more information on how many games each individual attended per month, as well as how many ads they were served to each individual per month. In the following questions, let's find out whether these correlations still hold. To begin, let's first get acquainted with the provided dataframe, `Baseball`:
+
+*** =instructions
+- 1) Look at the first few rows of dataframe, `Baseball` with function `head`.
+- 2) Identify how many observations (`rows`) are in dataframe, `Baseball` with function `nrow`.
+- 3) Identify how many unique individuals (`id`) were sampled in dataframe, `Baseball` with functions `length` and `unique`.
+
+*** =pre_exercise_code
 ```{r}
-#generate basic data
-Month<-c("April", "May", "June", "July", "Aug", "Sept")
-GamesAttendedPerMonth<-c(0,1,2,5,4,0)
-NumberOfAdsServedPerMonth<-c(0,0,0,72,157,71)
-MeanDailyHighTemp<-c(56,66,77,86,75,65)
-QualityOfStadiumFoodConsumed<-c(4,6,6,4,5,5)
-NationalRankingOfTeam<-c(21,15,11,3,7,73)
-
-#generate dataframe of basic data called ‘Variables’
-Variables<-data.frame(GamesAttendedPerMonth, NumberOfAdsServedPerMonth, MeanDailyHighTemp, QualityOfStadiumFoodConsumed, NationalRankingOfTeam)
-Variables<-t(Variables)
-colnames(Variables)<-c("April", "May", "June", "July", "Aug", "Sept")
-row.names(Variables)<-c("GamesAttendedPerMonth","NumberOfAdsServedPerMonth","MeanDailyHighTemp", “QualityOfStadiumFoodConsumed","NationalRankingOfTeam")
-Variables
-
-#generate a table of the Variables with Month listed
-AdvertisingResults<-data.frame(Variables, Month)
-AdvertisingResults
-
-
-
-|                            | April |  May  | June  | July  |  Aug  | Sept  |
-|----------------------------|------:|------:|------:|------:|------:|------:|
-|       Games Attended/Month |   0   |   1   |   2   |   5   |   4   |   0   |
-| Number of Ads Served/Month |   0   |   0   |   0   |  72   |  157  |  71   |
-|   Mean Daily High Temp (F) |  56   |   66  |  77   |  86   |  75   |  65   |
-|   Mean Daily High Temp (C) |  13   |   19  |  25   |  30   |  24   |  18   |
-|    Quality of Stadium Food |   4   |   6   |   6   |   4   |   5   |   5   |
-|      Nat’l Ranking of Team |  21   |  15   |  11   |   4   |   7   |  13   |
-
-
-
-#generate random daily high temperatures (in F)
-MeanDailyHighTempApril<-sapply((rnorm(30,56,8)),as.integer)
-MeanDailyHighTempMay<-sapply((rnorm(31,66,8)),as.integer)
-MeanDailyHighTempJune<-sapply((rnorm(30,77,8)),as.integer)
-MeanDailyHighTempJuly-sapply((rnorm(31,86,8)),as.integer)
-MeanDailyHighTempAug<-sapply((rnorm(30,75,8)),as.integer)
-MeanDailyHighTempSept<-sapply((rnorm(31,65,8)),as.integer)
-
-
-#generate random count of games attended that match basic table
-#there are home games about half of the days each month, so that count is either 13 and 14
-GamesAttendedAPerDayApril<-rbinom(14,1,0)
-GamesAttendedMPerDayMay<-rbinom(13,1,0.07692307692)
-GamesAttendedPerDayJune<-rbinom(14,1,0.14285714285)
-GamesAttendedPerDayJuly<-rbinom(13,1, 0.38461538461)
-GamesAttendedPerDayAug<-rbinom(14,1, 0.28571428571)
-GamesAttendedPerDaySept<-rbinom(13,1,0)
-
-#create function to generate random numbers that sum up to another number
-
-rand_vect <- function(N, M, sd = 1, pos.only = TRUE) {
-  vec <- rnorm(N, M/N, sd)
-  if (abs(sum(vec)) < 0.01) vec <- vec + 1
-  vec <- round(vec / sum(vec) * M)
-  deviation <- M - sum(vec)
-  for (. in seq_len(abs(deviation))) {
-    vec[i] <- vec[i <- sample(N, 1)] + sign(deviation)
+library(dplyr)
+n=62
+set.seed(1)
+#Create rnorm function that allows for min and max
+  rtnorm <- function(n, mean, sd, min = -Inf, max = Inf){
+      qnorm(runif(n, pnorm(min, mean, sd), pnorm(max, mean, sd)), mean, sd)
   }
-  if (pos.only) while (any(vec < 0)) {
-    negs <- vec < 0
-    pos  <- vec > 0
-    vec[negs][i] <- vec[negs][i <- sample(sum(negs), 1)] + 1
-    vec[pos][i]  <- vec[pos ][i <- sample(sum(pos ), 1)] - 1
+#Create rounding function that allows to round to numbers above 1
+  mround <- function(x,base){
+          base*round(x/base)
   }
-  vec
-}
+#Create scaling function that puts number between 0 and 1
+  scale <- function(x){
+    (x - min(x))/(max(x)-min(x))
+  }
+#Dataframe
+  Baseball<-data.frame(id=rep(1:n,each=6))
+  Baseball$month=rep(1:6,n)
+  Baseball$ads.served=ifelse(Baseball$month<4,round(rtnorm(n=n,mean=1,sd=.5,min=0,max=3)),round(rtnorm(n=n,mean=5,sd=3,min=1,max=12)))
+  Baseball$temp<-rep(c(56,66,77,86,81,70),n)
+  Baseball$ranking<-rep(c(21,15,11,4,7,13),n)
+  Baseball$attended<-round(
+                    rtnorm(n=n,mean=3,sd=1.5,min=0,max=6)+
+                    .3*Baseball$ads.served+
+                    .0006*Baseball$temp^2+
+                    -.2*Baseball$ranking
+                    )
+  Baseball$attended[Baseball$attended<0]<-0
+  Baseball$month=rep(c("April","May","June","July","August","September"),n)
+  Baseball<-Baseball[,c("id","month","attended","ads.served","temp","ranking")]
+#Adjustments for this problem
+  Baseball<-Baseball[,c("id","month","attended","ads.served")]
+```
+*** =sample_code
+```{r}
+# 1) Look at the first few rows of dataframe, `Baseball` with function `head`.
 
 
-#generate random daily team ranking 
-NationalRankingOfTeamDailyApril<-sapply((rnorm(30,21,2)),as.integer)
-NationalRankingOfTeamDailyMay<-sapply((rnorm(31,15,2)),as.integer)
-NationalRankingOfTeamDailyJune<-sapply((rnorm(30,11,2)),as.integer)
-NationalRankingOfTeamDailyJuly<-abs(sapply((rnorm(31,4)),as.integer))
-NationalRankingOfTeamDailyAug<-sapply((rnorm(30,7,2)),as.integer)
-NationalRankingOfTeamDailySept<-sapply((rnorm(31,13,2)),as.integer)
-
-#new attendance figures with Men and Women 
-|                            | April |  May  | June  | July  |  Aug  | Sept  |
-|----------------------------|------:|------:|------:|------:|------:|------:|
-|   Average Attendance/Month | 4378  | 6099  | 7744  | 9343  | 9569  | 8785  |
-| Avg Count Ads Served/Month |   0   |   0   |   0   |  72   |  157  |  71   |
-|    Avg Attendance(M)/Month | 2188  | 3064  | 3881  | 4675  | 4791  | 4384  |
-|    Avg Attendance(W)/Month | 2190  | 3035  | 3863  | 4676  | 4788  | 4399  |
-
-#average monthly attendance of treatment + control for women
-MeanAttendanceMonthlyWomenApril<-1106+1084
-MeanAttendanceMonthlyWomenMay<-1523+1512
-MeanAttendanceMonthlyWomenJune<-1920+1943
-MeanAttendanceMonthlyWomenJuly<-2366+2311
-MeanAttendanceMonthlyWomenAug<-2399+2342
-MeanAttendanceMonthlyWomenSept<-2229+2170
-
-#average monthly attendance of treatment + control for men
-MeanAttendanceMonthlyMenApril<-1098+1090
-MeanAttendanceMonthlyMenMay<-1528+1536
-MeanAttendanceMonthlyMenJune<-1941+1940
-MeanAttendanceMonthlyMenJuly<-2374+2301
-MeanAttendanceMonthlyMenAug<-2438+2353
-MeanAttendanceMonthlyMenSept<-2241+2149
+# Note: Notice that the first rows all have the same respondent id, but different months. In this case, the unit of analysis is not individuals or months, but what we could refer to as "person-months". Let's now determine our sample size of "person-months" and number of unique individuals.
 
 
-#average attendance per game of treatment group for women
-AttendancePerGameTreatmentWomenApril<-sapply((rnorm(14,1106,20)),as.integer)
-AttendancePerGameTreatmentWomenMay<-sapply((rnorm(13,1523,20)),as.integer)
-AttendancePerGameTreatmentWomenJune<-sapply((rnorm(14,1920,20)),as.integer)
-AttendancePerGameTreatmentWomenJuly<-sapply((rnorm(13,2366,20)),as.integer)
-AttendancePerGameTreatmentWomenAug<-sapply((rnorm(14,2399,20)),as.integer)
-AttendancePerGameTreatmentWomenSept<-sapply((rnorm(13,2229,20)),as.integer)
+# 2) Identify how many observations (`rows`) are in dataframe, `Baseball` with function `nrow`. Assign this result to object "Solution1"
+    Solution1<-
 
-#average attendance per game of control group for women
-AttendancePerGameControlWomenApril<-sapply((rnorm(14,1084,20)),as.integer)
-AttendancePerGameControlWomenMay<-sapply((rnorm(13,1512,20)),as.integer)
-AttendancePerGameControlWomenJune<-sapply((rnorm(14,1943,20)),as.integer)
-AttendancePerGameControlWomenJuly<-sapply((rnorm(13,2311,20)),as.integer)
-AttendancePerGameControlWomenAug<-sapply((rnorm(14,2342,20)),as.integer)
-AttendancePerGameControlWomenSept<-sapply((rnorm(13,2170,20)),as.integer)
-
-#average attendance per game of treatment group for men
-AttendancePerGameTreatmentMenApril<-sapply((rnorm(14,1098,20)),as.integer)
-AttendancePerGameTreatmentMenMay<-sapply((rnorm(13,1528,20)),as.integer)
-AttendancePerGameTreatmentMenJune<-sapply((rnorm(14,1941,20)),as.integer)
-AttendancePerGameTreatmentMenJuly<-sapply((rnorm(13,2374,20)),as.integer)
-AttendancePerGameTreatmentMenAug<-sapply((rnorm(14,2438,20)),as.integer)
-AttendancePerGameTreatmentMenJuly<-sapply((rnorm(13,2241,20)),as.integer)
-
-#average attendance per game of control group for men
-AttendancePerGameControlMenApril<-sapply((rnorm(14,1090,20)),as.integer)
-AttendancePerGameControlMenMay<-sapply((rnorm(13,1536,20)),as.integer)
-AttendancePerGameMenJune<-sapply((rnorm(14,1090,20)),as.integer)
-AttendancePerGameControlMenJuly<-sapply((rnorm(13,2301,20)),as.integer)
-AttendancePerGameControlMenAug<-sapply((rnorm(14,2353,20)),as.integer)
-AttendancePerGameControlMenJuly<-sapply((rnorm(13,2149,20)),as.integer)
-
-#generate random number of ads served daily each month
-MeanNumberDailyAdsServedPerPersonJuly<-rand_vect(30,70)
-MeanNumberDailyAdsServedPerPersonAug<-rand_vect(31,160)
-MeanNumberDailyAdsServedPerPersonSept<-rand_vect(rnorm(30,70)
+# 3) Identify how many unique individuals (`id`) were sampled in dataframe, `Baseball` with functions `length` and `unique`. To help, we provide sample code for how to determine how long the vector, Baseball$month is, and code for printing the unique months in our sample.
+    length(Baseball$month)
+    unique(Baseball$month)
+    
+    Solution2<-
+      
+```
+*** =solution
+```{r}
+    head(Baseball)
+    Solution1<-nrow(Baseball)
+    Solution2<-length(unique(Baseball$id))
+```
+*** =sct
+```{r}
+test_function("head", incorrect_msg = "Did you use the `head` function?")
+test_function("nrow", incorrect_msg = "Did you use the `nrow` function?")
+test_object("Solution2")
+test_object("Solution3")
+test_error()
+success_msg("Good work! You should always explore your data before running analyses. These are very typical steps that one might take")
+```
 
 
-#ad company creates campaign for second haf of season. The MC is just looking at one person. But do they work overall. Here's a more statistically valid way. Explore the data a bit. Then compare means/CATEs. Did the ads work. Are they confounded.
+
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1
+## Homerun Ad Campaign II - Correlating Variables
+Let's now determine if the Hammer's ad-campaign appears effective by assessing whether our treatment variable is positively correlated with our dependent variable. Specifically:
+
+*** =instructions
+- 1) Find the correlation between `attended` and `ads.served` in dataframe, `Baseball` with the `cor` function.
+
+*** =pre_exercise_code
+```{r}
+library(dplyr)
+n=62
+set.seed(1)
+#Create rnorm function that allows for min and max
+  rtnorm <- function(n, mean, sd, min = -Inf, max = Inf){
+      qnorm(runif(n, pnorm(min, mean, sd), pnorm(max, mean, sd)), mean, sd)
+  }
+#Create rounding function that allows to round to numbers above 1
+  mround <- function(x,base){
+          base*round(x/base)
+  }
+#Create scaling function that puts number between 0 and 1
+  scale <- function(x){
+    (x - min(x))/(max(x)-min(x))
+  }
+#Dataframe
+  Baseball<-data.frame(id=rep(1:n,each=6))
+  Baseball$month=rep(1:6,n)
+  Baseball$ads.served=ifelse(Baseball$month<4,round(rtnorm(n=n,mean=1,sd=.5,min=0,max=3)),round(rtnorm(n=n,mean=5,sd=3,min=1,max=12)))
+  Baseball$temp<-rep(c(56,66,77,86,81,70),n)
+  Baseball$ranking<-rep(c(21,15,11,4,7,13),n)
+  Baseball$attended<-round(
+                    rtnorm(n=n,mean=3,sd=1.5,min=0,max=6)+
+                    .3*Baseball$ads.served+
+                    .0006*Baseball$temp^2+
+                    -.2*Baseball$ranking
+                    )
+  Baseball$attended[Baseball$attended<0]<-0
+  Baseball$month=rep(c("April","May","June","July","August","September"),n)
+  Baseball<-Baseball[,c("id","month","attended","ads.served","temp","ranking")]
+#Adjustments for this problem
+  Baseball<-Baseball[,c("id","month","attended","ads.served")]
+```
+*** =sample_code
+```{r}
+# 1) Find the correlation between `attended` and `ads.served` in dataframe, `Baseball` with the `cor` function. Assign this correlation to the object, Solution1. As an example of how this might be done, we provide the correlation between early summer months and ads served
+    Baseball$earlysummer<-Baseball$month=="April" | Baseball$month=="May" | Baseball$month=="June"
+    cor(Baseball$earlysummer,Baseball$ads.served)
+    
+    Solution1<-
+      
+```
+*** =solution
+```{r}
+    Solution1<-cor(Baseball$attended,Baseball$ads.served)
+```
+*** =sct
+```{r}
+    test_object("Solution1")
+    test_error()
+    success_msg("Good work! Baseball attendance is positively correlated with number of ads served. Let's see if this relationship could be confounded.")
+```
+
+
+
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1
+## Homerun Ad Campaign III - Merging in New Variables
+Let's now determine if the treatment effect of the Hammer's ad-campaign could be confounded by the temperature or rank of the team. To do this, we will need to merge in this data with data.frame `Baseball`:
+
+*** =instructions
+- 1) Print dataframe `dfMonth` to the console.
+- 2) Merge `dfMonth` with dataframe `Baseball` by `month` with the `merge` function.
+
+*** =pre_exercise_code
+```{r}
+library(dplyr)
+n=62
+set.seed(1)
+#Create rnorm function that allows for min and max
+  rtnorm <- function(n, mean, sd, min = -Inf, max = Inf){
+      qnorm(runif(n, pnorm(min, mean, sd), pnorm(max, mean, sd)), mean, sd)
+  }
+#Create rounding function that allows to round to numbers above 1
+  mround <- function(x,base){
+          base*round(x/base)
+  }
+#Create scaling function that puts number between 0 and 1
+  scale <- function(x){
+    (x - min(x))/(max(x)-min(x))
+  }
+#Dataframe
+  Baseball<-data.frame(id=rep(1:n,each=6))
+  Baseball$month=rep(1:6,n)
+  Baseball$ads.served=ifelse(Baseball$month<4,round(rtnorm(n=n,mean=1,sd=.5,min=0,max=3)),round(rtnorm(n=n,mean=5,sd=3,min=1,max=12)))
+  Baseball$temp<-rep(c(56,66,77,86,81,70),n)
+  Baseball$ranking<-rep(c(21,15,11,4,7,13),n)
+  Baseball$attended<-round(
+                    rtnorm(n=n,mean=3,sd=1.5,min=0,max=6)+
+                    .3*Baseball$ads.served+
+                    .0006*Baseball$temp^2+
+                    -.2*Baseball$ranking
+                    )
+  Baseball$attended[Baseball$attended<0]<-0
+  Baseball$month=rep(c("April","May","June","July","August","September"),n)
+  Baseball<-Baseball[,c("id","month","attended","ads.served","temp","ranking")]
+#Adjustments for this problem
+  Baseball<-Baseball[,c("id","month","attended","ads.served")]
+  dfMonth<-data.frame(month=c("April","May","June","July","August","September"),
+                      temp=c(56,66,77,86,81,70),
+                      ranking=c(21,15,11,4,7,13))
+```
+*** =sample_code
+```{r}
+# 1) Print dataframe `dfMonth` to the console. This can be done by either simply typing dfMonth below, or by using the `print` function with `dfMonth`.
+
+
+# 2) Merge `dfMonth` with dataframe `Baseball` by `month` with the `merge` function. The merge function requires three arguments, your first dataframe, your second dataframe, and the name of the column that you want to merge by. To accomplish this, replace 'x, y, and "variable"' in the code below with 'Baseball, dfMonth, and "month"'.
+    Baseball<-merge(x,y,by="variable")
+
+
+```
+*** =solution
+```{r}
+    dfMonth
+    Baseball<-merge(Baseball,dfMonth,by="month")
+```
+*** =sct
+```{r}
+    test_object("Baseball")
+    test_error()
+    success_msg("Good work! This is a common way to merge data from different sized dataframes together. Now we can see whether these other variables are associated with attending baseball games and whether they may be confounding the relationship between baseball attendance and  number of ads served.")
+```
+
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1
+## Homerun Ad Campaign IV - Assessing confounders
+Now that we have the data merged, let's see if the treatment effect of the Hammer's ad-campaign could have been confounded by the temperature or rank of the team:
+
+*** =instructions
+- 1) Find the correlation between `attended` and `temp` in dataframe `Baseball`
+- 2) Find the correlation between `attended` and `ranking` in dataframe `Baseball`
+
+*** =pre_exercise_code
+```{r}
+library(dplyr)
+n=62
+set.seed(1)
+#Create rnorm function that allows for min and max
+  rtnorm <- function(n, mean, sd, min = -Inf, max = Inf){
+      qnorm(runif(n, pnorm(min, mean, sd), pnorm(max, mean, sd)), mean, sd)
+  }
+#Create rounding function that allows to round to numbers above 1
+  mround <- function(x,base){
+          base*round(x/base)
+  }
+#Create scaling function that puts number between 0 and 1
+  scale <- function(x){
+    (x - min(x))/(max(x)-min(x))
+  }
+#Dataframe
+  Baseball<-data.frame(id=rep(1:n,each=6))
+  Baseball$month=rep(1:6,n)
+  Baseball$ads.served=ifelse(Baseball$month<4,round(rtnorm(n=n,mean=1,sd=.5,min=0,max=3)),round(rtnorm(n=n,mean=5,sd=3,min=1,max=12)))
+  Baseball$temp<-rep(c(56,66,77,86,81,70),n)
+  Baseball$ranking<-rep(c(21,15,11,4,7,13),n)
+  Baseball$attended<-round(
+                    rtnorm(n=n,mean=3,sd=1.5,min=0,max=6)+
+                    .3*Baseball$ads.served+
+                    .0006*Baseball$temp^2+
+                    -.2*Baseball$ranking
+                    )
+  Baseball$attended[Baseball$attended<0]<-0
+  Baseball$month=rep(c("April","May","June","July","August","September"),n)
+  Baseball<-Baseball[,c("id","month","attended","ads.served","temp","ranking")]
+```
+*** =sample_code
+```{r}
+# Note, we have sorted the merged dataframe `Baseball` by id and month for you. Although this is not necessary for this problem, it is often preferable to have longitudinal data sorted this way for conducting future analyses.
+    head(Baseball)
+
+# 1) Find the correlation between `attended` and `temp` in dataframe `Baseball`. Assign this correlation to Solution1.
+    Solution1<-
+
+# 2) Find the correlation between `attended` and `ranking` in dataframe `Baseball`. Assign this correlation to Solution2.
+    Solution2<-
+
+```
+*** =solution
+```{r}
+    Solution1<-cor(Baseball$attended,Baseball$temp)
+    Solution2<-cor(Baseball$attended,Baseball$ranking)
+```
+*** =sct
+```{r}
+    test_object("Solution1")
+    test_object("Solution2")
+    test_error()
+    success_msg("Good work! Both temperature and ranking are highly correlated with attending Baseball games. Since these factors are likely associated with when the campaign was launched (during the summer), these factors likely confound the relationship between Baseball attendance and ads served.
+
+Congrulations! You have now finished the introduction to causal inference course. To continue your exploration into causal inference and learn slightly more advanced techniques for statistical inference, we highly recommend you try our next Module, 'Causal Inference II - Experiments")
+```
