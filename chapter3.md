@@ -210,7 +210,7 @@ test_mc(correct = 1, feedback_msgs = c(msg1,msg2))
 
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:1b191b5c59
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1
 ## Homerun Ad Campaign I - Exploring Data
 This series of question will test your knowledge on what we have learned so far, and will introduce some new functions.
 
@@ -284,15 +284,15 @@ set.seed(1)
 ```{r}
 test_function("head", incorrect_msg = "Did you use the `head` function?")
 test_function("nrow", incorrect_msg = "Did you use the `nrow` function?")
+test_object("Solution1")
 test_object("Solution2")
-test_object("Solution3")
 test_error()
 success_msg("Good work! You should always explore your data before running analyses. These are very typical steps that one might take")
 ```
 
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:3c1d77fe1a
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1
 ## Homerun Ad Campaign II - Correlating Variables
 Let's now determine if the Hammer's ad-campaign appears effective by assessing whether our treatment variable is positively correlated with our dependent variable. Specifically:
 
@@ -356,7 +356,7 @@ set.seed(1)
 
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:85efc26bc3
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1
 ## Homerun Ad Campaign III - Merging in New Variables
 Let's now determine if the treatment effect of the Hammer's ad-campaign could be confounded by the temperature or rank of the team. To do this, we will need to merge in this data with data.frame `Baseball`:
 
@@ -424,7 +424,7 @@ set.seed(1)
     success_msg("Good work! This is a common way to merge data from different sized dataframes together. Now we can see whether these other variables are associated with attending baseball games and whether they may be confounding the relationship between baseball attendance and  number of ads served.")
 ```
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:796f46ec84
+--- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1
 ## Homerun Ad Campaign IV - Assessing confounders
 Now that we have the data merged, let's see if the treatment effect of the Hammer's ad-campaign could have been confounded by the temperature or rank of the team:
 
