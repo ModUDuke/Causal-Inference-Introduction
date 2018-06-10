@@ -76,13 +76,13 @@ Last year, a small town baseball team called The Hammers was hoping to attract b
 
 Below is a table tracking the games attended per month and the number of ads served per month of just a single individual who was exposed to the advertising campaign: 
 | Month    |Attended|Ads Served|
-|----------|------:|------:|
-| April    |   0   |   0   |
-| May      |   0   |   1   |
-| June     |   0   |   2   |
-| July     |   7   |   5   |
-| August   |   8   |   4   |
-| September|   6   |   5   |
+|----------|-------:|---------:|
+| April    |   0    |   0      |
+| May      |   0    |   1      |
+| June     |   0    |   2      |
+| July     |   7    |   5      |
+| August   |   8    |   4      |
+| September|   6    |   5      |
 
 It appears that being exposed to ads was associated with going to baseball games for this individual. If we assumed that the individual went to more baseball games in the latter months only because of the ad campaign, how many games per month do you think the individual would have gone to if he were not exposed to ads in the second three months? In other words, based on the average number of games attended in the first 3 months, what would you use as a conservative counterfactual for average number of games attended in each month of the second half?
 
@@ -105,11 +105,14 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:0ecec920ef
 ## Interpreting our Data
 Let’s take another look at how many games this particular individual attended during the baseball season.
-
-|                            | April |  May  | June  | July  |  Aug  | Sept  |
-|----------------------------|------:|------:|------:|------:|------:|------:|
-|       Games Attended/Month |   0   |   1   |   2   |   5   |   4   |   5   |  
-| Number of Ads Served/Month |   0   |   0   |   0   |   7   |   8   |   6   |  
+| Month    |Attended|Ads Served|
+|----------|-------:|---------:|
+| April    |   0    |   0      |
+| May      |   0    |   1      |
+| June     |   0    |   2      |
+| July     |   7    |   5      |
+| August   |   8    |   4      |
+| September|   6    |   5      |
 
 Since the number of baseball games that this individual went to appears to be associated with how many ads he was served, can we conclude that the advertising campaign caused the individual to go to more games?
 
@@ -129,17 +132,18 @@ test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4a0d3cf7b9
 ## Looking for Confounders with Positive Correlations
-Let's look at some other variables that might affect this individual’s baseball game attendance. We gather information on the Mean Daily High Temperature, and National Ranking of Team (from 1-30). Here is our updated table:
+Let's look at some other variables that might affect this individual’s baseball game attendance. We gather add information on the Mean Daily High Temperature, and National Ranking of Team (from 1-30). Here is our updated table:
 
-|                            | April |  May  | June  | July  |  Aug  | Sept  |
-|----------------------------|------:|------:|------:|------:|------:|------:|
-|       Games Attended/Month |   0   |   1   |   2   |   5   |   4   |   5   |
-| Number of Ads Served/Month |   0   |   0   |   0   |   7   |   8   |   6   |
-|   Mean Daily High Temp (F) |  56   |   66  |  77   |  86   |  75   |  65   |
-|    Nat’l Ranking of Team   |  21   |   15  |  11   |   4   |   7   |  13   |
+| Month    |Attended|Ads Served|Temp(F)|Ranking|
+|----------|-------:|---------:|------:|------:|
+| April    |   0    |   0      |   56  |  21   |
+| May      |   0    |   1      |   66  |  15   |
+| June     |   0    |   2      |   77  |  11   |
+| July     |   7    |   5      |   86  |   4   |
+| August   |   8    |   4      |   81  |   7   |
+| September|   6    |   5      |   70  |  13   |
 
-
-We inserted this table into the R workspace so that you may examine with R's correlation function (`cor`). What variable looks like it is **positively** correlated with attendance?
+Which of the following variables look **positively** correlated with attendance?
 
 *** =instructions
 - Mean Daily High Temperature
