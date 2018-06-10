@@ -14,14 +14,14 @@ description : "This chapter will introduce you the important issues of confounde
 Why are confounding variables a potential problem for causal inference?
 *** =instructions
 - Because confounding variables prevent the treatment from being randomly assigned
-- Because the treatment variable is correlated with an unobserved variable that might affect outcomes
+- Because confounding variables might alter the association between the treatment and dependent variable
 - Because confounders are not observed
 *** =sct
 ```{r}
 msg1 = "Almost, but remember, the main reason we worry about confounders has to do with effects on the outcome, not on treatment assignment. Try again."
 msg2 = "Correct! Confounders are called *confounders* for a reason---because when they are present, we cannot distinguish the effect of treatment from the effect of the confounder. To learn causal effects, we want to compare people with treatment and people without treatment. If those two groups of people differ in their values of some potential confounding variable, then we can't tell if differences in outcomes are due to differences in treatment, or differences in the confounder."
 msg3 = "Unobserved variables are not always a problem in causal inference, because they may not have any effect on outomes. Try again"
-test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
+test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
 --- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:6e830d0422
@@ -75,10 +75,14 @@ test_mc(correct = 1, feedback_msgs = c(msg1,msg2))
 Last year, a small town baseball team called The Hammers was hoping to attract bigger audiences to their home games, so halfway through their season they started a social media advertising campaign. Let’s see how well it worked.
 
 Below is a table tracking the games attended per month of just a single individual who was exposed to the advertising campaign: 
-|                            | April |  May  | June  | July  |  Aug  | Sept  |
-|----------------------------|------:|------:|------:|------:|------:|------:|
-|       Games Attended/Month |   0   |   1   |   2   |   5   |   4   |   5   |  
-| Number of Ads Served/Month |   0   |   0   |   0   |   7   |   8   |   6   |  
+| Month    | Games Attended/Month|  Number of Ads Served/Month|
+|----------|------:|------:|
+| April    |   0   |   0   |
+| May      |   0   |   1   |
+| June     |   0   |   2   |
+| July     |   7   |   5   |
+| August   |   8   |   4   |
+| September|   6   |   5   |
 
 It appears that being exposed to ads was associated with going to baseball games for this individual. If we assumed that the individual went to more baseball games in the latter months only because of the ad campaign, how many games per month do you think the individual would have gone to if he were not exposed to ads in the second three months? In other words, based on the average number of games attended in the first 3 months, what would you use as a conservative counterfactual for average number of games attended in each month of the second half?
 
@@ -90,10 +94,10 @@ It appears that being exposed to ads was associated with going to baseball games
 
 *** =sct
 ```{r}
-msg1 = "This person has already shown that they go to some games without ads, so it’s probably safe to assume they’ll go to at least one. Try again.”
-msg2 = “Correct. This person has gone to 3 games in 3 months, so on average this person goes to 1 game per month. If you are optimistic, you could read this as a rising trend leading to either +1 game per month, or even 2x games per month, but let’s just stick with the average of 1 game per month for now”
-msg3 = “This could be a safe guess if you think they’ll continue at their last count. But they’ve shown variability before, so it’s probably wise to back off this. Try again.”
-msg4 = “This could be a safe guess if you think their attendance rate will keep increasing. But they’ve shown variability before, so it’s probably wise to back off this. Try again.”
+msg1 = "This person has already shown that they go to some games without ads, so it’s probably safe to assume they’ll go to at least one. Try again.”"
+msg2 = "“Correct. This person has gone to 3 games in 3 months, so on average this person goes to 1 game per month. If you are optimistic, you could read this as a rising trend leading to either +1 game per month, or even 2x games per month, but let’s just stick with the average of 1 game per month for now”"
+msg3 = "“This could be a safe guess if you think they’ll continue at their last count. But they’ve shown variability before, so it’s probably wise to back off this. Try again.”"
+msg4 = "“This could be a safe guess if you think their attendance rate will keep increasing. But they’ve shown variability before, so it’s probably wise to back off this. Try again.”"
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
 
@@ -116,9 +120,9 @@ Since the number of baseball games that this individual went to appears to be as
 
 *** =sct
 ```{r}
-msg1 = 'Not yet! We do not know whether the difference in games attended after being exposed to the ad-campaign was statistically significant, nor do we have a sense for what the counterfactual would be (i.e. maybe he would have gone to more games anyway)'
-msg2 = 'Not yet! We do not know whether the difference in games attended after being exposed to the ad-campaign was statistically significant, nor do we have a sense for what the counterfactual would be (i.e. maybe he would have gone to more games anyway)'
-msg3 = “Correct! We want to let this experiment run throughout the rest of the advertising campaign, which will avoid the temptation of stopping as soon as we get an answer that we like. That would be hacking our results!”
+msg1 = "Not yet! We do not know whether the difference in games attended after being exposed to the ad-campaign was statistically significant, nor do we have a sense for what the counterfactual would be (i.e. maybe he would have gone to more games anyway)"
+msg2 = "Not yet! We do not know whether the difference in games attended after being exposed to the ad-campaign was statistically significant, nor do we have a sense for what the counterfactual would be (i.e. maybe he would have gone to more games anyway)"
+msg3 = "“Correct! We want to let this experiment run throughout the rest of the advertising campaign, which will avoid the temptation of stopping as soon as we get an answer that we like. That would be hacking our results!”"
 test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
@@ -135,7 +139,7 @@ Let's look at some other variables that might affect this individual’s basebal
 |    Nat’l Ranking of Team   |  21   |   15  |  11   |   4   |   7   |  13   |
 
 
-We inserted this table into the R workspace What variable looks like it is **positively** correlated with attendance?
+We inserted this table into the R workspace so that you may examine with R's correlation function (`cor`). What variable looks like it is **positively** correlated with attendance?
 
 *** =instructions
 - Mean Daily High Temperature
