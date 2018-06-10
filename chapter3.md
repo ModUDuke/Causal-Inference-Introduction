@@ -74,8 +74,8 @@ test_mc(correct = 1, feedback_msgs = c(msg1,msg2))
 ## Determining a Reasonable Counterfactual
 Last year, a small town baseball team called The Hammers was hoping to attract bigger audiences to their home games, so halfway through their season they started a social media advertising campaign. Let’s see how well it worked.
 
-Below is a table tracking the games attended per month of just a single individual who was exposed to the advertising campaign: 
-| Month    | Games Attended/Month|  Number of Ads Served/Month|
+Below is a table tracking the games attended per month and the number of ads served per month of just a single individual who was exposed to the advertising campaign: 
+| Month    |Attended|Ads Served|
 |----------|------:|------:|
 | April    |   0   |   0   |
 | May      |   0   |   1   |
