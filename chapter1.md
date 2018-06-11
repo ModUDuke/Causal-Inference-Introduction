@@ -38,9 +38,9 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ## Soggy Cereal I - Dependent Variables
 The food scientists at breakfast cereal manufacturer Puritan Wheat Inc. have developed a new breakfast cereal product called TechnoCrunch. It has a biodegradable nanomaterial coating designed to keep its flakes crispy in milk for longer than the flakes in its competitor cereal, NeoPuffs. Now Puritan Wheat wants to run an experiment to see if the formula works, so it compares the time it takes for TechnoCrunch to get soggy in milk versus the time it takes for NeoPuffs to get soggy. 
 
-Remember that the treatment variable is also called the **independent** variable because are free to manipulate its value in an experiment, and the outcome variable is also called the **dependent** variable, because its value **depends** on the independent variable.
+In analysis, you may see the treatent variable is called the **independent** variable (because we have the freedom to manipulate its value in an experiment), and the outcome variable is called the **dependent** variable (because its value **depends** on the independent variable). So let's use those terms.
 
-Based on this prompt, which of the following is the dependent variable in Puritan Wheat's analysis?
+In this experiment on the two cereals, which of the following is the dependent variable in Puritan Wheat's analysis?
 
 *** =instructions
 - The brand of cereal.
