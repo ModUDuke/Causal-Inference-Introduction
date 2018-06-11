@@ -46,7 +46,7 @@ The food scientists at breakfast cereal manufacturer Puritan Wheat Inc. have dev
 
 *** =sct
 ```{r}
-msg1 = "This is the experimental condition that causes the outcome (i.e. an independent variable."
+msg1 = "This is the experimental condition that causes the outcome (i.e. an independent variable)."
 msg2 = "This is likely correlated with how the dependent variable, but is not mentioned in the prompt. Try again"
 msg3 = "Correct! The dependent variable is one's outcome of interest."
 msg4 = "Not quite. Try again"
