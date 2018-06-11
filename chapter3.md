@@ -294,7 +294,9 @@ success_msg("Good work! You should always explore your data before running analy
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:3c1d77fe1a
 ## Homerun Ad Campaign II - Correlating Variables
-Let's now determine if the Hammer's ad-campaign appears effective by assessing whether our treatment variable is positively correlated with our dependent variable. Specifically:
+Let's now determine if the Hammer's ad-campaign appears effective by assessing whether our treatment variable is positively correlated with our outcome variable. In analysis, you may see the treatment variable is called the **independent** variable (because we have the freedom to manipulate its value in an experiment), and the outcome variable is called the **dependent** variable (because its value **depends** on the treatment variable), so let’s use those terms. 
+
+Use the `cor` function to discover whether our independent variable (a.k.a. treatment variable), `ads.served`, is correlated with our dependent variable (a.k.a. outcome variable), `attended`.
 
 *** =instructions
 - 1) Find the correlation between `attended` and `ads.served` in dataframe, `Baseball` with the `cor` function.
