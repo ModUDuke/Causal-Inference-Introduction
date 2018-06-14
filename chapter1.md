@@ -231,7 +231,7 @@ success_msg("Good work! The above functions will often come in handy as you cont
 //player.vimeo.com/video/230622159
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:caa5b2cf8b
-## Soggy Cereal V - Means, Medians, and Standard Deviations
+## Soggy Cereal 2.a - Means, Medians, and Standard Deviations
 Before running any direct comparisons between TechnoCrunch and NeoPuffs, Puritan Wheat Inc. now wants you to get some detailed descriptive statistics about the `time` variable in its dataset. Using the dataframe `Soggy`, determine the following:
 
 *** =instructions
@@ -302,7 +302,7 @@ success_msg("Good work! As a reminder, the difference in the median and mean of 
 
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:0322894cdd
-## Soggy Cereal 2 - Minimums, Maximums, and Summaries
+## Soggy Cereal 2.b - Minimums, Maximums, and Summaries
 Before running any direct comparisons between TechnoCrunch and NeoPuffs, Puritan Wheat Inc. now wants you to get some descriptive about flakes that are just in TechnoCrunch cereal. Using the dataframe `Soggy`, determine the following:
 
 *** =instructions
