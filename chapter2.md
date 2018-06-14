@@ -10,7 +10,7 @@ description : "This chapter will introduce you to individual, group, and average
 
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:0eb921aaf9
-## Soggy Cereal VII - Average Treatment
+## Soggy Cereal 3.a - Average Treatment
 
 Since we found no significant errors in their dataset in Chapter 1, Puritan Wheat Inc. now wants us to determine whether their cereal TechnoCrunch lasts a longer amount of `time` before it gets soggy than NeoPuffs. Conduct the  the following steps:
 
@@ -83,7 +83,7 @@ success_msg("Good work! It appears that TechnoCrunch's crunchiness lasts longer 
 
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:7fd76a360d
-## Soggy Cereal VIII - Confounders
+## Soggy Cereal 3.b - Confounders
 Puritan Wheat Inc. wants to know if there are any factors that might contribute to the difference in the time it took for TechnoCrunch and Neopuffs to get soggy. Puritan Wheat suggests exploring whether `milk` absorption or `fiber` content are correlated with `time` before sogginess. That is, conduct the the following steps:
 
 *** =instructions
@@ -161,7 +161,7 @@ success_msg("Good work! There is a positive correlation between fiber and time. 
 
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:6238dbab2d
-## Calculating Ice Cream Recipe Changes I
+## Calculating Ice Cream Recipe Changes, part 1
 Suppose Eddie's Ice Cream wants to know the effect of a new chocolate ice cream recipe on how many cartons of ice cream someone buys next month. They try distributing their new chocolate ice cream to one grocery store, and after a month, they survey three regular Eddie's customers at this store. The first person surveyed bought 10 fewer cartons of Eddie's ice cream after changing the recipe, the second bought 6 more cartons, and the third bought 5 fewer cartons. Assuming that no other factors that influenced their ice cream consumption, this would mean that the experiment's unit-level causal effects were -10, 6, -5 cartons of ice cream. Based on this sample, what was the average treatment effect (ATE) of changing the Eddie's chocolate ice cream recipe on ice cream consumption?
 *** =instructions
 - 3
@@ -181,8 +181,8 @@ test_mc(correct = 4, feedback_msgs = c(msg1,msg2,msg3,msg4))
 
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:2bbbcc3971
-## Calculating Ice Cream Recipe Changes II
-Edy's then surveyed three people who were not regular Edy's customers. Their unit level causal effects of the change in the chocolate ice cream recipe were -1, 0, 2. If the experiment's unit-level causal effects on regular Edy's customers was -10, 6, -5 cartons of ice cream
+## Calculating Ice Cream Recipe Changes, part 2
+Eddie's then surveyed three people who were not regular Eddie's customers. Their unit level causal effects of the change in the chocolate ice cream recipe were -1, 0, 2. If the experiment's unit-level causal effects on regular Eddie's customers was -10, 6, -5 cartons of ice cream
 What is the difference between CATE (regular customers) and CATE(not regular customers)?
 *** =instructions
 - -3.33
@@ -199,7 +199,7 @@ test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:311670fb1a
-## Practice identifying heterogeneous outcomes (Part 1)
+## HR at Unter 1.a - Identifying heterogeneous outcomes
 The transportation network company, Unter Technologies, is interested in improving their employee morale and reducing employee turnover rate by downsizing their Human Resources (HR) Department.
 
 To make sure this would not antagonize their workforce, Unter conducts an experiment: With a balanced sample of employees, Unter tells a treatment group that the HR Department will be downsized in the following year, and a control group that the HR Department will remain the same size in the following year (and magically, they don't end up discussing this with each other). Unter then surveys the employees to find out whether employees plan to look for new jobs, with response options 0="No" and 1="Yes."
@@ -251,7 +251,7 @@ success_msg("Good work! It seems that reducing the size of HR reduced Unter empl
 ```
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:6217752659
-## Practice identifying heterogeneous outcomes (Part 2)
+## HR at Unter 1.b - Practice identifying heterogeneous outcomes, part 2
 Since reducing the size of HR seems to reduce the rate of employee turnover, the CEO of Unter Technologies is now heavily considering this option.
 
 However, his chief operating officer (COO) warns him that reducing the size of HR might be unpopular among certain minority groups within the company, particularly among women. The COO sends the CEO a figure (illustrated in the R workspace) showing the results of his experiment among men and women. Which of the following does the figure suggest?
@@ -302,7 +302,7 @@ test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3,msg4))
 
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:a4ab5d9f9b
-## Practice identifying heterogeneous outcomes (Part 3)
+## HR at Unter 1.c - Practice identifying heterogeneous outcomes, part 3
 Let's further analyze the heterogeneous effect of the treatment on men vs. women in Unter Technologies. With the dataframe, `UnterHR`, determine the average treatment effect of reducing the size of Unter's HR department on employee turnover by gender (`Female`).
 
 *** =instructions
