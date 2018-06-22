@@ -2,7 +2,7 @@
 title       : "Getting Started With The Basics"
 description : "This chapter will introduce you to the basic concepts behind causal inference, and will let you learn and practice through R"
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:f0b83a3301
 ## Trailer for Causal Inference with R - Introduction
 *** =video_link
 //player.vimeo.com/video/276321141
@@ -37,7 +37,7 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 *** =video_link
 //player.vimeo.com/video/230621760
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:5c0a93ad03
 ## Let’s Code: Comparing Breakfast Cereals, Part 1
 *** =video_link
 //player.vimeo.com/video/276320362
@@ -238,7 +238,7 @@ success_msg("Good work! The above functions will often come in handy as you cont
 *** =video_link
 //player.vimeo.com/video/230622159
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:28fcd63342
 ## Let’s Code: Comparing Breakfast Cereals, Part 2
 *** =video_link
 //player.vimeo.com/video/276320339
@@ -473,7 +473,7 @@ msg2 = "Correct! You will find many correlations in your data, sometimes very st
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2))
 ```
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:d9d4a51011
 ## Let’s Code: A Superstitious Sports Fan
 *** =video_link
 //player.vimeo.com/video/276320346
