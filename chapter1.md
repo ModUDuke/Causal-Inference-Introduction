@@ -1,7 +1,11 @@
 ﻿--- 
 title       : "Getting Started With The Basics"
 description : "This chapter will introduce you to the basic concepts behind causal inference, and will let you learn and practice through R"
- 
+
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
+## Trailer for Causal Inference with R - Introduction
+*** =video_link
+//player.vimeo.com/video/276321141
 
 --- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:1b7bc85492
 ## Introduction to the Causal Inference Bootcamp
@@ -33,6 +37,10 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 *** =video_link
 //player.vimeo.com/video/230621760
 
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
+## Let’s Code: Comparing Breakfast Cereals, Part 1
+*** =video_link
+//player.vimeo.com/video/276320362
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:362bf33c36
 ## Soggy Cereal 1.a - Outcome Variables
@@ -229,6 +237,12 @@ success_msg("Good work! The above functions will often come in handy as you cont
 ## Description
 *** =video_link
 //player.vimeo.com/video/230622159
+
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
+## Let’s Code: Comparing Breakfast Cereals, Part 2
+*** =video_link
+//player.vimeo.com/video/276320339
+
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:caa5b2cf8b
 ## Soggy Cereal 2.a - Means, Medians, and Standard Deviations
@@ -458,6 +472,11 @@ msg1 = "It can be so tempting to assume that any strong correlations in our data
 msg2 = "Correct! You will find many correlations in your data, sometimes very strong ones like this, but that does not mean there’s any causal relationship between them. Sometimes a correlation may help you ask better questions about what’s going on, but don’t assume they are causal by themselves."
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2))
 ```
+
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
+## Let’s Code: A Superstitious Sports Fan
+*** =video_link
+//player.vimeo.com/video/276320346
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:bfa70779e1
 ## Does Fan Behavior Affect Sports Teams?
