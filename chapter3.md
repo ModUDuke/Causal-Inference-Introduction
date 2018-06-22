@@ -203,11 +203,10 @@ msg2 = "Try Again"
 test_mc(correct = 1, feedback_msgs = c(msg1,msg2))
 ```
 
-
-
-
-
-
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
+## Let’s Code: A Bigger Sample Size for the Ad Campaign
+*** =video_link
+//player.vimeo.com/video/276320373
 
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:1b191b5c59
