@@ -8,7 +8,7 @@ description : "This chapter will introduce you to individual, group, and average
 *** =video_link
 //player.vimeo.com/video/230622767
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:41d2451b2e
 ## Let’s Code: Finishing Up with Breakfast Cereals
 *** =video_link
 //player.vimeo.com/video/276320325
@@ -201,7 +201,7 @@ msg3 = "Try again: CATE(regular) = [(-10) + (6) + (-5)]/3 = -3. CATE(not regular
 msg4 = "Try again: CATE(regular) = [(-10) + (6) + (-5)]/3 = -3. CATE(not regular) = (-1 + 0 + 2)/3 = 1/3."
 test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:6b8a71d25a
 ## Let’s Code: A Problem with Employee Unhappiness
 *** =video_link
 //player.vimeo.com/video/276320364
