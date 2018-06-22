@@ -78,8 +78,8 @@ Below is a table tracking the games attended per month and the number of ads ser
 | Month    |Attended|Ads Served|
 |----------|-------:|---------:|
 | April    |   0    |   0      |
-| May      |   0    |   1      |
-| June     |   0    |   2      |
+| May      |   1    |   0      |
+| June     |   2    |   0      |
 | July     |   7    |   5      |
 | August   |   8    |   4      |
 | September|   6    |   5      |
@@ -108,8 +108,8 @@ Let’s take another look at how many games this particular individual attended 
 | Month    |Attended|Ads Served|
 |----------|-------:|---------:|
 | April    |   0    |   0      |
-| May      |   0    |   1      |
-| June     |   0    |   2      |
+| May      |   1    |   0      |
+| June     |   2    |   0      |
 | July     |   7    |   5      |
 | August   |   8    |   4      |
 | September|   6    |   5      |
@@ -119,7 +119,7 @@ Since the number of baseball games that this individual went to appears to be as
 *** =instructions
 - Yes, the treatment had a positive effect on the outcome variable
 - No, the treatment had no effect.
-- It's too soon to tell.
+- We don't know, because there could be confounders.
 
 *** =sct
 ```{r}
@@ -137,8 +137,8 @@ Let's look at some other variables that might affect this individual’s basebal
 | Month    |Attended|Ads Served|Temp(F)|Ranking|
 |----------|-------:|---------:|------:|------:|
 | April    |   0    |   0      |   56  |  21   |
-| May      |   0    |   1      |   66  |  15   |
-| June     |   0    |   2      |   77  |  11   |
+| May      |   1    |   0      |   66  |  15   |
+| June     |   2    |   0      |   77  |  11   |
 | July     |   7    |   5      |   86  |   4   |
 | August   |   8    |   4      |   81  |   7   |
 | September|   6    |   5      |   70  |  13   |
@@ -166,8 +166,8 @@ Now that we’ve seen what other variables are positively correlated with attend
 | Month    |Attended|Ads Served|Temp(F)|Ranking|
 |----------|-------:|---------:|------:|------:|
 | April    |   0    |   0      |   56  |  21   |
-| May      |   0    |   1      |   66  |  15   |
-| June     |   0    |   2      |   77  |  11   |
+| May      |   1    |   0      |   66  |  15   |
+| June     |   2    |   0      |   77  |  11   |
 | July     |   7    |   5      |   86  |   4   |
 | August   |   8    |   4      |   81  |   7   |
 | September|   6    |   5      |   70  |  13   |
