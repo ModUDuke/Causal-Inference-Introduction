@@ -8,6 +8,10 @@ description : "This chapter will introduce you to individual, group, and average
 *** =video_link
 //player.vimeo.com/video/230622767
 
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
+## Let’s Code: Finishing Up with Breakfast Cereals
+*** =video_link
+//player.vimeo.com/video/276320325
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:0eb921aaf9
 ## Soggy Cereal 3.a - Average Treatment
@@ -197,6 +201,10 @@ msg3 = "Try again: CATE(regular) = [(-10) + (6) + (-5)]/3 = -3. CATE(not regular
 msg4 = "Try again: CATE(regular) = [(-10) + (6) + (-5)]/3 = -3. CATE(not regular) = (-1 + 0 + 2)/3 = 1/3."
 test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 
+## Let’s Code: A Problem with Employee Unhappiness
+*** =video_link
+//player.vimeo.com/video/276320364
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:311670fb1a
 ## HR at Unter 1.a - Identifying heterogeneous outcomes
