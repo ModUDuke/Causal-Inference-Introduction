@@ -72,19 +72,20 @@ test_mc(correct = 1, feedback_msgs = c(msg1,msg2))
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:b1da122e43
 ## Determining a Reasonable Counterfactual
-Last year, a small town baseball team called The Hammers was hoping to attract bigger audiences to their home games, so halfway through their season they started a social media advertising campaign. Let’s see how well it worked.
+Last year, a small town baseball team called The Hammers was hoping to attract bigger audiences to their home games, so halfway through their season they started a social media advertising campaign. Let’s see how well it worked and explore the data by looking at the behaviour of just one individual.
 
-Below is a table tracking the games attended per month and the number of ads served per month of just a single individual who was exposed to the advertising campaign: 
+To find a causal effect, we need to develop a counterfactual. So let's see if our subject went to any baseball games before they saw the ads. Below is a table tracking the games attended per month and the number of ads served per month for our initial subject: 
+
 | Month    |Attended|Ads Served|
 |----------|-------:|---------:|
-| April    |   0    |   0      |
-| May      |   1    |   0      |
-| June     |   2    |   0      |
-| July     |   7    |   5      |
-| August   |   8    |   4      |
-| September|   6    |   5      |
+| April    |   0    |    0     |
+| May      |   1    |    0     |
+| June     |   2    |    0     |
+| July     |   -    |    -     |
+| August   |   -    |    -     |
+| September|   -    |    -     |
 
-It appears that being exposed to ads was associated with going to baseball games for this individual. If we assumed that the individual went to more baseball games in the latter months only because of the ad campaign, how many games per month do you think the individual would have gone to if he were not exposed to ads in the second three months? In other words, based on the average number of games attended in the first 3 months, what would you use as a conservative counterfactual for average number of games attended in each month of the second half?
+Based on the average number of games attended per month in the first 3 months, what would you use as a conservative counterfactual for average number of games attended per month in the second 3 months?
 
 *** =instructions
 - 0
@@ -103,60 +104,69 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:0ecec920ef
-## Interpreting our Data
-Let’s take another look at how many games this particular individual attended during the baseball season.
+## Looking at the results of the first month
+Let’s see what happened in the first month of the ad campaign for our individual fan. Take a look at the following table:
+
 | Month    |Attended|Ads Served|
 |----------|-------:|---------:|
-| April    |   0    |   0      |
-| May      |   1    |   0      |
-| June     |   2    |   0      |
-| July     |   7    |   5      |
-| August   |   8    |   4      |
-| September|   6    |   5      |
+| April    |   0    |    0     |
+| May      |   1    |    0     |
+| June     |   2    |    0     |
+| July     |   7    |    5     |
+| August   |   -    |    -     |
+| September|   -    |    -     |
 
-Since the number of baseball games that this individual went to appears to be associated with how many ads he was served, can we conclude that the advertising campaign caused the individual to go to more games?
+Since the number of baseball games that this individual went to appears to increase after viewing 5 ads, can we conclude that the advertising campaign caused the individual to go to more games?
 
 *** =instructions
-- Yes, the treatment had a positive effect on the outcome variable
+- Yes, the treatment had a positive effect on the outcome variable.
 - No, the treatment had no effect.
-- We don't know, because there could be confounders.
+- It's too early to tell.
 
 *** =sct
 ```{r}
-msg1 = "Not yet! We do not know whether the difference in games attended after being exposed to the ad-campaign was statistically significant, nor do we have a sense for what the counterfactual would be (i.e. maybe he would have gone to more games anyway)"
-msg2 = "Not yet! We do not know whether the difference in games attended after being exposed to the ad-campaign was statistically significant, nor do we have a sense for what the counterfactual would be (i.e. maybe he would have gone to more games anyway)"
-msg3 = "Correct! We want to let this experiment run throughout the rest of the advertising campaign, which will avoid the temptation of stopping as soon as we get an answer that we like. That would be hacking our results!"
+msg1 = "Not yet! We do not know whether the difference in games attended after being exposed to the ad-campaign was statistically significant, nor do we have a sense for any potential confounding variables"
+msg2 = "Not yet! We do not know whether the difference in games attended after being exposed to the ad-campaign was statistically significant, nor do we have a sense for any potential confounding variables"
+msg3 = "Correct! Stopping this analysis just because we like the results in the first month would be hacking our results. This month could just be due to confounders. We should let the ad campaign run for the whole season to get a better conclusion"
 test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4a0d3cf7b9
 ## Looking for Confounders with Positive Correlations
-Let's look at some other variables that might affect this individual’s baseball game attendance. We gather add information on the Mean Daily High Temperature, and National Ranking of Team (from 1-30). Here is our updated table:
+Let's look at the full season's attendance figures for our sample individual, as well as some other variables that might affect this individual’s baseball game attendance. As you'll see, their attendance does seem to be positively correlated with the ad campaign:
+
+| Month    |Attended|Ads Served|
+|----------|-------:|---------:|
+| April    |   0    |    0     |
+| May      |   1    |    0     |
+| June     |   2    |    0     |
+| July     |   7    |    5     |
+| August   |   8    |    4     |
+| September|   6    |    5     |
+
+But we think there could be confounders at work, so let's add information on the Mean Daily High Temperature, and National Ranking of Team (from 1-30). Here is our updated table:
 
 | Month    |Attended|Ads Served|Temp(F)|Ranking|
 |----------|-------:|---------:|------:|------:|
-| April    |   0    |   0      |   56  |  21   |
-| May      |   1    |   0      |   66  |  15   |
-| June     |   2    |   0      |   77  |  11   |
-| July     |   7    |   5      |   86  |   4   |
-| August   |   8    |   4      |   81  |   7   |
-| September|   6    |   5      |   70  |  13   |
+| April    |   0    |    0     |   56  |  21   |
+| May      |   1    |    0     |   66  |  15   |
+| June     |   2    |    0     |   77  |  11   |
+| July     |   7    |    5     |   86  |   4   |
+| August   |   8    |    4     |   81  |   7   |
+| September|   6    |    5     |   70  |  13   |
 
 Which of the following variables look **positively** correlated with attendance?
 
 *** =instructions
 - Mean Daily High Temperature
-- Quality of Stadium Food
 - National Ranking of Team
-
 
 *** =sct
 ```{r}
 msg1 = "Correct! As attendance goes up, the temperature does too, so these are likely to be positively correlated"
-msg2 = "The quality of stadium food seems hover around 5, so it doesn’t seem to vary significantly throughout the season. Try again."
-msg3 = "The team’s performance varies pretty significantly through the season, but that number goes down as the attendance goes up, so it’s not a positive correlation. Try again."
-test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3))
+msg2 = "The team’s performance varies pretty significantly through the season, but that number goes down as the attendance goes up, so it’s not a positive correlation. Try again."
+test_mc(correct = 1, feedback_msgs = c(msg1,msg2))
 ```
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:c379b36151
@@ -176,15 +186,13 @@ What variable looks like it is **negatively** correlated with attendance?
 
 *** =instructions
 - Mean Daily High Temperature
-- Quality of Stadium Food
 - National Ranking of Team
 
 *** =sct
 ```{r}
 msg1 = "As attendance goes up, the temperature does too, so these are likely to be positively correlated, not negatively correlated, so try again."
-msg2 = "The quality of stadium food seems hover around 5, so it doesn’t seem to vary significantly throughout the season. Try again."
-msg3 = "Correct! At first glance, the National Ranking of the team goes down as the attendance goes up, so it’s likely a negative correlation. Note that this wording is sort of tricky because a `lower` ranking implies that a team is performing `better`, whereas `negative` is often used colloquially to mean something is `worse`."
-test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
+msg2 = "Correct! At first glance, the National Ranking of the team goes down as the attendance goes up, so it’s likely a negative correlation. Note that this wording is sort of tricky because a `lower` ranking implies that a team is performing `better`, whereas `negative` is often used colloquially to mean something is `worse`."
+test_mc(correct = 2, feedback_msgs = c(msg1,msg2))
 ```
 
 
@@ -213,7 +221,7 @@ test_mc(correct = 1, feedback_msgs = c(msg1,msg2))
 ## Homerun Ad Campaign I - Exploring Data
 This series of question will test your knowledge on what we have learned so far, and will introduce some new functions.
 
-The Hammers decided to expand their sample to examine how effective their social media camapign was. They collected more information on how many games each individual attended per month, as well as how many ads they were served to each individual per month. In the following questions, let's find out whether these correlations still hold. To begin, let's first get acquainted with the provided dataframe, `Baseball`:
+The Hammers decided to expand their sample to examine how effective their social media campaign was. They collected more information on how many games each individual attended per month, as well as how many ads they were served to each individual per month. In the following questions, let's find out whether these correlations still hold. To begin, let's first get acquainted with the provided dataframe, `Baseball`:
 
 *** =instructions
 - 1) Look at the first few rows of dataframe, `Baseball` with function `head`.
@@ -359,7 +367,7 @@ set.seed(1)
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:85efc26bc3
 ## Homerun Ad Campaign III - Merging in New Variables
-Let's now determine if the treatment effect of the Hammer's ad-campaign could be confounded by the temperature or rank of the team. To do this, we will need to merge in this data with data.frame `Baseball`:
+Let's now determine if the treatment effect of the Hammer's ad campaign could be confounded by the temperature or rank of the team. To do this, we will need to merge in this data with dataframe `Baseball`:
 
 *** =instructions
 - 1) Print dataframe `dfMonth` to the console.
@@ -427,7 +435,7 @@ set.seed(1)
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:796f46ec84
 ## Homerun Ad Campaign IV - Assessing confounders
-Now that we have the data merged, let's see if the treatment effect of the Hammer's ad-campaign could have been confounded by the temperature or rank of the team:
+Now that we have the data merged, let's see if the treatment effect of the Hammer's ad campaign could have been confounded by the temperature or rank of the team:
 
 *** =instructions
 - 1) Find the correlation between `attended` and `temp` in dataframe `Baseball`
@@ -490,5 +498,5 @@ set.seed(1)
     test_error()
     success_msg("Good work! Both temperature and ranking are highly correlated with attending Baseball games. Since these factors are likely associated with when the campaign was launched (during the summer), these factors likely confound the relationship between Baseball attendance and ads served.
 
-Congrulations! You have now finished the introduction to causal inference course. To continue your exploration into causal inference and learn slightly more advanced techniques for statistical inference, we highly recommend you try our next Module, 'Causal Inference II - Experiments")
+Congratulations! You have now finished the Causal Inference with R - Introduction course. To continue your exploration into causal inference and learn slightly more advanced techniques for statistical inference, we highly recommend you try our next course, 'Causal Inference with R - Experiments")
 ```
