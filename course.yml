@@ -1,12 +1,21 @@
-title            : Causal Inference with R - Introduction
-description      : Welcome to the introduction of our 7 course series on causal inference concepts and methods created by Duke University's Social Sciences Research Institute, with support from eBay, Inc. Designed to teach you causal inference concepts, methods, and how to code in R with realistic data, this introduction focuses on how to interpret treatment effects, and how to explore and derive key summary statistics from dataframes. We’ll stay away from dense statistical math and focus instead on higher level concepts that data scientists need to always consider when examining and making inferences about data.   
+title: Causal Inference with R - Introduction
+description: Welcome to the introduction of our 7 course series on causal inference
+  concepts and methods created by Duke University's Social Sciences Research Institute,
+  with support from eBay, Inc. Designed to teach you causal inference concepts, methods,
+  and how to code in R with realistic data, this introduction focuses on how to interpret
+  treatment effects, and how to explore and derive key summary statistics from dataframes.
+  We’ll stay away from dense statistical math and focus instead on higher level concepts
+  that data scientists need to always consider when examining and making inferences
+  about data.
 programming_language: r
-instructors      :
- - matt.masten@duke.edu
- - speckart@duke.edu
- - ransom@ou.edu
- - bdaronson@gmail.com
- - cooper@duke.edu
-university       : DataCamp
-difficulty_level : 2
-time_needed      : 4 hours
+instructors:
+- matt.masten@duke.edu
+- speckart@duke.edu
+- ransom@ou.edu
+- bdaronson@gmail.com
+- cooper@duke.edu
+university: DataCamp
+difficulty_level: 2
+time_needed: 4 hours
+datasets:
+  chart.jpeg: Chart
