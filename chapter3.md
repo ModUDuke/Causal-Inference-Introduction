@@ -369,7 +369,7 @@ set.seed(1)
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:85efc26bc3
 ## Homerun Ad Campaign III - Merging in New Variables
-Let's now determine if the treatment effect of the Hammer's ad campaign could be confounded by the temperature or rank of the team. To do this, we will need to merge in this data with dataframe `Baseball`:
+Let's now determine if the treatment effect of the Hammer's ad campaign could be confounded by quality of stadium food, the daily temperature, or rank of the team. To do this, we will need to merge in this data with dataframe `Baseball`:
 
 *** =instructions
 - 1) Print dataframe `dfMonth` to the console.
@@ -438,11 +438,13 @@ set.seed(1)
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:796f46ec84
 ## Homerun Ad Campaign IV - Assessing confounders
-Now that we have the data merged, let's see if the treatment effect of the Hammer's ad campaign could have been confounded by the temperature or rank of the team:
+Now that we have the data merged, let's see if the treatment effect of the Hammer's ad campaign could have been confounded by the  temperature, the quality of stadium food (on a scale of 1-10), or the rank of the team:
 
 *** =instructions
 - 1) Find the correlation between `attended` and `temp` in dataframe `Baseball`
-- 2) Find the correlation between `attended` and `ranking` in dataframe `Baseball`
+- 2) Find the correlation between `attended` and `food` in dataframe `Baseball`
+- 3) Find the correlation between `attended` and `ranking` in dataframe `Baseball`
+
 
 *** =pre_exercise_code
 ```{r}
@@ -486,19 +488,23 @@ set.seed(1)
 # 1) Find the correlation between `attended` and `temp` in dataframe `Baseball`. Assign this correlation to Solution1.
     Solution1<-
 
-# 2) Find the correlation between `attended` and `ranking` in dataframe `Baseball`. Assign this correlation to Solution2.
+# 2) Find the correlation between `attended` and `food` in dataframe `Baseball`. Assign this correlation to Solution2.
     Solution2<-
 
+# 3) Find the correlation between `attended` and `ranking` in dataframe `Baseball`. Assign this correlation to Solution3.
+    Solution3<-
 ```
 *** =solution
 ```{r}
     Solution1<-cor(Baseball$attended,Baseball$temp)
+    Solution2<-cor(Baseball$attended,Baseball$food)
     Solution2<-cor(Baseball$attended,Baseball$ranking)
 ```
 *** =sct
 ```{r}
     test_object("Solution1")
     test_object("Solution2")
+    test_object("Solution3")
     test_error()
     success_msg("Good work! Both temperature and ranking are highly correlated with attending Baseball games. Since these factors are likely associated with when the campaign was launched (during the summer), these factors likely confound the relationship between Baseball attendance and ads served.
 
