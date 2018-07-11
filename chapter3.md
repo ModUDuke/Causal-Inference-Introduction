@@ -250,6 +250,7 @@ set.seed(1)
   Baseball$month=rep(1:6,n)
   Baseball$ads.served=ifelse(Baseball$month<4,round(rtnorm(n=n,mean=1,sd=.5,min=0,max=3)),round(rtnorm(n=n,mean=5,sd=3,min=1,max=12)))
   Baseball$temp<-rep(c(56,66,77,86,81,70),n)
+  Baseball$food<-rep(c(2,3,3,2,2,3),n)
   Baseball$ranking<-rep(c(21,15,11,4,7,13),n)
   Baseball$attended<-round(
                     rtnorm(n=n,mean=3,sd=1.5,min=0,max=6)+
@@ -330,6 +331,7 @@ set.seed(1)
   Baseball$month=rep(1:6,n)
   Baseball$ads.served=ifelse(Baseball$month<4,round(rtnorm(n=n,mean=1,sd=.5,min=0,max=3)),round(rtnorm(n=n,mean=5,sd=3,min=1,max=12)))
   Baseball$temp<-rep(c(56,66,77,86,81,70),n)
+  Baseball$food<-rep(c(2,3,3,2,2,3),n)
   Baseball$ranking<-rep(c(21,15,11,4,7,13),n)
   Baseball$attended<-round(
                     rtnorm(n=n,mean=3,sd=1.5,min=0,max=6)+
@@ -395,6 +397,7 @@ set.seed(1)
   Baseball$month=rep(1:6,n)
   Baseball$ads.served=ifelse(Baseball$month<4,round(rtnorm(n=n,mean=1,sd=.5,min=0,max=3)),round(rtnorm(n=n,mean=5,sd=3,min=1,max=12)))
   Baseball$temp<-rep(c(56,66,77,86,81,70),n)
+  Baseball$food<-rep(c(2,3,3,2,2,3),n)
   Baseball$ranking<-rep(c(21,15,11,4,7,13),n)
   Baseball$attended<-round(
                     rtnorm(n=n,mean=3,sd=1.5,min=0,max=6)+
@@ -463,6 +466,7 @@ set.seed(1)
   Baseball$month=rep(1:6,n)
   Baseball$ads.served=ifelse(Baseball$month<4,round(rtnorm(n=n,mean=1,sd=.5,min=0,max=3)),round(rtnorm(n=n,mean=5,sd=3,min=1,max=12)))
   Baseball$temp<-rep(c(56,66,77,86,81,70),n)
+  Baseball$food<-rep(c(2,3,3,2,2,3),n)
   Baseball$ranking<-rep(c(21,15,11,4,7,13),n)
   Baseball$attended<-round(
                     rtnorm(n=n,mean=3,sd=1.5,min=0,max=6)+
