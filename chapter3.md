@@ -506,7 +506,7 @@ set.seed(1)
     test_object("Solution2")
     test_object("Solution3")
     test_error()
-    success_msg("Good work! Both temperature and ranking are highly correlated with attending Baseball games. Since these factors are likely associated with when the campaign was launched (during the summer), these factors likely confound the relationship between Baseball attendance and ads served.
+    success_msg("Good work! Both temperature and ranking are highly correlated with attending Baseball games, and the consistently low ratings of the stadium food are uncorrelated with attendance. Since these factors are likely associated with when the campaign was launched (during the summer), these factors likely confound the relationship between Baseball attendance and ads served.
 
 Congratulations! You have now finished the Causal Inference with R - Introduction course. To continue your exploration into causal inference and learn slightly more advanced techniques for statistical inference, we highly recommend you try our next course, 'Causal Inference with R - Experiments")
 ```
