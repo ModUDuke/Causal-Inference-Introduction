@@ -66,7 +66,7 @@ test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3,msg4))
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:50d28d8b25
 ## Soggy Cereal 1.b - Units of Analysis
-Puritan Wheat generates some data from a sample of individual flakes in a box of TechnoCrunch and from a box of its competitor's cereal, NeoPuff's. TechnoCrunch intends to examine the average time it takes for each flake to become soggy. What is the unit of analysis in this study?
+Puritan Wheat generates some data from a sample of individual flakes in a box of TechnoCrunch and from a box of its competitor's cereal, NeoPuff's. Puritan Wheat intends to examine the average time it takes for each flake to become soggy. What is the unit of analysis in this study?
 
 *** =instructions
 - The brand of cereal.
@@ -89,11 +89,11 @@ test_mc(correct = 4, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ## Soggy Cereal 1.c - Getting Familiar with the data.
 Before hiring you to explore which cereal takes longer to get soggy, Puritan Wheat  wants to make sure you know how to look at the variables that it provides in its dataset, `Soggy`. Its variables are defined as follows:
 
--`id` = The ID that Puritan Wheat assigned to each flake in its sample
--`cereal` = The cereal brand of the individual flake
--`milk` = The amount of milk (in ml) that an individual flake was able to absorb
--`time` = The amount of time (in seconds) that the flake weas crispy
--`fiber` = The number of mg in fiber for each flake of cereal
+- `id` = The ID that Puritan Wheat assigned to each flake in its sample
+- `cereal` = The cereal brand of the individual flake
+- `milk` = The amount of milk (in ml) that an individual flake was able to absorb
+- `time` = The amount of time (in seconds) that the flake weas crispy
+- `fiber` = The number of mg in fiber for each flake of cereal
 
 To get familiar with the data, follow the instructions below:
 
