@@ -163,7 +163,7 @@ success_msg("Good work! It is often important to get a sense of your data before
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:7371edb7d2
 ## Soggy Cereal 1.d - Variable attributes and Distributions.
-Before comparing how long it actually takes for each flake of cereal in TechnoCrunch and NeoPuffs to get soggy, Puritan Wheat suggests we summarize information about some of the variables in its dataset, `Soggy` in case there are any errors that might cause further analyses.
+Before comparing how long it actually takes for each flake of cereal in TechnoCrunch and NeoPuffs to get soggy, Puritan Wheat suggests we summarize information about some of the variables in its dataset, `Soggy`, in case there are any errors that might cause further analyses.
 
 Follow the instructions below:
 
