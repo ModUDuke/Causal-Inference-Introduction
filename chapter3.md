@@ -352,8 +352,6 @@ set.seed(1)
     cor(Baseball$earlysummer,Baseball$ads.served)
     
 # 1) Find the correlation between `attended` and `ads.served` in dataframe, `Baseball` with the `cor` function. Assign this correlation to the object, Solution1. 
-    
-    Solution1<-
       
 ```
 *** =solution
