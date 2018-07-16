@@ -347,9 +347,11 @@ set.seed(1)
 ```
 *** =sample_code
 ```{r}
-# 1) Find the correlation between `attended` and `ads.served` in dataframe, `Baseball` with the `cor` function. Assign this correlation to the object, Solution1. As an example of how this might be done, we provide the correlation between early summer months and ads served
-    Baseball$earlysummer<-Baseball$month=="April" | Baseball$month=="May" | Baseball$month=="June"
+# Note: As an example of how to get a correlation, we provide the correlation between early summer months and ads served. We first create a variable `earlysummer` based on whether the month is April, May, or June.
+    Baseball$earlysummer<-Baseball$month=="April" | Baseball$month=="May" | Baseball$month=="June" 
     cor(Baseball$earlysummer,Baseball$ads.served)
+    
+# 1) Find the correlation between `attended` and `ads.served` in dataframe, `Baseball` with the `cor` function. Assign this correlation to the object, Solution1. 
     
     Solution1<-
       
@@ -431,14 +433,15 @@ set.seed(1)
 ```
 *** =sct
 ```{r}
-    test_object("Baseball")
+    test_function("merge", incorrect_msg = "Did you use the `merge` function?")
     test_error()
+    
     success_msg("Good work! This is a common way to merge data from different sized dataframes together. Now we can see whether these other variables are associated with attending baseball games and whether they may be confounding the relationship between baseball attendance and  number of ads served.")
 ```
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:796f46ec84
 ## Homerun Ad Campaign IV - Assessing confounders
-Now that we have the data merged, let's see if the treatment effect of the Hammer's ad campaign could have been confounded by the  temperature, the quality of stadium food (on a scale of 1-10), or the rank of the team:
+Now that we have the data merged, let's see if the treatment effect of the Hammer's ad campaign could have been confounded by other factors. Use R's correlation command to determine whether the treatment attendance is correlated with temperature, quality of stadium food (on a scale of 1-10), or the rank of the team. 
 
 *** =instructions
 - 1) Find the correlation between `attended` and `temp` in dataframe `Baseball`
@@ -478,7 +481,7 @@ set.seed(1)
                     )
   Baseball$attended[Baseball$attended<0]<-0
   Baseball$month=rep(c("April","May","June","July","August","September"),n)
-  Baseball<-Baseball[,c("id","month","attended","ads.served","temp","ranking")]
+  Baseball<-Baseball[,c("id","month","attended","ads.served","temp","ranking","food")]
 ```
 *** =sample_code
 ```{r}
@@ -498,7 +501,7 @@ set.seed(1)
 ```{r}
     Solution1<-cor(Baseball$attended,Baseball$temp)
     Solution2<-cor(Baseball$attended,Baseball$food)
-    Solution2<-cor(Baseball$attended,Baseball$ranking)
+    Solution3<-cor(Baseball$attended,Baseball$ranking)
 ```
 *** =sct
 ```{r}
@@ -506,7 +509,9 @@ set.seed(1)
     test_object("Solution2")
     test_object("Solution3")
     test_error()
-    success_msg("Good work! Both temperature and ranking are highly correlated with attending Baseball games, and the consistently low ratings of the stadium food are uncorrelated with attendance. Since these factors are likely associated with when the campaign was launched (during the summer), these factors likely confound the relationship between Baseball attendance and ads served.
+    success_msg("Good work! As a rule of thumb, correlations with an absolute size of less than .3 are said to be very small, whereas correlations with an absolute size of greater than .7 are said to be very large. This means that both temperature and ranking are highly correlated with attending Baseball games, whereas the stadium food is weakly correlated with attendance. Since these factors are likely associated with when the campaign was launched (during the summer), these factors likely confound the relationship between Baseball attendance and ads served.
 
 Congratulations! You have now finished the Causal Inference with R - Introduction course. To continue your exploration into causal inference and learn slightly more advanced techniques for statistical inference, we highly recommend you try our next course, 'Causal Inference with R - Experiments")
 ```
+
+
