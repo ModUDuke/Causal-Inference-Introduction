@@ -71,7 +71,7 @@ test_mc(correct = 1, feedback_msgs = c(msg1,msg2))
 //player.vimeo.com/video/230618095
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:b1da122e43
-## Determining a Reasonable Counterfactual
+## Baseball Ad Campaign: Determining a Counterfactual
 Last year, a small town baseball team called The Hammers was hoping to attract bigger audiences to their home games, so halfway through their season they started a social media advertising campaign. Let’s see how well it worked and explore the data by looking at the behaviour of just one individual.
 
 To find a causal effect, we need to develop a counterfactual. So let's see if our subject went to any baseball games before they saw the ads. Below is a table tracking the games attended per month and the number of ads served per month for our initial subject: 
@@ -104,7 +104,7 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:0ecec920ef
-## Looking at the results of the first month
+## Baseball Ad Campaign: Early Success?
 Let’s see what happened in the first month of the ad campaign for our individual fan. Take a look at the following table:
 
 | Month    |Attended|Ads Served|
@@ -133,7 +133,7 @@ test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4a0d3cf7b9
-## Looking for Confounders with Positive Correlations
+## Baseball Ad Campaign: Confounders with Positive Correlations?
 Let's look at the full season's attendance figures for our sample individual, as well as some other variables that might affect this individual’s baseball game attendance. As you'll see, their attendance does seem to be positively correlated with the ad campaign:
 
 | Month    |Attended|Ads Served|
@@ -170,7 +170,7 @@ test_mc(correct = 1, feedback_msgs = c(msg1,msg2))
 ```
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:c379b36151
-## Looking for Confounders with Negative Correlations
+## Baseball Ad Campaign: Confounders with Negative Correlations?
 Now that we’ve seen what other variables are positively correlated with attendance, what about the opposite?  Here’s the table again:
 
 | Month    |Attended|Ads Served|Temp(F)|Ranking|
@@ -197,7 +197,7 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2))
 
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:d5098c9a23
-## Do We Have Confounder Problems?
+## Baseball Ad Campaign: Do We Have Confounder Problems?
 We found that temperature and team ranking are also associated with how frequently this individual attends baseball games. Is it likely that the the relationship between your treatment variable, Number of Ads Served per Month, and your outcome variable, Number of Games Attended per Month, are **confounded** by these two other variables?
 
 *** =instructions
@@ -218,7 +218,7 @@ test_mc(correct = 1, feedback_msgs = c(msg1,msg2))
 
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:1b191b5c59
-## Homerun Ad Campaign I - Exploring Data
+## Baseball Ad Campaign: Exploring the Data
 This series of question will test your knowledge on what we have learned so far, and will introduce some new functions.
 
 The Hammers decided to expand their sample to examine how effective their social media campaign was. They collected more information on how many games each individual attended per month, as well as how many ads they were served to each individual per month. In the following questions, let's find out whether these correlations still hold. To begin, let's first get acquainted with the provided dataframe, `Baseball`:
@@ -301,7 +301,7 @@ success_msg("Good work! You should always explore your data before running analy
 
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:3c1d77fe1a
-## Homerun Ad Campaign II - Correlating Variables
+## Baseball Ad Campaign: Correlating Variables
 Let's now determine if the Hammer's ad-campaign appears effective by assessing whether our treatment variable is positively correlated with our outcome variable. In analysis, you may see the treatment variable is called the **independent** variable (because we have the freedom to manipulate its value in an experiment), and the outcome variable is called the **dependent** variable (because its value **depends** on the treatment variable), so let’s use those terms. 
 
 Use the `cor` function to discover whether our independent variable (a.k.a. treatment variable), `ads.served`, is correlated with our dependent variable (a.k.a. outcome variable), `attended`.
@@ -368,7 +368,7 @@ set.seed(1)
 
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:85efc26bc3
-## Homerun Ad Campaign III - Merging in New Variables
+## Baseball Ad Campaign: Merging in New Variables
 Let's now determine if the treatment effect of the Hammer's ad campaign could be confounded by quality of stadium food, the daily temperature, or rank of the team. To do this, we will need to merge in this data with dataframe `Baseball`:
 
 *** =instructions
@@ -438,7 +438,7 @@ set.seed(1)
 ```
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:796f46ec84
-## Homerun Ad Campaign IV - Assessing confounders
+## Baseball Ad Campaign: Assessing Confounders
 Now that we have the data merged, let's see if the treatment effect of the Hammer's ad campaign could have been confounded by other factors. Use R's correlation command to determine whether the treatment attendance is correlated with temperature, quality of stadium food (on a scale of 1-10), or the rank of the team. 
 
 *** =instructions
