@@ -43,7 +43,7 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 //player.vimeo.com/video/276320362
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:362bf33c36
-## Soggy Cereal 1.a - Outcome Variables
+## Comparing Breakfast Cereals: Outcome Variables
 The food scientists at breakfast cereal manufacturer Puritan Wheat Inc. have developed a new breakfast cereal product called TechnoCrunch. It has a biodegradable nanomaterial coating designed to keep its flakes crispy in milk for longer than the flakes in its competitor cereal, NeoPuffs. Now Puritan Wheat wants to run an experiment to see if the formula works, so it compares the time it takes for TechnoCrunch to get soggy in milk versus the time it takes for NeoPuffs to get soggy. 
 
 In this experiment on the two cereals, which of the following is the outcome variable in Puritan Wheat's analysis?
@@ -65,7 +65,7 @@ test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3,msg4))
 
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:50d28d8b25
-## Soggy Cereal 1.b - Units of Analysis
+## Comparing Breakfast Cereals: Units of Analysis
 Puritan Wheat generates some data from a sample of individual flakes in a box of TechnoCrunch and from a box of its competitor's cereal, NeoPuff's. Puritan Wheat intends to examine the average time it takes for each flake to become soggy. What is the unit of analysis in this study?
 
 *** =instructions
@@ -86,7 +86,7 @@ test_mc(correct = 4, feedback_msgs = c(msg1,msg2,msg3,msg4))
 
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:db20453890
-## Soggy Cereal 1.c - Getting Familiar with the data.
+## Comparing Breakfast Cereals: Getting Familiar with the Data
 Before hiring you to explore which cereal takes longer to get soggy, Puritan Wheat  wants to make sure you know how to look at the variables that it provides in its dataset, `Soggy`. Its variables are defined as follows:
 
 - `id` = The ID that Puritan Wheat assigned to each flake in its sample
@@ -162,7 +162,7 @@ success_msg("Good work! It is often important to get a sense of your data before
 
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:7371edb7d2
-## Soggy Cereal 1.d - Variable attributes and Distributions.
+## Comparing Breakfast Cereals: Variable Attributes and Distributions
 Before comparing how long it actually takes for each flake of cereal in TechnoCrunch and NeoPuffs to get soggy, Puritan Wheat suggests we summarize information about some of the variables in its dataset, `Soggy`, in case there are any errors that might cause further analyses.
 
 Follow the instructions below:
@@ -245,7 +245,7 @@ success_msg("Good work! The above functions will often come in handy as you cont
 
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:caa5b2cf8b
-## Soggy Cereal 2.a - Means, Medians, and Standard Deviations
+## Comparing Breakfast Cereals: Means, Medians, and Standard Deviations
 Before running any direct comparisons between TechnoCrunch and NeoPuffs, Puritan Wheat Inc. now wants you to get some detailed descriptive statistics about the `time` variable in its dataset. Using the dataframe `Soggy`, determine the following:
 
 *** =instructions
@@ -316,7 +316,7 @@ success_msg("Good work! As a reminder, the difference in the median and mean of 
 
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:0322894cdd
-## Soggy Cereal 2.b - Minimums, Maximums, and Summaries
+## Comparing Breakfast Cereals: Minimums, Maximums, and Summaries
 Before running any direct comparisons between TechnoCrunch and NeoPuffs, Puritan Wheat Inc. now wants you to get some descriptive about flakes that are just in TechnoCrunch cereal. Using the dataframe `Soggy`, determine the following:
 
 *** =instructions
@@ -479,7 +479,7 @@ test_mc(correct = 2, feedback_msgs = c(msg1,msg2))
 //player.vimeo.com/video/276320346
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:bfa70779e1
-## Does Fan Behavior Affect Sports Teams?
+## A Superstitious Sports Fan
 During last year's football season, Britney's home team, the Durham Dolphins, sadly lost the MegaBowl. As a huge fan, Britney always dressed up on game days in the team jersey and hat, but because the MegaBowl was a special occasion, for that game Britney also painted her nails in the team colors for extra good luck. But her team lost anyway. Britney is convinced that painting her nails hurt the Dolphin's performance, in part because Britney remembers the Dolphins losing when she previously painted her nails.  
 
 Using the dataset, `Nails`, find out whether Britney is at blame for the loss. Specifically:
