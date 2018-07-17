@@ -439,12 +439,13 @@ set.seed(1)
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:796f46ec84
 ## Baseball Ad Campaign: Assessing Confounders
-Now that we have the data merged, let's see if the treatment effect of the Hammer's ad campaign could have been confounded by other factors. Use R's correlation command to determine whether the treatment attendance is correlated with temperature, quality of stadium food (on a scale of 1-10), or the rank of the team. 
+Now that we have the data merged, let's see if the treatment effect of the Hammer's ad campaign is correlated with and could have been confounded by other factors. 
+
+As a rule of thumb, correlations with an absolute size of less than .3 are said to be very small, between .3 and .7 are said to be medium, and greater than .7 are said to be large. Based on this rule of thumb, answer the following questions: 
 
 *** =instructions
-- 1) Find the correlation between `attended` and `temp` in dataframe `Baseball`
-- 2) Find the correlation between `attended` and `food` in dataframe `Baseball`
-- 3) Find the correlation between `attended` and `ranking` in dataframe `Baseball`
+- 1) Is the correlation between `attended` and `temp` in dataframe `Baseball` a) small, b) medium, or c) large? Assign "a", "b", or "c" to Solution1.
+- 2) Is the correlation between `attended` and `food` in dataframe `Baseball` a) small, b) medium, or c) large? Assign "a", "b", or "c" to Solution2.
 
 
 *** =pre_exercise_code
@@ -483,23 +484,22 @@ set.seed(1)
 ```
 *** =sample_code
 ```{r}
-# Note, we have sorted the merged dataframe `Baseball` by id and month for you. Although this is not necessary for this problem, it is often preferable to have longitudinal data sorted this way for conducting future analyses.
+# Note: We have sorted the merged dataframe `Baseball` by id and month for you. Although this is not necessary for this problem, it is often preferable to have longitudinal data sorted this way for conducting future analyses.
     head(Baseball)
 
-# 1) Find the correlation between `attended` and `temp` in dataframe `Baseball`. Assign this correlation to Solution1.
-    Solution1<-
+# Note: You will need to determine the correlations between `attended` and `temp`, and `attended` and `food` to answer the following questions.
 
-# 2) Find the correlation between `attended` and `food` in dataframe `Baseball`. Assign this correlation to Solution2.
-    Solution2<-
+- 1) Is the correlation between `attended` and `temp` in dataframe `Baseball` a) small or b) large? Assign "a" or "b" to Solution1.
+    Solution1<-""
 
-# 3) Find the correlation between `attended` and `ranking` in dataframe `Baseball`. Assign this correlation to Solution3.
-    Solution3<-
+- 2) Is the correlation between `attended` and `food` in dataframe `Baseball` a) small or b) large? Assign "a" or "b" to Solution2.
+    Solution2<-""
+
 ```
 *** =solution
 ```{r}
-    Solution1<-cor(Baseball$attended,Baseball$temp)
-    Solution2<-cor(Baseball$attended,Baseball$food)
-    Solution3<-cor(Baseball$attended,Baseball$ranking)
+    Solution1<-ifelse(abs(cor(Baseball$attended,Baseball$temp))>.7,"c",ifelse(abs(cor(Baseball$attended,Baseball$temp))>.3,"b","a"))
+    Solution2<-ifelse(abs(cor(Baseball$attended,Baseball$food))>.7,"c",ifelse(abs(cor(Baseball$attended,Baseball$food))>.3,"b","a"))
 ```
 *** =sct
 ```{r}
@@ -507,9 +507,7 @@ set.seed(1)
     test_object("Solution2")
     test_object("Solution3")
     test_error()
-    success_msg("Good work! As a rule of thumb, correlations with an absolute size of less than .3 are said to be very small, whereas correlations with an absolute size of greater than .7 are said to be very large. This means that both temperature and ranking are highly correlated with attending Baseball games, whereas the stadium food is weakly correlated with attendance. Since these factors are likely associated with when the campaign was launched (during the summer), these factors likely confound the relationship between Baseball attendance and ads served.
+    success_msg("Good work! According to our rule of thumb, temperature is highly correlated with attending Baseball games, whereas the stadium food is weakly correlated with attendance. Since these factors are likely associated with when the campaign was launched (during the summer), these factors likely confound the relationship between Baseball attendance and ads served. Keep in mind that these are simply rules of thumb. In some contexts, even a correlation greater of .1 can be considered substantial.
 
 Congratulations! You have now finished the Causal Inference with R - Introduction course. To continue your exploration into causal inference and learn slightly more advanced techniques for statistical inference, we highly recommend you try our next course, 'Causal Inference with R - Experiments")
 ```
-
-
