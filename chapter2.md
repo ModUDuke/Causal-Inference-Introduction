@@ -1,4 +1,4 @@
---- 
+﻿--- 
 title       : "Introduction to Treatment Effects"
 description : "This chapter will introduce you to individual, group, and average treatment effects, and will let you learn and practice through R"
  
@@ -135,7 +135,7 @@ set.seed(1)
 # 1) Use the `cor` function to estimate the correlation between `milk` and `time`
 
 
-# 2)Use the `cor` function to estimate the correlation between `fiber` and `time`
+# 2) Use the `cor` function to estimate the correlation between `fiber` and `time`
 
 
 ```
