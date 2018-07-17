@@ -207,7 +207,7 @@ test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3,msg4))
 //player.vimeo.com/video/276320364
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:311670fb1a
-## Unhappiness at Unter: Identifying heterogeneous outcomes - ATE
+## Unhappiness at Unter: Identifying Heterogeneous Outcomes - ATE
 The transportation network company, Unter Technologies, is interested in improving their employee morale and reducing employee turnover rate by downsizing their Human Resources (HR) Department.
 
 To make sure this would not antagonize their workforce, Unter conducts an experiment: With a balanced sample of employees, Unter tells a treatment group that the HR Department will be downsized in the following year, and a control group that the HR Department will remain the same size in the following year (and magically, they don't end up discussing this with each other). Unter then surveys the employees to find out whether employees plan to look for new jobs, with response options 0="No" and 1="Yes."
@@ -259,7 +259,7 @@ success_msg("Good work! It seems that reducing the size of HR reduced Unter empl
 ```
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:6217752659
-## Unhappiness at Unter: Identifying heterogeneous outcomes - CATEs
+## Unhappiness at Unter: Identifying Heterogeneous Outcomes - CATEs
 Since reducing the size of HR seems to reduce the rate of employee turnover, the CEO of Unter Technologies is now heavily considering this option.
 
 However, his chief operating officer (COO) warns him that reducing the size of HR might be unpopular among certain minority groups within the company, particularly among women. The COO sends the CEO a figure (illustrated in the R workspace) showing the results of his experiment among men and women. Which of the following does the figure suggest?
@@ -310,7 +310,7 @@ test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3,msg4))
 
 
 --- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:a4ab5d9f9b
-## Unhappiness at Unter: Identifying heterogeneous outcomes - CATEs (2)
+## Unhappiness at Unter: Identifying Heterogeneous Outcomes - CATEs (2)
 Let's further analyze the heterogeneous effect of the treatment on men vs. women in Unter Technologies. With the dataframe, `UnterHR`, determine the average treatment effect of reducing the size of Unter's HR department on employee turnover by gender (`Female`).
 
 *** =instructions
