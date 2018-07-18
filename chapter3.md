@@ -446,6 +446,7 @@ As a rule of thumb, correlations with an absolute size of less than .3 are said 
 *** =instructions
 - 1) Is the correlation between `attended` and `temp` in dataframe `Baseball` a) small, b) medium, or c) large? Assign "a", "b", or "c" to Solution1.
 - 2) Is the correlation between `attended` and `food` in dataframe `Baseball` a) small, b) medium, or c) large? Assign "a", "b", or "c" to Solution2.
+- 3) Is the correlation between `attended` and `ranking` in dataframe `Baseball` a) small, b) medium, or c) large? Assign "a", "b", or "c" to Solution2.
 
 
 *** =pre_exercise_code
@@ -487,19 +488,23 @@ set.seed(1)
 # Note: We have sorted the merged dataframe `Baseball` by id and month for you. Although this is not necessary for this problem, it is often preferable to have longitudinal data sorted this way for conducting future analyses.
     head(Baseball)
 
-# Note: You will need to determine the correlations between `attended` and `temp`, and `attended` and `food` to answer the following questions.
+# Note: You will need to determine the correlations between `attended` and `temp`, `attended` and `food`, and `attended` and `ranking` to answer the following questions.
 
 - 1) Is the correlation between `attended` and `temp` in dataframe `Baseball` a) small or b) large? Assign "a" or "b" to Solution1.
     Solution1<-""
 
 - 2) Is the correlation between `attended` and `food` in dataframe `Baseball` a) small or b) large? Assign "a" or "b" to Solution2.
     Solution2<-""
+    
+ - 3) Is the correlation between `attended` and `ranking` in dataframe `Baseball` a) small or b) large? Assign "a" or "b" to Solution3.
+    Solution3<-""
 
 ```
 *** =solution
 ```{r}
     Solution1<-ifelse(abs(cor(Baseball$attended,Baseball$temp))>.7,"c",ifelse(abs(cor(Baseball$attended,Baseball$temp))>.3,"b","a"))
     Solution2<-ifelse(abs(cor(Baseball$attended,Baseball$food))>.7,"c",ifelse(abs(cor(Baseball$attended,Baseball$food))>.3,"b","a"))
+    Solution3<-ifelse(abs(cor(Baseball$attended,Baseball$ranking))>.7,"c",ifelse(abs(cor(Baseball$attended,Baseball$ranking))>.3,"b","a"))
 ```
 *** =sct
 ```{r}
