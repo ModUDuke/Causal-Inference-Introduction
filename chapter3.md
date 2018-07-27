@@ -491,13 +491,13 @@ set.seed(1)
 
 # Note: You will need to determine the correlations between `attended` and `temp`, `attended` and `food`, and `attended` and `ranking` to answer the following questions.
 
-- 1) Is the correlation between `attended` and `temp` in dataframe `Baseball` a) small or b) large? Assign "a" or "b" to Solution1.
+# 1) Is the correlation between `attended` and `temp` in dataframe `Baseball` (a) small or (b) large? Assign "a" or "b" to Solution1.
     Solution1<-""
 
-- 2) Is the correlation between `attended` and `food` in dataframe `Baseball` a) small or b) large? Assign "a" or "b" to Solution2.
+# 2) Is the correlation between `attended` and `food` in dataframe `Baseball` (a) small or (b) large? Assign "a" or "b" to Solution2.
     Solution2<-""
     
- - 3) Is the correlation between `attended` and `ranking` in dataframe `Baseball` a) small or b) large? Assign "a" or "b" to Solution3.
+ # 3) Is the correlation between `attended` and `ranking` in dataframe `Baseball` (a) small or (b) large? Assign "a" or "b" to Solution3.
     Solution3<-""
 
 ```
