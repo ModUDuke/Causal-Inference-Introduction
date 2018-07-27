@@ -483,6 +483,7 @@ set.seed(1)
   Baseball$month=rep(c("April","May","June","July","August","September"),n)
   Baseball<-Baseball[,c("id","month","attended","ads.served","temp","ranking","food")]
 ```
+
 *** =sample_code
 ```{r}
 # Note: We have sorted the merged dataframe `Baseball` by id and month for you. Although this is not necessary for this problem, it is often preferable to have longitudinal data sorted this way for conducting future analyses.
@@ -500,12 +501,14 @@ set.seed(1)
     Solution3<-""
 
 ```
+
 *** =solution
 ```{r}
     Solution1<-ifelse(abs(cor(Baseball$attended,Baseball$temp))>.7,"c",ifelse(abs(cor(Baseball$attended,Baseball$temp))>.3,"b","a"))
     Solution2<-ifelse(abs(cor(Baseball$attended,Baseball$food))>.7,"c",ifelse(abs(cor(Baseball$attended,Baseball$food))>.3,"b","a"))
     Solution3<-ifelse(abs(cor(Baseball$attended,Baseball$ranking))>.7,"c",ifelse(abs(cor(Baseball$attended,Baseball$ranking))>.3,"b","a"))
 ```
+
 *** =sct
 ```{r}
     test_object("Solution1")
