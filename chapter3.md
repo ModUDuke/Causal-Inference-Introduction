@@ -433,7 +433,6 @@ Baseball$ExpMonths<-Baseball$month=="July" | Baseball$month=="August" | Baseball
 `@sct`
 
 ```{r}
-test_object("Solution1")
     test_object("Solution2")
     test_error()
     success_msg("Good work! The ad campaign had a positive average treatment effect. However, there are several potential confounders that we might want to consider before declaring victory. Let's explore some in the next few questions.")
