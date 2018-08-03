@@ -419,8 +419,8 @@ set.seed(1)
 # 1) Create a variable called `ExpMonths` in data.frame `Baseball` that indicates whether the month is during the ad campaign (July, August, and September).
     Baseball$ExpMonths<-
 
-# 2) Calculate the ATE for individuals in the `Treatment` group by subtracting the average attendance (`attended`) of this group prior to the months of the experiment (`ExpMonths`==0) from the average attendance (`attended`) of this group during the experiment (`ExpMonths`==1). To help get you started, we fill in the first half of this equation.
-    Solution2<- Baseball$attended[Baseball$treatment==1 & Baseball$ExpMonths==TRUE] -
+# 2) Calculate the ATE for individuals in the `Treatment` group by subtracting the average attendance (`attended`) of this group prior to the months of the experiment (`ExpMonths`==FALSE) from the average attendance (`attended`) of this group during the experiment (`ExpMonths`==TRUE). To help get you started, we fill in the first half of this equation.
+    Solution2<- mean(Baseball$attended[Baseball$treatment==1 & Baseball$ExpMonths==TRUE]) -
 ```
 
 `@solution`
