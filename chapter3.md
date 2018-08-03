@@ -648,11 +648,23 @@ We've been looking at the effect of a social media ad campaign on attendance for
 - Yes, but it may have been confounded by other factors
 - No, it didn't work
 
+`@hint`
+
+
+`@pre_exercise_code`
+
+```{r}
+
+```
+
+
 `@sct`
 
 ```{r}
 msg1 = "As a good analyst, you need to mention that there are more factors in attendance than just ads. So try again"
-msg2 = "Correct! The ad campaign had a positive effect and is the most correlated factor to attendance in the data, but people also go to more games as the weather gets warmer, so we do have a confounder. Now that you've answer this question, we must say Congratulations! You have now finished the Causal Inference with R - Introduction course. To continue your exploration into causal inference and learn slightly more advanced techniques for statistical inference, we highly recommend you try our next course, 'Causal Inference with R - Experiments"
+msg2 = "Correct! The ad campaign had a large average treatment effect on attendance, however, people also do go to more games as the weather gets warmer and their team plays better, so we do have potential confounders. 
+
+Congratulations! You have now finished the Causal Inference with R - Introduction course. To continue your exploration into causal inference and learn slightly more advanced techniques for statistical inference, we highly recommend you try our next course, 'Causal Inference with R - Experiments"
 msg3 = "There's no need to be a Negative Nelly here, the data did show a large and positive effect. Try again."
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
 ```
