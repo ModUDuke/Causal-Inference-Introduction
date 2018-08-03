@@ -1,22 +1,42 @@
---- 
-title       : "Confounders, Counterfactuals, and p-Hacking"
-description : "This chapter will introduce you the important issues of confounders, counterfactuals, and the problem of p-hacking, and will let you learn and practice through R"
- 
+---
+  title: "Confounders, Counterfactuals, and p-Hacking"
+  description: "This chapter will introduce you the important issues of confounders, counterfactuals, and the problem of p-hacking, and will let you learn and practice through R"
+---
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:5c37f21710
 ## Confounders
-*** =video_link
-//player.vimeo.com/video/230623543
 
+```yaml
+type: VideoExercise 
+lang: r
+xp: 50 
+skills: 1
+key: 5c37f21710 
+video_link: //player.vimeo.com/video/230623543  
+```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:ac9bc35c31
+---
+
 ## Understanding Confounders
+
+```yaml
+type: MultipleChoiceExercise 
+lang: r
+xp: 50 
+skills: 1
+key: ac9bc35c31   
+```
+
+
 Why are confounding variables a potential problem for causal inference?
-*** =instructions
+
+
+`@instructions`
 - Because confounding variables prevent the treatment from being randomly assigned
 - Because confounding variables might alter the association between the treatment and dependent variable
 - Because confounders are not observed
-*** =sct
+
+`@sct`
+
 ```{r}
 msg1 = "Almost, but remember, the main reason we worry about confounders has to do with effects on the outcome, not on treatment assignment. Try again."
 msg2 = "Correct! Confounders are called *confounders* for a reason---because when they are present, we cannot distinguish the effect of treatment from the effect of the confounder. To learn causal effects, we want to compare people with treatment and people without treatment. If those two groups of people differ in their values of some potential confounding variable, then we can't tell if differences in outcomes are due to differences in treatment, or differences in the confounder."
@@ -24,54 +44,114 @@ msg3 = "Unobserved variables are not always a problem in causal inference, becau
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:6e830d0422
+---
+
 ## Counterfactuals
-*** =video_link
-//player.vimeo.com/video/230623577
+
+```yaml
+type: VideoExercise 
+lang: r
+xp: 50 
+skills: 1
+key: 6e830d0422 
+video_link: //player.vimeo.com/video/230623577  
+```
+
+---
+
+## Counterfactuals and You
+
+```yaml
+type: MultipleChoiceExercise 
+lang: r
+xp: 50 
+skills: 1
+key: 97e0c3c1ec   
+```
 
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:97e0c3c1ec
-## Counterfactuals and You 
-Suppose this was the best DataCamp course ever, and over the course of the past hour, we delivered a cup of ice cream to every DataCamp user's front door. We surveyed our participants, and found out that half of them decided to eat our free ice cream. Can we be certain that providing this free ice cream increased the amount of ice cream that each user would have eaten today if we hadn't provided any free ice cream? 
+Suppose this was the best DataCamp course ever, and over the course of the past hour, we delivered a cup of ice cream to every DataCamp user's front door. We surveyed our participants, and found out that half of them decided to eat our free ice cream. Can we be certain that providing this free ice cream increased the amount of ice cream that each user would have eaten today if we hadn't provided any free ice cream?
 
-*** =instructions
+
+`@instructions`
 - Yes
 - No
 
-*** =sct
+`@sct`
+
 ```{r}
 msg1 = "Oops! Think about the data we provided you. Is this really enough to make that conclusion? Try again."
 msg2 = "Correct! The question proposed an experiment and an outcome, but we do not know the counterfactual. While it seems likely that having access to free ice cream would increase our users ice cream consumption, there is no way to know for certain that they would not have eaten ice cream otherwise. For example, maybe some of our user's would have eaten ice cream anyway, or decided to eat more ice cream than what we provided to them. Maybe some users were going to eat ice cream, but changed their mind after seeing a melted scoop of ice cream on their door steps. In sum, the null hypothesis cannot be refuted without knowing the counterfactual."
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2))
 ```
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:ddb24adc92
+---
+
 ## Statistical Inference vs. Causal Inference
-*** =video_link
-//player.vimeo.com/video/230623833
+
+```yaml
+type: VideoExercise 
+lang: r
+xp: 50 
+skills: 1
+key: ddb24adc92 
+video_link: //player.vimeo.com/video/230623833  
+```
+
+---
+
+## Big Data and Statistical Inference
+
+```yaml
+type: MultipleChoiceExercise 
+lang: r
+xp: 50 
+skills: 1
+key: 11e02ba59d   
+```
 
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:11e02ba59d
-## Big Data and Statistical Inference 
 If I have an enormous amount of data, do I still have to worry about causal inference?
-*** =instructions
+
+
+`@instructions`
 - Yes
 - No
-*** =sct
+
+`@sct`
+
 ```{r}
 msg1 = "Correct. Big data might give you more power to make statistical inferences with your data, but all statistics still need to be interpreted carefully in order to make any causal inferences about the patterns you see."
 msg2 = "Big Data does not solve all problems by magic! No matter the size of your data, you will always need to think about how to interpret your results. Try again."
 test_mc(correct = 1, feedback_msgs = c(msg1,msg2))
 ```
 
+---
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:a13b7c2ffd
 ## p Hacking and Talking to Ghosts
-*** =video_link
-//player.vimeo.com/video/230618095
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:b1da122e43
+```yaml
+type: VideoExercise 
+lang: r
+xp: 50 
+skills: 1
+key: a13b7c2ffd 
+video_link: //player.vimeo.com/video/230618095  
+```
+
+---
+
 ## Baseball Ad Campaign: Determining a Counterfactual
+
+```yaml
+type: MultipleChoiceExercise 
+lang: r
+xp: 50 
+skills: 1
+key: b1da122e43   
+```
+
+
 Last year, a small town baseball team called The Hammers was hoping to attract bigger audiences to their home games, so halfway through their season they started a social media advertising campaign. Let’s see how well it worked and explore the data by looking at the behaviour of just one individual.
 
 To find a causal effect, we need to develop a counterfactual. So let's see if our subject went to any baseball games before they saw the ads. Below is a table tracking the games attended per month and the number of ads served per month for our initial subject: 
@@ -87,13 +167,15 @@ To find a causal effect, we need to develop a counterfactual. So let's see if ou
 
 Based on the average number of games attended per month in the first 3 months, what would you use as a conservative counterfactual for average number of games attended per month in the second 3 months?
 
-*** =instructions
+
+`@instructions`
 - 0
 - 1
 - 2
 - 3
 
-*** =sct
+`@sct`
+
 ```{r}
 msg1 = "This person has already shown that they go to some games without ads, so it’s probably safe to assume they’ll go to at least one. Try again."
 msg2 = "Correct. This person has gone to 3 games in 3 months, so on average this person goes to 1 game per month. If you are optimistic, you could read this as a rising trend leading to either +1 game per month, or even 2x games per month, but let’s just stick with the average of 1 game per month for now"
@@ -102,9 +184,19 @@ msg4 = "This could be a safe guess if you think their attendance rate will keep 
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
 
+---
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:0ecec920ef
 ## Baseball Ad Campaign: Early Success?
+
+```yaml
+type: MultipleChoiceExercise 
+lang: r
+xp: 50 
+skills: 1
+key: 0ecec920ef   
+```
+
+
 Let’s see what happened in the first month of the ad campaign for our individual fan. Take a look at the following table:
 
 | Month    |Attended|Ads Served|
@@ -118,12 +210,14 @@ Let’s see what happened in the first month of the ad campaign for our individu
 
 Since the number of baseball games that this individual went to appears to increase after viewing 5 ads, can we conclude that the advertising campaign caused the individual to go to more games?
 
-*** =instructions
+
+`@instructions`
 - Yes, the treatment had a positive effect on the outcome variable.
 - No, the treatment had no effect.
 - It's too early to tell.
 
-*** =sct
+`@sct`
+
 ```{r}
 msg1 = "Not yet! We do not know whether the difference in games attended after being exposed to the ad-campaign was statistically significant, nor do we have a sense for any potential confounding variables"
 msg2 = "Not yet! We do not know whether the difference in games attended after being exposed to the ad-campaign was statistically significant, nor do we have a sense for any potential confounding variables"
@@ -131,24 +225,44 @@ msg3 = "Correct! Stopping this analysis just because we like the results in the 
 test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:384a8c2308
+---
+
 ## Let’s Code: A Bigger Sample Size for the Ad Campaign
-*** =video_link
-//player.vimeo.com/video/276320373
 
+```yaml
+type: VideoExercise 
+lang: r
+xp: 50 
+skills: 1
+key: 384a8c2308 
+video_link: //player.vimeo.com/video/276320373  
+```
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:1b191b5c59
+---
+
 ## Baseball Ad Campaign: Exploring the Data
+
+```yaml
+type: NormalExercise 
+lang: r
+xp: 100 
+skills: 1
+key: 1b191b5c59   
+```
+
+
 This series of question will test your knowledge on what we have learned so far, and will introduce some new functions.
 
 The Hammers decided to expand their sample to examine how effective their social media campaign was. They collected more information on the fans who were served promotional ads (their treatment group) and fans who were not served promotional ads (their control group). They determined how many games each individual attended per month and how many ads each individual was served in a given month. To begin our analysis of the ad campaign, let's first get acquainted with the provided dataframe, `Baseball`:
 
-*** =instructions
+
+`@instructions`
 - 1) Look at the first few rows of dataframe, `Baseball` with function `head`.
 - 2) Identify how many observations (`rows`) are in dataframe, `Baseball` with function `nrow`.
 - 3) Identify how many unique individuals (`id`) were sampled in dataframe, `Baseball` with functions `length` and `unique`.
 
-*** =pre_exercise_code
+`@pre_exercise_code`
+
 ```{r}
 library(dplyr)
 n=62
@@ -189,7 +303,9 @@ set.seed(1)
 #Adjustments for this problem
   Baseball<-Baseball[,c("id","month","attended","ads.served","treatment")]
 ```
-*** =sample_code
+
+`@sample_code`
+
 ```{r}
 # 1) Look at the first few rows of dataframe, `Baseball` with function `head`.
 
@@ -205,15 +321,18 @@ set.seed(1)
     unique(Baseball$month)
     
     Solution2<-
-      
 ```
-*** =solution
+
+`@solution`
+
 ```{r}
-    head(Baseball)
+head(Baseball)
     Solution1<-nrow(Baseball)
     Solution2<-length(unique(Baseball$id))
 ```
-*** =sct
+
+`@sct`
+
 ```{r}
 test_function("head", incorrect_msg = "Did you use the `head` function?")
 test_function("nrow", incorrect_msg = "Did you use the `nrow` function?")
@@ -223,18 +342,30 @@ test_error()
 success_msg("Good work! You should always explore your data before running analyses. These are very typical steps that one might take")
 ```
 
+---
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:3c1d77fe1a
 ## Baseball Ad Campaign: Calculating an Average Treatment Effect
+
+```yaml
+type: NormalExercise 
+lang: r
+xp: 100 
+skills: 1
+key: 3c1d77fe1a   
+```
+
+
 Now that we've looked at some of the basics of the data, let's go ahead and calculate the average treatment effect of the social media ad campaign on baseball game attendance to determine if the Hammer's ad campaign appears effective.
 
-Although we have detailed information about exactly how many ads each participant had viewed, and a control group to compare to, let's really simplify our approach by just examining how whether individuals in the treatment group went to more baseball games during the months of the experiment (July, August, and September). Conduct the following steps:  
+Although we have detailed information about exactly how many ads each participant had viewed, and a control group to compare to, let's really simplify our approach by just examining how whether individuals in the treatment group went to more baseball games during the months of the experiment (July, August, and September). Conduct the following steps:
 
-***=instructions
+
+`@instructions`
 - 1) Create a variable called `ExpMonths` in data.frame `Baseball` that indicates whether the month is during the ad campaign (July, August, and September) in logical (TRUE/FALSE) format.
 - 2) Calculate the ATE for individuals in the `Treatment` group by subtracting the average attendance (`attended`) of this group prior to the months of the experiment (`ExpMonths`==0) from the average attendance (`attended`) of this group during the experiment (`ExpMonths`==1).
 
-*** =pre_exercise_code
+`@pre_exercise_code`
+
 ```{r}
 library(dplyr)
 n=62
@@ -275,7 +406,9 @@ set.seed(1)
 #Adjustments for this problem
   Baseball<-Baseball[,c("id","month","attended","ads.served","treatment")]
 ```
-*** =sample_code
+
+`@sample_code`
+
 ```{r}
 # Note: We only want to compare the attendance of individuals in the treatment group during the months of the ad campaign to the months prior to the ad campagin. To do so, it would help to first create a variable that indicates which months are during the add campaign. As an example of how to code this, below shows how to create a variable `example` that indicates which months are prior to the ad campaign.
     example<-Baseball$month=="April" | Baseball$month=="May" | Baseball$month=="June"
@@ -284,33 +417,47 @@ set.seed(1)
     Baseball$ExpMonths<-
 
 # 2) Calculate the ATE for individuals in the `Treatment` group by subtracting the average attendance (`attended`) of this group prior to the months of the experiment (`ExpMonths`==0) from the average attendance (`attended`) of this group during the experiment (`ExpMonths`==1). To help get you started, we fill in the first half of this equation.
-    Solution2<- Baseball$ads.served[Baseball$treatment==1 & Baseball$ExpMonths==TRUE] - 
-
+    Solution2<- Baseball$ads.served[Baseball$treatment==1 & Baseball$ExpMonths==TRUE] -
 ```
-*** =solution
+
+`@solution`
+
 ```{r}
-    Baseball$ExpMonths<-Baseball$month=="July" | Baseball$month=="August" | Baseball$month=="September" 
+Baseball$ExpMonths<-Baseball$month=="July" | Baseball$month=="August" | Baseball$month=="September" 
     Solution2<- Baseball$ads.served[Baseball$treatment==1 & Baseball$ExpMonths==TRUE] - Baseball$ads.served[Baseball$treatment==1 & Baseball$ExpMonths==FALSE]
 ```
-*** =sct
+
+`@sct`
+
 ```{r}
-    test_object("Solution1")
+test_object("Solution1")
     test_object("Solution2")
     test_error()
     success_msg("Good work! The ad campaign had a positive average treatment effect. However, there are several potential confounders that we might want to consider before declaring victory. Let's explore some in the next few questions.")
 ```
 
+---
 
-
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:85efc26bc3
 ## Baseball Ad Campaign: Confounders Part 1 - Merging and Creating Variables
+
+```yaml
+type: NormalExercise 
+lang: r
+xp: 100 
+skills: 1
+key: 85efc26bc3   
+```
+
+
 Let's now determine if the treatment effect of the Hammer's ad campaign could be confounded by quality of stadium food or the daily temperature. To do this, we will first need to merge this information into our dataframe `Baseball`:
 
-*** =instructions
+
+`@instructions`
 - 1) Print dataframe `dfMonth` to the console.
 - 2) Merge `dfMonth` with dataframe `Baseball` by `month` with the `merge` function.
 
-*** =pre_exercise_code
+`@pre_exercise_code`
+
 ```{r}
 library(dplyr)
 n=62
@@ -355,41 +502,59 @@ set.seed(1)
                       ranking=c(21,15,11,4,7,13))
 ```
 
-*** =sample_code
+`@sample_code`
+
 ```{r}
 # 1) Print dataframe `dfMonth` to the console. This can be done by either simply typing dfMonth below, or by using the `print` function with `dfMonth`.
 
 
 # 2) Merge `dfMonth` with dataframe `Baseball` by `month` with the `merge` function. The merge function requires three arguments, your first dataframe, your second dataframe, and the name of the column that you want to merge by. To accomplish this, replace 'x, y, and "variable"' in the code below with 'Baseball, dfMonth, and "month"'.
     Baseball<-merge(x,y,by="variable")
-
-
 ```
-*** =solution
+
+`@solution`
+
 ```{r}
-    dfMonth
+dfMonth
     Baseball<-merge(Baseball,dfMonth,by="month")
 ```
-*** =sct
+
+`@sct`
+
 ```{r}
-    test_function("merge", incorrect_msg = "Did you use the `merge` function?")
+test_function("merge", incorrect_msg = "Did you use the `merge` function?")
     test_error()
     
     success_msg("Good work! This is a common way to merge data from different sized dataframes together. Now we can see whether these other variables are associated with attending baseball games and whether they may be confounding the relationship between baseball attendance and  number of ads served.")
 ```
 
+---
+
+## Baseball Ad Campaign: Confounders Part 2 - Assessing Confounders
+
+```yaml
+type: NormalExercise 
+lang: r
+xp: 100 
+skills: 1
+key: 796f46ec84   
+```
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:796f46ec84
 Now that we have the data merged, let's see if the treatment effect of the Hammer's ad campaign is `correlated` with and could have been confounded by other factors. 
 
-Correlations are similar to average treatment effects (ATEs), but are better-suited for measuring the relationship between two continuous variables (in contrast, ATEs measure the association between a binary "treatment"" variable and a continuous variable). As a rule of thumb, correlations with an absolute size of less than .3 are said to be very small, between .3 and .7 are said to be medium, and greater than .7 are said to be large. Based on this rule of thumb, answer the following questions: 
+Correlations are similar to average treatment effects (ATEs), but are better-suited for measuring the relationship between two continuous variables (in contrast, ATEs measure the association between a binary "treatment"" variable and a continuous variable). As a rule of thumb, correlations with an absolute size of less than .3 are said to be very small, between .3 and .7 are said to be medium, and greater than .7 are said to be large. Based on this rule of thumb, answer the following questions:
 
-*** =instructions
+
+`@instructions`
 - 1) Is the correlation between `attended` and `temp` in dataframe `Baseball` a) small, b) medium, or c) large? Assign "a", "b", or "c" to Solution1.
 - 2) Is the correlation between `attended` and `ranking` in dataframe `Baseball` a) small, b) medium, or c) large? Assign "a", "b", or "c" to Solution2.
 
-*** =pre_exercise_code
+`@hint`
+
+
+`@pre_exercise_code`
+
 ```{r}
 library(dplyr)
 n=62
@@ -428,7 +593,9 @@ set.seed(1)
   Baseball$attended[Baseball$attended<0]<-0
   Baseball<-Baseball[,c("id","month","attended","ads.served","treatment","temp","ranking")]
 ```
-*** =sample_code
+
+`@sample_code`
+
 ```{r}
 # Note: We have sorted the merged dataframe `Baseball` by id and month for you. Although this is not necessary for this problem, it is often preferable to have longitudinal data sorted this way for conducting future analyses.
     head(Baseball)
@@ -440,40 +607,50 @@ set.seed(1)
 
 # 2) Is the correlation between `attended` and `ranking` in dataframe `Baseball` (a) small or (b) large? Assign "a" or "b" to Solution2.
     Solution2<-""
-
 ```
 
-*** =solution
+`@solution`
+
 ```{r}
-    Solution1<-ifelse(abs(cor(Baseball$attended,Baseball$temp))>.7,"c",ifelse(abs(cor(Baseball$attended,Baseball$temp))>.3,"b","a"))
+Solution1<-ifelse(abs(cor(Baseball$attended,Baseball$temp))>.7,"c",ifelse(abs(cor(Baseball$attended,Baseball$temp))>.3,"b","a"))
     Solution2<-ifelse(abs(cor(Baseball$attended,Baseball$ranking))>.7,"c",ifelse(abs(cor(Baseball$attended,Baseball$ranking))>.3,"b","a"))
 ```
 
-*** =sct
+`@sct`
+
 ```{r}
-    test_object("Solution1")
+test_object("Solution1")
     test_object("Solution2")
     test_error()
     success_msg("Good work! According to our rule of thumb, temperature is moderately correlated with attending Baseball games, whereas ranking is weakly correlated with attendance. Since these factors are likely associated with when the campaign was launched (during the summer), these factors likely confound the relationship between Baseball attendance and ads served. Although keep in mind that these are simply rules of thumb. In some contexts, even a correlation of .1 can be considered substantial.")
 ```
 
+---
 
-
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:
 ## Do You Think the Ad Campaign Increased Attendance?
+
+```yaml
+type: MultipleChoiceExercise 
+lang: r
+xp: 50 
+skills: 1
+key: c24635cc57   
+```
+
 
 We've been looking at the effect of a social media ad campaign on attendance for a local baseball team. We found the average treatment effect, and we have graphed the correlations of potential confounders. Now the owners of the Hammers ask you if the ad campaign worked. What do you tell them?
 
-*** =instructions
+
+`@instructions`
 - Yes, it was a great success
 - Yes, but it may have been confounded by other factors
 - No, it didn't work
 
-*** =sct
+`@sct`
+
 ```{r}
 msg1 = "As a good analyst, you need to mention that there are more factors in attendance than just ads. So try again"
 msg2 = "Correct! The ad campaign had a positive effect and is the most correlated factor to attendance in the data, but people also go to more games as the weather gets warmer, so we do have a confounder. Now that you've answer this question, we must say Congratulations! You have now finished the Causal Inference with R - Introduction course. To continue your exploration into causal inference and learn slightly more advanced techniques for statistical inference, we highly recommend you try our next course, 'Causal Inference with R - Experiments"
 msg3 = "There's no need to be a Negative Nelly here, the data did show a large and positive effect. Try again."
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
-
 ```
