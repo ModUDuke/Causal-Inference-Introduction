@@ -243,7 +243,7 @@ n=382
 # Note 2: You will need to `subset` the data into treatment and control groups. For example, we create a data frame for just those in the treatment group below:
     dfTreated<-UnterHR[UnterHR$Treatment==1,]
 
-# 1) Determine the average effect of reducing the size of HR (`treatment`) on whether employees plan to leave their job in the following year (`LeaveJob`). Assign this value to Solution1.
+# 1) Write the code that finds the average effect of reducing the size of HR (`treatment`) on whether employees plan to leave their job in the following year (`LeaveJob`). Assign this value to Solution1.
     Solution1<- 
   
 ```
@@ -343,10 +343,10 @@ n=382
 # Note: This question is tricky because we want to subset the data based on two condition (i.e. whether someone is treated and whether someone is female). Below is an example of how to get the mean rate of leaving a job for men who were treated. The `&` symbol is used to add an additional condition.
     mean(UnterHR$LeaveJob[UnterHR$Treatment==1 & UnterHR$Female==0])
 
-# 1) Determine the average treatment effect among men. Assign this value to Solution1.
+# 1) Write the code that determines the average treatment effect among men. Assign this value to Solution1.
     Solution1<- 
 
-# 2) Determine the average treatment effect among women. Assign this value to Solution2.
+# 2) Write the code that determines the average treatment effect among women. Assign this value to Solution2.
     Solution2<- 
 
 ```
