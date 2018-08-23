@@ -535,12 +535,12 @@ test_function("merge", incorrect_msg = "Did you use the `merge` function?")
 
 ##Looking for Confounders, Part 2: Did the Weather Affect Attendance Too?
 
---- key:a70cd76ed0
+```yaml
 type: NormalExercise 
 lang: r
 xp: 100 
 skills: 1
-key:    
+key:   
 ```
 
 Now that we have calculated a positive average treatment effect of the ad campaign on stadium attendance, it's worth a little effort to see if we have any potential confounders in our data. And remember, there may be important confounders that are not in our data! But for now, let's explore the information we have by starting with a key factor to consider with sports attendance: the weather. 
