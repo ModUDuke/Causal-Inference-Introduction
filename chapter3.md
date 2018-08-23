@@ -451,7 +451,7 @@ key: 85efc26bc3
 ```
 
 
-Let's now determine if the treatment effect of the Hammer's ad campaign could be confounded by quality of stadium food or the daily temperature. To do this, we will first need to merge this information into our dataframe `Baseball`:
+Let's now determine if the treatment effect of the Hammer's ad campaign could be confounded by the weather or the team's performance. To do this, we will first need to merge this information into our dataframe `Baseball`:
 
 
 `@instructions`
@@ -532,104 +532,223 @@ test_function("merge", incorrect_msg = "Did you use the `merge` function?")
 
 ---
 
-## Baseball Ad Campaign: Confounders Part 2 - Assessing Confounders
+
+##Looking for Confounders, Part 2: Did the Weather Affect Attendance Too?
 
 ```yaml
 type: NormalExercise 
 lang: r
 xp: 100 
 skills: 1
-key: 796f46ec84   
+key:    
 ```
 
-
-Now that we have the data merged, let's see if the treatment effect of the Hammer's ad campaign is `correlated` with and could have been confounded by other factors. 
-
-Correlations are similar to average treatment effects (ATEs), but are better-suited for measuring the relationship between two continuous variables (in contrast, ATEs measure the association between a binary "treatment"" variable and a continuous variable). As a rule of thumb, correlations with an absolute size of less than .3 are said to be very small, between .3 and .7 are said to be medium, and greater than .7 are said to be large. Based on this rule of thumb, answer the following questions:
-
+Now that we have calculated a positive average treatment effect of the ad campaign on stadium attendance, it's worth a little effort to see if we have any potential confounders in our data. And remember, there may be important confounders that are not in our data! But for now, let's explore the information we have by starting with a key factor to consider with sports attendance: the weather. 
 
 `@instructions`
-- 1) Is the correlation between `attended` and `temp` in dataframe `Baseball` a) small, b) medium, or c) large? Assign "a", "b", or "c" to Solution1.
-- 2) Is the correlation between `attended` and `ranking` in dataframe `Baseball` a) small, b) medium, or c) large? Assign "a", "b", or "c" to Solution2.
+- 1) Look at a summary of all the variables in the dataframe.
+- 2) Generate a bar graph of average high temperature vs. attendance.
+- 3) Calculate the correlation between monthly high temperature and baseball stadium attendance.
+- 4) What happens to the attendance when the temperature goes up?
+- 5) What happens to the temperature when the attendance goes down?
 
 `@hint`
+- The syntax for the cor() function is: cor(dataframe$variable1, dataframe$variable2)
 
 
 `@pre_exercise_code`
-
 ```{r}
-library(dplyr)
+library(ggplot2)
+
 n=62
-set.seed(1)
-#Create rnorm function that allows for min and max
-  rtnorm <- function(n, mean, sd, min = -Inf, max = Inf){
-      qnorm(runif(n, pnorm(min, mean, sd), pnorm(max, mean, sd)), mean, sd)
-  }
-#Create rounding function that allows to round to numbers above 1
-  mround <- function(x,base){
-          base*round(x/base)
-  }
+ set.seed(1)
+ #Create rnorm function that allows for min and max
+ rtnorm <- function(n, mean, sd, min = -Inf, max = Inf){
+     qnorm(runif(n, pnorm(min, mean, sd), pnorm(max, mean, sd)), mean, sd)
+ }
+ #Create rounding function that allows to round to numbers above 1
+mround <- function(x,base){
+     base*round(x/base)
+ }
+
 #Create scaling function that puts number between 0 and 1
-  scale <- function(x){
-    (x - min(x))/(max(x)-min(x))
-  }
-#Dataframe
-  Baseball<-data.frame(id=rep(1:n,each=6))
-  Baseball$month=rep(1:6,n)
-  Baseball$ads.served=ifelse(Baseball$month<4,round(rtnorm(n=n,mean=1,sd=.5,min=0,max=3)),round(rtnorm(n=n,mean=5,sd=3,min=1,max=12)))
-  Baseball$temp<-rep(c(56,66,77,86,81,70),n)
-  Baseball$food<-rep(c(2,3,3,2,2,3),n)
-  Baseball$ranking<-rep(c(16,15,11,4,7,6),n)
-  Baseball$month=rep(c("April","May","June","July","August","September"),n)
-#treatment condition
-  treatment<-sample(c(0,1),n,.5)
-  Baseball$treatment<-rep(treatment,each=6)
-  Baseball$ads.served[Baseball$month=="April" | Baseball$month=="May" | Baseball$month=="June"]<-0
-  Baseball$ads.served[Baseball$treatment==0]<-0
-  Baseball$attended<-round(
-                    rtnorm(n=n,mean=3,sd=1.5,min=0,max=6)+
-                    .3*Baseball$ads.served+
-                    .0006*Baseball$temp^2+
-                    .17*Baseball$ranking
-                    )
-  Baseball$attended[Baseball$attended<0]<-0
-  Baseball<-Baseball[,c("id","month","attended","ads.served","treatment","temp","ranking")]
+ scale <- function(x){
+     (x - min(x))/(max(x)-min(x))
+ }
+ #Dataframe
+ Baseball<-data.frame(id=rep(1:n,each=6))
+ Baseball$month=rep(1:6,n)
+ Baseball$ads.served=ifelse(Baseball$month<4,round(rtnorm(n=n,mean=1,sd=.5,min=0,max=3)),round(rtnorm(n=n,mean=5,sd=3,min=1,max=12)))
+ Baseball$temp<-rep(c(56,66,77,86,81,70),n)
+ Baseball$food<-rep(c(2,2,2,3,2,2),n)
+ Baseball$ranking<-rep(c(16,15,11,4,7,6),n)
+ Baseball$month=rep(c("April","May","June","July","August","September"),n)
+ #treatment condition
+ treatment<-sample(c(0,1),n,.5)
+ Baseball$treatment<-rep(treatment,each=6)
+ Baseball$ads.served[Baseball$month=="April" | Baseball$month=="May" | Baseball$month=="June"]<-0
+ Baseball$ads.served[Baseball$treatment==0]<-0
+ Baseball$attended<-round(
+     rtnorm(n=n,mean=3,sd=1.5,min=0,max=6)+
+         .3*Baseball$ads.served+
+         .0006*Baseball$temp^2+
+         .17*Baseball$ranking
+ )
+ Baseball$attended[Baseball$attended<0]<-0
+ Baseball<-Baseball[,c("id","month","attended","ads.served","treatment","temp","ranking")]
+ Baseball$attended
 ```
 
 `@sample_code`
-
 ```{r}
-# Note: We have sorted the merged dataframe `Baseball` by id and month for you. Although this is not necessary for this problem, it is often preferable to have longitudinal data sorted this way for conducting future analyses.
-    head(Baseball)
+# 1) We have sorted the merged dataframe `Baseball` by id and month for you. Although this is not necessary for this problem, it is often preferable to have longitudinal data sorted this way for conducting future analyses. To see what we have, select this code and hit the "Run Code" button:
+   
+ head(Baseball)
 
-# Note: You will need to determine the correlations between `attended` and `temp`, and `attended` and `ranking` to answer the following questions.
+# Good. You will notice some other variables that we have not used yet:
+#   temp: the average high temperature each month (in F)
+#   food: the average quality of stadium food (on a scale of 1-10)
+#   ranking: the average national ranking of the team (from 1 - 30)
 
-# 1) Is the correlation between `attended` and `temp` in dataframe `Baseball` (a) small or (b) large? Assign "a" or "b" to Solution1.
-    Solution1<-""
+# 2) One of these variables, `temp`,  is a logical place to start, because it makes sense that people will go to more baseball games during good weather. Let's start by looking at a graph that shows the baseball attendance in our sample group vs. the average high temperatures for each month. We have generated this code for you, so select it and hit the "Run Code" button:
 
-# 2) Is the correlation between `attended` and `ranking` in dataframe `Baseball` (a) small or (b) large? Assign "a" or "b" to Solution2.
-    Solution2<-""
+   bytemp<-aggregate(attended~temp, Baseball, sum)
+   barplot(bytemp$attended, main="Attendance", xlab="Avg High Temp", names.arg=bytemp$temp, ylim=c(0,600))
+
+# 3) Great (and note that the x-axis shows the average monthly high temperatures, not the calendar months). Now let's find out if there's a statistical correlation between the variables `temp` and `attended`, so insert those variables into the cor() function and hit the "Run Code" button:
+  
+  cor()
+  
+#4) Based on that correlation, if the temperature goes up by 5 degrees, would you expect the attendance to increase, decrease, or stay the same? Write "increase", "decrease", or "stay the same".
+
+  solution4<-""
+
+#5) And based on that correlation, if you see that the attendance goes down by 200, would you expect to see the average high temperature increase, decrease, or stay the same? Write "increase", "decrease", or "stay the same".
+
+   solution5<-""
 ```
 
 `@solution`
-
 ```{r}
-Solution1<-ifelse(abs(cor(Baseball$attended,Baseball$temp))>.7,"c",ifelse(abs(cor(Baseball$attended,Baseball$temp))>.3,"b","a"))
-    Solution2<-ifelse(abs(cor(Baseball$attended,Baseball$ranking))>.7,"c",ifelse(abs(cor(Baseball$attended,Baseball$ranking))>.3,"b","a"))
+cor(Baseball$temp,Baseball$attended)
+solution4<-"increase"
+solution5<-"decrease"
 ```
 
 `@sct`
-
 ```{r}
-test_object("Solution1")
-    test_object("Solution2")
+test_object("Solution4")
+    test_object("Solution5")
     test_error()
-    success_msg("Good work! According to our rule of thumb, temperature is moderately correlated with attending Baseball games, whereas ranking is weakly correlated with attendance. Since these factors are likely associated with when the campaign was launched (during the summer), these factors likely confound the relationship between Baseball attendance and ads served. Although keep in mind that these are simply rules of thumb. In some contexts, even a correlation of .1 can be considered substantial.")
+    success_msg("Nice job. This result makes intuitive sense: people want to get outside more often when it gets warmer than when it's colder, and when it does get colder, they will likely go to fewer games. There are potential other complicating factors, like the other variables in our dataset, and some potential complicating factors that aren't in our dataset, like when kids are out of school for the summer and families are therefore more available to go to baseball games. So let's keep digging!")"
 ```
 
----
 
-## Do You Think the Ad Campaign Increased Attendance?
+
+
+##Looking for Confounders, Part 2: Did the Team Performance Affect Attendance?
+
+```yaml
+type: NormalExercise 
+lang: r
+xp: 100 
+skills: 1
+key:    
+```
+
+Another variable that might be important is `ranking`, which reflects the quality of the team's performance. As the team improves, its ranking gets closer to #1, and it makes sense that people will be more interested to go to games if the team is good. But is that true in our sample? Let's find out.
+
+`@instructions`
+- 1) Generate a bar graph of team national ranking vs. attendance.
+- 2) Calculate the correlation between team ranking and baseball stadium attendance.
+- 3) What happens to the attendance when the team gets better?
+- 4) What happens to the team ranking when the attendance goes down?
+
+`@hint`
+- The syntax for the cor() function is: cor(dataframe$variable1, dataframe$variable2)
+
+
+`@pre_exercise_code`
+```{r}
+library(ggplot2)
+
+n=62
+ set.seed(1)
+ #Create rnorm function that allows for min and max
+ rtnorm <- function(n, mean, sd, min = -Inf, max = Inf){
+     qnorm(runif(n, pnorm(min, mean, sd), pnorm(max, mean, sd)), mean, sd)
+ }
+ #Create rounding function that allows to round to numbers above 1
+mround <- function(x,base){
+     base*round(x/base)
+ }
+
+#Create scaling function that puts number between 0 and 1
+ scale <- function(x){
+     (x - min(x))/(max(x)-min(x))
+ }
+ #Dataframe
+ Baseball<-data.frame(id=rep(1:n,each=6))
+ Baseball$month=rep(1:6,n)
+ Baseball$ads.served=ifelse(Baseball$month<4,round(rtnorm(n=n,mean=1,sd=.5,min=0,max=3)),round(rtnorm(n=n,mean=5,sd=3,min=1,max=12)))
+ Baseball$temp<-rep(c(56,66,77,86,81,70),n)
+ Baseball$food<-rep(c(2,2,2,3,2,2),n)
+ Baseball$ranking<-rep(c(16,15,11,4,7,6),n)
+ Baseball$month=rep(c("April","May","June","July","August","September"),n)
+ #treatment condition
+ treatment<-sample(c(0,1),n,.5)
+ Baseball$treatment<-rep(treatment,each=6)
+ Baseball$ads.served[Baseball$month=="April" | Baseball$month=="May" | Baseball$month=="June"]<-0
+ Baseball$ads.served[Baseball$treatment==0]<-0
+ Baseball$attended<-round(
+     rtnorm(n=n,mean=3,sd=1.5,min=0,max=6)+
+         .3*Baseball$ads.served+
+         .0006*Baseball$temp^2+
+         .17*Baseball$ranking
+ )
+ Baseball$attended[Baseball$attended<0]<-0
+ Baseball<-Baseball[,c("id","month","attended","ads.served","treatment","temp","ranking")]
+ Baseball$attended
+```
+
+`@sample_code`
+```{r}
+# 1)  Let's start by looking at a graph that shows the baseball attendance in our sample group vs. the average team national ranking for each month. We have generated this code for you, so select it and hit the "Run Code" button:
+
+byranking<-aggregate(attended~ranking, Baseball, sum)
+barplot(byranking$attended, main="Attendance", xlab="Team National Ranking", names.arg=byranking$ranking, ylim=c(0,600))
+
+#2) Good (and note that the x-axis shows the average monthly rankings, not the calendar months). Now let's find out if there's a statistical correlation between the variables `ranking` and `attended`:
+  
+  cor()
+  
+#3) Based on that correlation, if the team's national ranking changes from #2 to #10, would you expect the attendance to increase, decrease, or stay the same? Write "increase", "decrease", or "stay the same" as the solution.
+
+solution3<-""
+
+#4) And based on that correlation, if you see that the attendance goes up by 100, would you expect the team's ranking to increase, decrease, or stay the same? Write "increase", "decrease", or "stay the same" as the solution.
+
+solution4<-""
+```
+
+`@solution`
+```{r}
+cor(Baseball$ranking,Baseball$attended)
+solution3<-"decrease"
+solution4<-"decrease"
+```
+
+`@sct`
+```{r}
+test_object("Solution3")
+    test_object("Solution4")
+    test_error()
+    success_msg("Good job. Negative correlations can often be confusing to interpret, and their real-world implications is not always intuitive. In this case, do people go to more baseball games when the team improves, or does the team improve when more people go to their games? We can't tell. This data just shows us that there is a negative correlation between these variables in our sample, not a causal effect.")"
+```
+
+
+
+## The Final Question: Do You Think the Ad Campaign Increased Attendance?
 
 ```yaml
 type: MultipleChoiceExercise 
@@ -640,13 +759,13 @@ key: c24635cc57
 ```
 
 
-We've been looking at the effect of a social media ad campaign on attendance for a local baseball team. We found the average treatment effect, and we have graphed the correlations of potential confounders. Now the owners of the Hammers ask you if the ad campaign worked. What do you tell them?
+We've been looking at the effect of a social media ad campaign on attendance for a local baseball team. We found a positive average treatment effect for the ad campaign, although we also have found out that our data also has two potential confounding variables. Now the owners of the Hammers walks up to you and asks, "Did the ad campaign work?" What do you tell them?
 
 
 `@instructions`
-- Yes, it was a great success
-- Yes, but it may have been confounded by other factors
-- No, it didn't work
+- Yes, the positive ATE shows that it was a great success.
+- Yes, the ads did seem to work, but this effect may have been confounded by other factors
+- No, there are too many other explanations for the attendance rates, so the ads clearly didn't work.
 
 `@hint`
 
@@ -662,9 +781,7 @@ We've been looking at the effect of a social media ad campaign on attendance for
 
 ```{r}
 msg1 = "As a good analyst, you need to mention that there are more factors in attendance than just ads. So try again"
-msg2 = "Correct! The ad campaign had a large average treatment effect on attendance, however, people also do go to more games as the weather gets warmer and their team plays better, so we do have potential confounders. 
-
-Congratulations! You have now finished the Causal Inference with R - Introduction course. To continue your exploration into causal inference and learn slightly more advanced techniques for statistical inference, we highly recommend you try our next course, 'Causal Inference with R - Experiments"
+msg2 = "Correct! The ad campaign had a large average treatment effect on attendance, however, people also do go to more games as the weather gets warmer and their team plays better, so we do have potential confounders. Congratulations! You have now finished the Causal Inference with R - Introduction course. To continue your exploration into causal inference and learn slightly more advanced techniques for statistical inference, we highly recommend you try our next course, 'Causal Inference with R - Experiments"
 msg3 = "There's no need to be a Negative Nelly here, the data did show a large and positive effect. Try again."
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
 ```
