@@ -535,7 +535,7 @@ test_function("merge", incorrect_msg = "Did you use the `merge` function?")
 
 ##Looking for Confounders, Part 2: Did the Weather Affect Attendance Too?
 
-```yaml
+--- key:4716574ac8
 type: NormalExercise 
 lang: r
 xp: 100 
@@ -647,7 +647,7 @@ test_object("Solution4")
 
 ##Looking for Confounders, Part 2: Did the Team Performance Affect Attendance?
 
-```yaml
+--- key:58c01cd2c7
 type: NormalExercise 
 lang: r
 xp: 100 
