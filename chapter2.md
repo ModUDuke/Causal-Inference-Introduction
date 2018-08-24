@@ -1,30 +1,55 @@
-﻿--- 
-title       : "Introduction to Treatment Effects"
-description : "This chapter will introduce you to individual, group, and average treatment effects, and will let you learn and practice through R"
- 
+---
+title: 'Introduction to Treatment Effects'
+description: 'This chapter will introduce you to individual, group, and average treatment effects, and will let you learn and practice through R'
+---
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:df9b958a75
 ## The Average Treatment Effect
-*** =video_link
-//player.vimeo.com/video/230622767
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:41d2451b2e
+```yaml
+type: VideoExercise 
+lang: r
+xp: 50 
+skills: 1
+key: df9b958a75 
+video_link: //player.vimeo.com/video/230622767  
+```
+
+---
+
 ## Let’s Code: Finishing Up with Breakfast Cereals
-*** =video_link
-//player.vimeo.com/video/276320325
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:0eb921aaf9
+```yaml
+type: VideoExercise 
+lang: r
+xp: 50 
+skills: 1
+key: 41d2451b2e 
+video_link: //player.vimeo.com/video/276320325  
+```
+
+---
+
 ## Comparing Breakfast Cereals: Average Treatment Effect
+
+```yaml
+type: NormalExercise 
+lang: r
+xp: 100 
+skills: 1
+key: 0eb921aaf9   
+```
+
 
 Since we found no significant errors in their dataset in Chapter 1, Puritan Wheat Inc. now wants us to determine whether their cereal TechnoCrunch lasts a longer amount of `time` before it gets soggy than NeoPuffs. Conduct the  the following steps:
 
-*** =instructions
+
+`@instructions`
 - 1) Use the `mean` function to estimate the mean `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`
 - 2) Use the `mean` function to estimate the mean `time` in dataframe `Soggy` just for flakes that were in NeoPuffs `cereal`
 - 3) In dataframe `Soggy`, subtract the mean `time` for flakes in NeoPuffs `cereal` from the mean `time` for flakes in TechnoCrunch `cereal` to determine which cereal lasts longer before it gets soggy
 
+`@pre_exercise_code`
 
-*** =pre_exercise_code
 ```{r}
 library(dplyr)
 n=731
@@ -54,9 +79,11 @@ set.seed(1)
     )
   Soggy$time<-Soggy$time+Soggy$cereal*rtnorm(n=n,mean=10,sd=3,min=0,max=20)
   Soggy$cereal<-ifelse(Soggy$cereal==1,"TechnoCrunch","NeoPuffs")
-
 ```
-*** =sample_code
+
+
+`@sample_code`
+
 ```{r}
 # Note: The following questions require you to subset the data. Remember that in Chapter 1, we had entered the following to get the maximum `time` in dataframe `Soggy` 
     max(Soggy$time[Soggy$cereal=="TechnoCrunch"]) 
@@ -68,16 +95,20 @@ set.seed(1)
 
 
 # 3) In dataframe `Soggy`, subtract the mean `time` for flakes in NeoPuffs `cereal` from the mean `time` for flakes in TechnoCrunch `cereal` to determine which cereal lasts longer before it gets soggy
-
-
 ```
-*** =solution
+
+
+`@solution`
+
 ```{r}
-    mean(Soggy$time[Soggy$cereal=="TechnoCrunch"])
+mean(Soggy$time[Soggy$cereal=="TechnoCrunch"])
     mean(Soggy$time[Soggy$cereal=="NeoPuffs"])
     mean(Soggy$time[Soggy$cereal=="TechnoCrunch"])-mean(Soggy$time[Soggy$cereal=="NeoPuffs"])
 ```
-*** =sct
+
+
+`@sct`
+
 ```{r}
 test_function("mean", incorrect_msg = "Did you use the `mean` function?")
 test_error()
@@ -85,17 +116,28 @@ success_msg("Good work! It appears that TechnoCrunch's crunchiness lasts longer 
 ```
 
 
+---
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:7fd76a360d
 ## Comparing Breakfast Cereals: Confounders
+
+```yaml
+type: NormalExercise 
+lang: r
+xp: 100 
+skills: 1
+key: 7fd76a360d   
+```
+
+
 Puritan Wheat Inc. wants to know if there are any factors that might contribute to the difference in the time it took for TechnoCrunch and Neopuffs to get soggy. Puritan Wheat suggests exploring whether `milk` absorption or `fiber` content are correlated with `time` before sogginess. That is, conduct the the following steps:
 
-*** =instructions
+
+`@instructions`
 - 1) Use the `cor` function to estimate the correlation between `milk` and `time`
 - 2) Use the `cor` function to estimate the correlation between `fiber` and `time`
 
+`@pre_exercise_code`
 
-*** =pre_exercise_code
 ```{r}
 library(dplyr)
 n=731
@@ -125,9 +167,11 @@ set.seed(1)
     )
   Soggy$time<-Soggy$time+Soggy$cereal*rtnorm(n=n,mean=10,sd=3,min=0,max=20)
   Soggy$cereal<-ifelse(Soggy$cereal==1,"TechnoCrunch","NeoPuffs")
-
 ```
-*** =sample_code
+
+
+`@sample_code`
+
 ```{r}
 # Note: The following questions require use of the cor function. The cor function requires two variables as inputs, separated by a comma. As an example, we produce the correlation between milk and fiber below.
     cor(Soggy$milk,Soggy$fiber)
@@ -136,15 +180,19 @@ set.seed(1)
 
 
 # 2) Use the `cor` function to estimate the correlation between `fiber` and `time`
-
-
 ```
-*** =solution
+
+
+`@solution`
+
 ```{r}
-    cor(Soggy$milk,Soggy$time)
+cor(Soggy$milk,Soggy$time)
     cor(Soggy$fiber,Soggy$time)
 ```
-*** =sct
+
+
+`@sct`
+
 ```{r}
 test_function("cor", incorrect_msg = "Did you use the `cor` function?")
 test_error()
@@ -152,28 +200,56 @@ success_msg("Good work! There is a positive correlation between fiber and time. 
 ```
 
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:5ebfd9aaa0
+---
+
 ## The Unit Level Effect
-*** =video_link
-//player.vimeo.com/video/230623038
 
+```yaml
+type: VideoExercise 
+lang: r
+xp: 50 
+skills: 1
+key: 5ebfd9aaa0 
+video_link: //player.vimeo.com/video/230623038  
+```
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:6fc38f8905
+---
+
 ## The Conditional Average Treatment Effect
-*** =video_link
-//player.vimeo.com/video/230623221
 
+```yaml
+type: VideoExercise 
+lang: r
+xp: 50 
+skills: 1
+key: 6fc38f8905 
+video_link: //player.vimeo.com/video/230623221  
+```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:6238dbab2d
+---
+
 ## Changing an Ice Cream Recipe: ATE
+
+```yaml
+type: MultipleChoiceExercise 
+lang: r
+xp: 50 
+skills: 1
+key: 6238dbab2d   
+```
+
+
 Suppose Eddie's Ice Cream wants to know the effect of a new chocolate ice cream recipe on how many cartons of ice cream someone buys next month. They try distributing their new chocolate ice cream to one grocery store, and after a month, they survey three regular Eddie's customers at this store. The first person surveyed bought 10 fewer cartons of Eddie's ice cream after changing the recipe, the second bought 6 more cartons, and the third bought 5 fewer cartons. Assuming that no other factors that influenced their ice cream consumption, this would mean that the experiment's unit-level causal effects were -10, 6, -5 cartons of ice cream. Based on this sample, what was the average treatment effect (ATE) of changing the Eddie's chocolate ice cream recipe on ice cream consumption?
-*** =instructions
+
+
+`@instructions`
 - 3
 - 10
 - -7
 - -3
 
-*** =sct
+`@sct`
+
 ```{r}
 msg1 = "What does (-10 + 6 + -5)/3 equal? Try again."
 msg2 = "What does (-10 + 6 + -5)/3 equal? Try again."
@@ -183,17 +259,31 @@ test_mc(correct = 4, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
 
 
+---
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:2bbbcc3971
 ## Changing an Ice Cream Recipe: CATEs
+
+```yaml
+type: MultipleChoiceExercise 
+lang: r
+xp: 50 
+skills: 1
+key: 2bbbcc3971   
+```
+
+
 Eddie's then surveyed three people who were not regular Eddie's customers. Their unit level causal effects of the change in the chocolate ice cream recipe were -1, 0, 2. If the experiment's unit-level causal effects on regular Eddie's customers was -10, 6, -5 cartons of ice cream
 What is the difference between CATE (regular customers) and CATE(not regular customers)?
-*** =instructions
+
+
+`@instructions`
 - -3.33
 - -7.33
 - 0
 - 20
-*** =sct
+
+`@sct`
+
 ```{r}
 msg1 = "Correct! CATE(regular) = [(-10) + (6) + (-5)]/3 = -3. CATE(not regular) = (-1 + 0 + 2)/3 = 1/3. So the difference is -3 - 1/3 = -3.33. We see that the average effect on regular customers is much different than on non-regulars: the regular customers will buy a lot less ice cream on average."
 msg2 = "Try again: CATE(regular) = [(-10) + (6) + (-5)]/3 = -3. CATE(not regular) = (-1 + 0 + 2)/3 = 1/3."
@@ -201,26 +291,49 @@ msg3 = "Try again: CATE(regular) = [(-10) + (6) + (-5)]/3 = -3. CATE(not regular
 msg4 = "Try again: CATE(regular) = [(-10) + (6) + (-5)]/3 = -3. CATE(not regular) = (-1 + 0 + 2)/3 = 1/3."
 test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:6b8a71d25a
-## Let’s Code: A Problem with Employee Unhappiness
-*** =video_link
-//player.vimeo.com/video/276320364
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:311670fb1a
+
+---
+
+## Let’s Code: A Problem with Employee Unhappiness
+
+```yaml
+type: VideoExercise 
+lang: r
+xp: 50 
+skills: 1
+key: 6b8a71d25a 
+video_link: //player.vimeo.com/video/276320364  
+```
+
+---
+
 ## Unhappiness at Unter: Identifying Heterogeneous Outcomes - ATE
+
+```yaml
+type: NormalExercise 
+lang: r
+xp: 100 
+skills: 1
+key: 311670fb1a   
+```
+
+
 The transportation network company, Unter Technologies, is interested in improving their employee morale and reducing employee turnover rate by downsizing their Human Resources (HR) Department.
 
 To make sure this would not antagonize their workforce, Unter conducts an experiment: With a balanced sample of employees, Unter tells a treatment group that the HR Department will be downsized in the following year, and a control group that the HR Department will remain the same size in the following year (and magically, they don't end up discussing this with each other). Unter then surveys the employees to find out whether employees plan to look for new jobs, with response options 0="No" and 1="Yes."
 
 With the dataframe, `UnterHR`, determine whether there is a negative or positive average treatment effect of reducing the size of Unter's HR department on employee turnover:
 
-*** =instructions
+
+`@instructions`
 - 1) Determine the average effect of reducing the size of HR (`treatment`) on whether employees plan to leave their job in the following year (`LeaveJob`).
 
-
-*** =hint
+`@hint`
 - Try breaking the task into pieces. First find the mean rate of `LeaveJob`in the control condition (`Treatment==0`) then find the mean rate of `LeaveJob`in the treatment condition (`Treatment==1`).
-*** =pre_exercise_code
+
+`@pre_exercise_code`
+
 ```{r}
 library(dplyr)
 set.seed(1)
@@ -235,7 +348,10 @@ n=382
     UnterHR$LeaveJob[UnterHR$Treatment==0 & UnterHR$Female==1]<-rbinom(length(UnterHR$LeaveJob[UnterHR$Treatment==0 & UnterHR$Female==1]),1,.3)
     UnterHR$LeaveJob[UnterHR$Treatment==1 & UnterHR$Female==1]<-rbinom(length(UnterHR$LeaveJob[UnterHR$Treatment==1 & UnterHR$Female==1]),1,.6)
 ```
-*** =sample_code
+
+
+`@sample_code`
+
 ```{r}
 # Note 1: The average treatment effect is simply the mean outcome of the treatment group minus the mean outcome of the control group. The mean outcome overall is calculated below.
     mean(UnterHR$LeaveJob)
@@ -244,32 +360,51 @@ n=382
     dfTreated<-UnterHR[UnterHR$Treatment==1,]
 
 # 1) Write the code that finds the average effect of reducing the size of HR (`treatment`) on whether employees plan to leave their job in the following year (`LeaveJob`). Assign this value to Solution1.
-    Solution1<- 
-  
+    Solution1<-
 ```
-*** =solution
+
+
+`@solution`
+
 ```{r}
 Solution1<- mean(UnterHR$LeaveJob[UnterHR$Treatment==1])-mean(UnterHR$LeaveJob[UnterHR$Treatment==0])
 ```
 
-*** =sct
+
+`@sct`
+
 ```{r}
 test_object("Solution1")
 success_msg("Good work! It seems that reducing the size of HR reduced Unter employees' intentions to leave their jobs")
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:6217752659
+
+---
+
 ## Unhappiness at Unter: Identifying Heterogeneous Outcomes - CATEs
+
+```yaml
+type: MultipleChoiceExercise 
+lang: r
+xp: 50 
+skills: 1
+key: 6217752659   
+```
+
+
 Since reducing the size of HR seems to reduce the rate of employee turnover, the CEO of Unter Technologies is now heavily considering this option.
 
 However, his chief operating officer (COO) warns him that reducing the size of HR might be unpopular among certain minority groups within the company, particularly among women. The COO sends the CEO a figure (illustrated in the R workspace) showing the results of his experiment among men and women. Which of the following does the figure suggest?
 
-*** =instructions
+
+`@instructions`
 - While the pooled average treatment effect is slightly negative, and the average treatment effect for men is negative, the average treatment effect for women is positive.
 - While the pooled average treatment effect is slightly positive, and the average treatment effect for men is positive, the average treatment effect for women is negative.
 - While the pooled average treatment effect is slightly negative, and the average treatment effect for men is positive, the average treatment effect for women is negative.
 - While the pooled average treatment effect is slightly positive, and the average treatment effect for men is negative, the average treatment effect for women is positive.
-*** =pre_exercise_code
+
+`@pre_exercise_code`
+
 ```{r}
 library(dplyr)
 set.seed(1)
@@ -294,12 +429,17 @@ n=382
     p+geom_point(size=3)+geom_line(size=2)+scale_y_continuous(label = percent,limits = c(0,1))
 ```
 
-*** =sample_code
+
+`@sample_code`
+
 ```{r}
 p<-ggplot(df, aes(x=`Control and Treatment Groups`,y=`Percent Intending to Quit`,group=Gender,color=Gender))
     p+geom_point(size=3)+geom_line(size=2)+scale_y_continuous(label = percent,limits = c(0,1))
 ```
-*** =sct
+
+
+`@sct`
+
 ```{r}
 msg1 = "Good job! This is an example of a heterogeneous average treatment effect - the treatment has different effects on men and women. However, when men and women are pooled, this heterogeneity is masked."
 msg2 = "Whoa! While you're right that there are different effects for men and for women, it looks like you're confused about which effects are negative and which are positive.  Try again."
@@ -309,18 +449,33 @@ test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
 
 
---- type:NormalExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:a4ab5d9f9b
+---
+
 ## Unhappiness at Unter: Identifying Heterogeneous Outcomes - CATEs (2)
+
+```yaml
+type: NormalExercise 
+lang: r
+xp: 100 
+skills: 1
+key: a4ab5d9f9b   
+```
+
+
 Let's further analyze the heterogeneous effect of the treatment on men vs. women in Unter Technologies. With the dataframe, `UnterHR`, determine the average treatment effect of reducing the size of Unter's HR department on employee turnover by gender (`Female`).
 
-*** =instructions
+
+`@instructions`
 - 1) Determine the average effect of reducing the size of HR (`treatment`) on whether male employees (`Female = 0`) plan to leave the job in the following year (`LeaveJob`).
 - 2) Determine the average effect of reducing the size of HR (`treatment`) on whether female employees (`Female = 1`) plan to leave the job in the following year (`LeaveJob`).
-*** =hint
+
+`@hint`
 - Remember, you can determine the ATE by subtracting the mean rate of the outcome in the control condition by the mean rate of the outcome in the treatment condition.
 - You will need to use the `mean` and `subset` commands.
 - Try breaking the task into pieces. First find the mean rate of `LeaveJob`in the control condition (`Treatment=0`) then find the mean rate of `LeaveJob`in the treatment condition (`Treatment=1`).
-*** =pre_exercise_code
+
+`@pre_exercise_code`
+
 ```{r}
 library(dplyr)
 set.seed(1)
@@ -335,7 +490,10 @@ n=382
     UnterHR$LeaveJob[UnterHR$Treatment==0 & UnterHR$Female==1]<-rbinom(length(UnterHR$LeaveJob[UnterHR$Treatment==0 & UnterHR$Female==1]),1,.3)
     UnterHR$LeaveJob[UnterHR$Treatment==1 & UnterHR$Female==1]<-rbinom(length(UnterHR$LeaveJob[UnterHR$Treatment==1 & UnterHR$Female==1]),1,.6)
 ```
-*** =sample_code
+
+
+`@sample_code`
+
 ```{r}
 # Note: Since we are interested in understanding the rates of intention to leave by treatment and gender, we might want to examine a three way table of this relationship first. The following syntax prints the numbers of men and women who intend to leave work by treatment group and gender.
     xtabs(~LeaveJob+Treatment+Female, data=UnterHR)
@@ -347,18 +505,24 @@ n=382
     Solution1<- 
 
 # 2) Write the code that determines the average treatment effect among women. Assign this value to Solution2.
-    Solution2<- 
-
+    Solution2<-
 ```
-*** =solution
+
+
+`@solution`
+
 ```{r}
 Solution1 <- mean(UnterHR$LeaveJob[UnterHR$Treatment==1 & UnterHR$Female==0])-mean(UnterHR$LeaveJob[UnterHR$Treatment==0 & UnterHR$Female==0])
 Solution2 <- mean(UnterHR$LeaveJob[UnterHR$Treatment==1 & UnterHR$Female==1])-mean(UnterHR$LeaveJob[UnterHR$Treatment==0 & UnterHR$Female==1])
 ```
-*** =sct
+
+
+`@sct`
+
 ```{r}
 test_object("Solution1")
 test_object("Solution2")
 success_msg("Good work! We can see a clear difference in the treatment effect among men and women. This is a clear example of a conditional average treatment effect.")
 ```
+
 

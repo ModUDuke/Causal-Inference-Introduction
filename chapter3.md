@@ -1,6 +1,6 @@
 ---
-  title: "Confounders, Counterfactuals, and p-Hacking"
-  description: "This chapter will introduce you the important issues of confounders, counterfactuals, and the problem of p-hacking, and will let you learn and practice through R"
+title: 'Confounders, Counterfactuals, and p-Hacking'
+description: 'This chapter will introduce you the important issues of confounders, counterfactuals, and the problem of p-hacking, and will let you learn and practice through R'
 ---
 
 ## Confounders
@@ -44,6 +44,7 @@ msg3 = "Unobserved variables are not always a problem in causal inference, becau
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
+
 ---
 
 ## Counterfactuals
@@ -85,6 +86,7 @@ msg2 = "Correct! The question proposed an experiment and an outcome, but we do n
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2))
 ```
 
+
 ---
 
 ## Statistical Inference vs. Causal Inference
@@ -125,6 +127,7 @@ msg1 = "Correct. Big data might give you more power to make statistical inferenc
 msg2 = "Big Data does not solve all problems by magic! No matter the size of your data, you will always need to think about how to interpret your results. Try again."
 test_mc(correct = 1, feedback_msgs = c(msg1,msg2))
 ```
+
 
 ---
 
@@ -184,6 +187,7 @@ msg4 = "This could be a safe guess if you think their attendance rate will keep 
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
 
+
 ---
 
 ## Baseball Ad Campaign: Early Success?
@@ -224,6 +228,7 @@ msg2 = "Not yet! We do not know whether the difference in games attended after b
 msg3 = "Correct! Stopping this analysis just because we like the results in the first month would be hacking our results. This month could just be due to confounders. We should let the ad campaign run for the whole season to get a better conclusion"
 test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 ```
+
 
 ---
 
@@ -304,6 +309,7 @@ set.seed(1)
   Baseball<-Baseball[,c("id","month","attended","ads.served","treatment")]
 ```
 
+
 `@sample_code`
 
 ```{r}
@@ -323,6 +329,7 @@ set.seed(1)
     Solution2<-
 ```
 
+
 `@solution`
 
 ```{r}
@@ -330,6 +337,7 @@ head(Baseball)
     Solution1<-nrow(Baseball)
     Solution2<-length(unique(Baseball$id))
 ```
+
 
 `@sct`
 
@@ -341,6 +349,7 @@ test_object("Solution2")
 test_error()
 success_msg("Good work! You should always explore your data before running analyses. These are very typical steps that one might take")
 ```
+
 
 ---
 
@@ -410,6 +419,7 @@ set.seed(1)
   Baseball<-Baseball[,c("id","month","attended","ads.served","treatment")]
 ```
 
+
 `@sample_code`
 
 ```{r}
@@ -423,6 +433,7 @@ set.seed(1)
     Solution2<- mean(Baseball$attended[Baseball$treatment==1 & Baseball$ExpMonths==TRUE]) -
 ```
 
+
 `@solution`
 
 ```{r}
@@ -430,13 +441,15 @@ Baseball$ExpMonths<-Baseball$month=="July" | Baseball$month=="August" | Baseball
     Solution2<- mean(Baseball$attended[Baseball$treatment==1 & Baseball$ExpMonths==TRUE]) - mean(Baseball$attended[Baseball$treatment==1 & Baseball$ExpMonths==FALSE])
 ```
 
+
 `@sct`
 
 ```{r}
-    test_object("Solution2")
+test_object("Solution2")
     test_error()
     success_msg("Good work! The ad campaign had a positive average treatment effect. However, there are several potential confounders that we might want to consider before declaring victory. Let's explore some in the next few questions.")
 ```
+
 
 ---
 
@@ -459,6 +472,7 @@ Let's now determine if the treatment effect of the Hammer's ad campaign could be
 - 2) Merge `dfMonth` with dataframe `Baseball` by `month` with the `merge` function.
 
 `@pre_exercise_code`
+
 ```{r}
 library(dplyr)
 n=62
@@ -503,6 +517,7 @@ set.seed(1)
                       ranking=c(21,15,11,4,7,13))
 ```
 
+
 `@sample_code`
 
 ```{r}
@@ -513,12 +528,14 @@ set.seed(1)
     Baseball<-merge(x,y,by="variable")
 ```
 
+
 `@solution`
 
 ```{r}
 dfMonth
     Baseball<-merge(Baseball,dfMonth,by="month")
 ```
+
 
 `@sct`
 
@@ -529,10 +546,17 @@ test_function("merge", incorrect_msg = "Did you use the `merge` function?")
     success_msg("Good work! This is a common way to merge data from different sized dataframes together. Now we can see whether these other variables are associated with attending baseball games and whether they may be confounding the relationship between baseball attendance and  number of ads served.")
 ```
 
+
 ---
 
-
 ## Baseball Ad Campaign: Confounders, Part 2 - Did the Weather Affect Attendance Too?
+
+```yaml
+type: undefined 
+xp: 0 
+key: 078c036bf7   
+```
+
 
 --- key:dfcab2326b
 type: NormalExercise 
@@ -542,7 +566,8 @@ skills: 1
 key: 5c37f21710 
 ```
 
-Now that we have calculated a positive average treatment effect of the ad campaign on stadium attendance, it's worth a little effort to see if we have any potential confounders in our data. And remember, there may be important confounders that are not in our data! But for now, let's explore the information we have by starting with a key factor to consider with sports attendance: the weather. 
+Now that we have calculated a positive average treatment effect of the ad campaign on stadium attendance, it's worth a little effort to see if we have any potential confounders in our data. And remember, there may be important confounders that are not in our data! But for now, let's explore the information we have by starting with a key factor to consider with sports attendance: the weather.
+
 
 `@instructions`
 - 1) Look at a summary of all the variables in the dataframe.
@@ -554,8 +579,8 @@ Now that we have calculated a positive average treatment effect of the ad campai
 `@hint`
 - The syntax for the cor() function is: cor(dataframe$variable1, dataframe$variable2)
 
-
 `@pre_exercise_code`
+
 ```{r}
 library(ggplot2)
 
@@ -598,7 +623,9 @@ mround <- function(x,base){
  Baseball$attended
 ```
 
+
 `@sample_code`
+
 ```{r}
 # 1) We have sorted the merged dataframe `Baseball` by id and month for you. Although this is not necessary for this problem, it is often preferable to have longitudinal data sorted this way for conducting future analyses. To see what we have, select this code and hit the "Run Code" button:
    
@@ -627,7 +654,9 @@ mround <- function(x,base){
    solution5<-""
 ```
 
+
 `@solution`
+
 ```{r}
 head(Baseball)
 bytemp<-aggregate(attended~temp, Baseball, sum)
@@ -637,7 +666,9 @@ solution4<-"increase"
 solution5<-"decrease"
 ```
 
+
 `@sct`
+
 ```{r}
 test_object("Solution4")
     test_object("Solution5")
@@ -645,9 +676,17 @@ test_object("Solution4")
     success_msg("Nice job. This result makes intuitive sense: people want to get outside more often when it gets warmer than when it's colder, and when it does get colder, they will likely go to fewer games. There are potential other complicating factors, like the other variables in our dataset, and some potential complicating factors that aren't in our dataset, like when kids are out of school for the summer and families are therefore more available to go to baseball games. So let's keep digging!")
 ```
 
+
 ---
 
 ## Baseball Ad Campaign: Confounders, Part 3 - Did the Team Performance Affect Attendance?
+
+```yaml
+type: undefined 
+xp: 0 
+key: eb986e26f1   
+```
+
 
 --- key:2928b6dd0f
 type: NormalExercise 
@@ -659,60 +698,24 @@ key: 5c37f21710
 
 Another variable that might be important is `ranking`, which reflects the quality of the team's performance. As the team improves, its ranking gets closer to #1, and it makes sense that people will be more interested to go to games if the team is good. But is that true in our sample? Let's find out.
 
+
 `@instructions`
-- 1) Generate a bar graph of team national ranking vs. attendance.
-- 2) Calculate the correlation between team ranking and baseball stadium attendance.
-- 3) What happens to the attendance when the team gets better?
-- 4) What happens to the team ranking when the attendance goes down?
+- Yes, the positive ATE shows that it was a great success.
+- Yes, the ads did seem to work, but this effect may have been confounded by other factors
+- No, there are too many other explanations for the attendance rates, so the ads clearly didn't work.
 
 `@hint`
-- The syntax for the cor() function is: cor(dataframe$variable1, dataframe$variable2)
 
 
 `@pre_exercise_code`
+
 ```{r}
-library(ggplot2)
 
-n=62
- set.seed(1)
- #Create rnorm function that allows for min and max
- rtnorm <- function(n, mean, sd, min = -Inf, max = Inf){
-     qnorm(runif(n, pnorm(min, mean, sd), pnorm(max, mean, sd)), mean, sd)
- }
- #Create rounding function that allows to round to numbers above 1
-mround <- function(x,base){
-     base*round(x/base)
- }
-
-#Create scaling function that puts number between 0 and 1
- scale <- function(x){
-     (x - min(x))/(max(x)-min(x))
- }
- #Dataframe
- Baseball<-data.frame(id=rep(1:n,each=6))
- Baseball$month=rep(1:6,n)
- Baseball$ads.served=ifelse(Baseball$month<4,round(rtnorm(n=n,mean=1,sd=.5,min=0,max=3)),round(rtnorm(n=n,mean=5,sd=3,min=1,max=12)))
- Baseball$temp<-rep(c(56,66,77,86,81,70),n)
- Baseball$food<-rep(c(2,2,2,3,2,2),n)
- Baseball$ranking<-rep(c(16,15,11,4,7,6),n)
- Baseball$month=rep(c("April","May","June","July","August","September"),n)
- #treatment condition
- treatment<-sample(c(0,1),n,.5)
- Baseball$treatment<-rep(treatment,each=6)
- Baseball$ads.served[Baseball$month=="April" | Baseball$month=="May" | Baseball$month=="June"]<-0
- Baseball$ads.served[Baseball$treatment==0]<-0
- Baseball$attended<-round(
-     rtnorm(n=n,mean=3,sd=1.5,min=0,max=6)+
-         .3*Baseball$ads.served+
-         .0006*Baseball$temp^2+
-         .17*Baseball$ranking
- )
- Baseball$attended[Baseball$attended<0]<-0
- Baseball<-Baseball[,c("id","month","attended","ads.served","treatment","temp","ranking")]
- Baseball$attended
 ```
 
+
 `@sample_code`
+
 ```{r}
 # 1)  Let's start by looking at a graph that shows the baseball attendance in our sample group vs. the average team national ranking for each month. We have generated this code for you, so select it and hit the "Run Code" button:
 
@@ -732,57 +735,20 @@ solution3<-""
 solution4<-""
 ```
 
+
 `@solution`
+
 ```{r}
 cor(Baseball$ranking,Baseball$attended)
 solution3<-"decrease"
 solution4<-"decrease"
 ```
 
-`@sct`
-```{r}
-test_object("Solution3")
-    test_object("Solution4")
-    test_error()
-    success_msg("Good job. Negative correlations can often be confusing to interpret, and their real-world implications is not always intuitive. In this case, do people go to more baseball games when the team improves, or does the team improve when more people go to their games? We can't tell. This data just shows us that there is a negative correlation between these variables in our sample, not a causal effect.")
-```
-
-
-
-## The Final Question: Do You Think the Ad Campaign Increased Attendance?
-
-```yaml
-type: MultipleChoiceExercise 
-lang: r
-xp: 50 
-skills: 1
-key: c24635cc57   
-```
-
-
-We've been looking at the effect of a social media ad campaign on attendance for a local baseball team. We found a positive average treatment effect for the ad campaign, although we also have found out that our data also has two potential confounding variables. Now the owners of the Hammers walks up to you and asks, "Did the ad campaign work?" What do you tell them?
-
-
-`@instructions`
-- Yes, the positive ATE shows that it was a great success.
-- Yes, the ads did seem to work, but this effect may have been confounded by other factors
-- No, there are too many other explanations for the attendance rates, so the ads clearly didn't work.
-
-`@hint`
-
-
-`@pre_exercise_code`
-
-```{r}
-
-```
-
 
 `@sct`
 
 ```{r}
-msg1 = "As a good analyst, you need to mention that there are more factors in attendance than just ads. So try again"
-msg2 = "Correct! The ad campaign had a large average treatment effect on attendance, however, people also do go to more games as the weather gets warmer and their team plays better, so we do have potential confounders. Congratulations! You have now finished the Causal Inference with R - Introduction course. To continue your exploration into causal inference and learn slightly more advanced techniques for statistical inference, we highly recommend you try our next course, 'Causal Inference with R - Experiments"
-msg3 = "There's no need to be a Negative Nelly here, the data did show a large and positive effect. Try again."
-test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
+
 ```
+
+
