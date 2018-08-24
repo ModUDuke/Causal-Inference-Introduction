@@ -459,7 +459,6 @@ Let's now determine if the treatment effect of the Hammer's ad campaign could be
 - 2) Merge `dfMonth` with dataframe `Baseball` by `month` with the `merge` function.
 
 `@pre_exercise_code`
-
 ```{r}
 library(dplyr)
 n=62
@@ -533,7 +532,7 @@ test_function("merge", incorrect_msg = "Did you use the `merge` function?")
 ---
 
 
-##Baseball Ad Campaign: Confounders, Part 2 - Did the Weather Affect Attendance Too?
+## Baseball Ad Campaign: Confounders, Part 2 - Did the Weather Affect Attendance Too?
 
 --- key:dfcab2326b
 type: NormalExercise 
@@ -630,6 +629,9 @@ mround <- function(x,base){
 
 `@solution`
 ```{r}
+head(Baseball)
+bytemp<-aggregate(attended~temp, Baseball, sum)
+barplot(bytemp$attended, main="Attendance", xlab="Avg High Temp", names.arg=bytemp$temp, ylim=c(0,600))
 cor(Baseball$temp,Baseball$attended)
 solution4<-"increase"
 solution5<-"decrease"
@@ -645,7 +647,7 @@ test_object("Solution4")
 
 ---
 
-##Baseball Ad Campaign: Confounders, Part 3 - Did the Team Performance Affect Attendance?
+## Baseball Ad Campaign: Confounders, Part 3 - Did the Team Performance Affect Attendance?
 
 --- key:2928b6dd0f
 type: NormalExercise 
