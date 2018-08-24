@@ -440,7 +440,7 @@ Baseball$ExpMonths<-Baseball$month=="July" | Baseball$month=="August" | Baseball
 
 ---
 
-## Baseball Ad Campaign: Confounders Part 1 - Merging and Creating Variables
+## Baseball Ad Campaign: Confounders, Part 1 - Merging and Creating Variables
 
 ```yaml
 type: NormalExercise 
@@ -533,7 +533,7 @@ test_function("merge", incorrect_msg = "Did you use the `merge` function?")
 ---
 
 
-##Looking for Confounders, Part 2: Did the Weather Affect Attendance Too?
+##Baseball Ad Campaign: Confounders, Part 2 - Did the Weather Affect Attendance Too?
 
 --- key:4716574ac8
 type: NormalExercise 
@@ -645,7 +645,7 @@ test_object("Solution4")
 
 ---
 
-##Looking for Confounders, Part 2: Did the Team Performance Affect Attendance?
+##Baseball Ad Campaign: Confounders, Part 3 - Did the Team Performance Affect Attendance?
 
 --- key:58c01cd2c7
 type: NormalExercise 
