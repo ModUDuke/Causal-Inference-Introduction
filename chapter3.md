@@ -671,11 +671,11 @@ test_object("Solution4")
 ## Looking for Confounders, Part 3 - Did the Team Performance Affect Attendance?
 
 ```yaml
-type: NormalExercise 
+type: NormalExercise
 lang: r
-xp: 100 
+xp: 100
 skills: 1
-key: c24635cc57
+key: e7a246aa66
 ```
 
 Another variable that might be important is `ranking`, which reflects the quality of the team's performance. As the team improves, its ranking gets closer to #1, and it makes sense that people will be more interested to go to games if the team is good. But is that true in our sample? Let's find out.
