@@ -631,7 +631,7 @@ mround <- function(x,base){
 # 2) One of these variables, `temp`,  is a logical place to start, because it makes sense that people will go to more baseball games during good weather. Let's start by looking at a graph that shows the total monthly baseball attendance by everyone in our sample group vs. the average high temperatures for each month. We have generated this code for you, so select it and hit the "Run Code" button:
 
    bytemp<-aggregate(attended~temp, Baseball, sum)
-   barplot(bytemp$attended, main="Total Attendance in Sample vs. Temperature", ylab="Total Games Attended", xlab="Avg High Temp in F", names.arg=bytemp$temp, ylim=c(0,600))
+   barplot(bytemp$attended, main="Total Attendance in Sample vs. Temperature", ylab="Total Games Attended per Month", xlab="Avg High Temp in F", names.arg=bytemp$temp, ylim=c(0,600))
 
 # 3) Great (and note that the x-axis shows the average monthly high temperatures, not the calendar months). Now let's find out if there's a statistical correlation between the variables `temp` and `attended`, so insert those variables into the cor() function and hit the "Run Code" button:
   
@@ -734,12 +734,12 @@ mround <- function(x,base){
 
 `@sample_code`
 ```{r}
-# 1)  Let's start by looking at a graph that shows the average baseball game attendance per individual in our sample group each month vs. the average team national ranking for each month. We have generated this code for you, so select it and hit the "Run Code" button:
+# 1)  Let's start by looking at a slightly different graph that shows the average baseball game attendance per individual in our sample group each month vs. the average team national ranking for each month. We have generated this code for you, so select it and hit the "Run Code" button:
 
 byranking<-aggregate(attended~ranking, Baseball, mean)
-barplot(byranking$attended, main="Avg Attendance in Sample vs Team Ranking", ylab="Mean Games Attended",xlab="Team National Ranking", names.arg=byranking$ranking, ylim=c(0,10))
+barplot(byranking$attended, main="Avg Attendance in Sample vs Team Ranking", ylab="Mean Games Attended per Month",xlab="Team National Ranking", names.arg=byranking$ranking, ylim=c(0,10))
 
-# 2) This looks a bit more variable than the attendance vs. temperature graph did (and note that the x-axis shows the average monthly rankings, not the calendar months). Now let's find out if there's a statistical correlation between the variables `ranking` and `attended`:
+# 2) This looks a bit more variable than the total attendance vs. temperature graph did (and note that the x-axis shows the average monthly rankings, not the calendar months). Now let's find out if there's a statistical correlation between the variables `ranking` and `attended`:
   
   cor()
   
