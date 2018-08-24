@@ -782,7 +782,7 @@ key: d4e59f0ac2
 
 We've been looking at the effect of a social media ad campaign on attendance for a local baseball team. We found a positive average treatment effect for the ad campaign, although we also have found out that our data also has two potential confounding variables. Now the owners of the Hammers walks up to you and asks, "Did the ad campaign work?" What do you tell them?
 
- `@instructions`
+`@instructions`
 - Yes, the positive ATE shows that it was a great success.
 - Yes, the ads did seem to work, but this effect may have been confounded by other factors
 - No, there are too many other explanations for the attendance rates, so the ads clearly didn't work.
