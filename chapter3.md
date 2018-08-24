@@ -549,7 +549,6 @@ test_function("merge", incorrect_msg = "Did you use the `merge` function?")
 
 ---
 
-
 ## Looking for Confounders, Part 2 - Did the Weather Affect Attendance Too?
 
 ```yaml
@@ -557,10 +556,12 @@ type: NormalExercise
 lang: r
 xp: 100 
 skills: 1
-key: c24635cc57 
+key: c24635cc57   
 ```
 
-Now that we have calculated a positive average treatment effect of the ad campaign on stadium attendance, it's worth a little effort to see if we have any potential confounders in our data. And remember, there may be important confounders that are not in our data! But for now, let's explore the information we have by starting with a key factor to consider with sports attendance: the weather. 
+
+Now that we have calculated a positive average treatment effect of the ad campaign on stadium attendance, it's worth a little effort to see if we have any potential confounders in our data. And remember, there may be important confounders that are not in our data! But for now, let's explore the information we have by starting with a key factor to consider with sports attendance: the weather.
+
 
 `@instructions`
 - 1) Look at a summary of all the variables in the dataframe.
@@ -572,10 +573,9 @@ Now that we have calculated a positive average treatment effect of the ad campai
 `@hint`
 - The syntax for the cor() function is: cor(dataframe$variable1, dataframe$variable2)
 
-
 `@pre_exercise_code`
-```{r}
 
+```{r}
 n=62
  set.seed(1)
  #Create rnorm function that allows for min and max
@@ -615,7 +615,9 @@ mround <- function(x,base){
  Baseball$attended
 ```
 
+
 `@sample_code`
+
 ```{r}
 # 1) We have sorted the merged dataframe `Baseball` by id and month for you. Although this is not necessary for this problem, it is often preferable to have longitudinal data sorted this way for conducting future analyses. To see what we have, select this code and hit the "Run Code" button:
    
@@ -644,16 +646,20 @@ mround <- function(x,base){
   solution5<-""
 ```
 
+
 `@solution`
+
 ```{r}
 cor(Baseball$temp,Baseball$attended)
 solution4<-"increase"
 solution5<-"decrease"
 ```
 
+
 `@sct`
+
 ```{r}
-    test_object("Solution4")
+test_object("Solution4")
     test_object("Solution5")
     test_error()
     success_msg("Nice job. This result makes intuitive sense: people want to get outside more often when it gets warmer than when it's colder, and when it does get colder, they will likely go to fewer games. There are potential other complicating factors, like the other variables in our dataset, and some potential complicating factors that aren't in our dataset, like when kids are out of school for the summer and families are therefore more available to go to baseball games. So let's keep digging!")"
