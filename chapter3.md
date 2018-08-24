@@ -764,13 +764,14 @@ Solution4<-"decrease"
 test_object("Solution3")
     test_object("Solution4")
     test_error()
-    success_msg("Good job. Negative correlations can often be confusing to interpret, and their real-world implications is not always intuitive. In this case, do people go to more baseball games when the team improves, or does the team improve when more people go to their games? We can't tell. This data just shows us that there is a negative correlation between these variables in our sample, not a causal effect.")"
+    success_msg("Good job. Negative correlations can often be confusing to interpret, and their real-world implications is not always intuitive. In this case, do people go to more baseball games when the team improves, or does the team improve when more people go to their games? We can't tell. This data just shows us that there is a negative correlation between these variables in our sample, not a causal effect.")
 ```
 
 ---
 
 
 ## The Final Question: Do You Think the Ad Campaign Increased Attendance?
+
  ```yaml
 type: MultipleChoiceExercise 
 lang: r
@@ -778,6 +779,7 @@ xp: 50
 skills: 1
 key: c24635cc57   
 ```
+
  We've been looking at the effect of a social media ad campaign on attendance for a local baseball team. We found a positive average treatment effect for the ad campaign, although we also have found out that our data also has two potential confounding variables. Now the owners of the Hammers walks up to you and asks, "Did the ad campaign work?" What do you tell them?
  `@instructions`
 - Yes, the positive ATE shows that it was a great success.
