@@ -535,7 +535,7 @@ test_function("merge", incorrect_msg = "Did you use the `merge` function?")
 
 ##Baseball Ad Campaign: Confounders, Part 2 - Did the Weather Affect Attendance Too?
 
-```yaml
+--- key:dfcab2326b
 type: NormalExercise 
 lang: r
 xp: 100 
@@ -647,7 +647,7 @@ test_object("Solution4")
 
 ##Baseball Ad Campaign: Confounders, Part 3 - Did the Team Performance Affect Attendance?
 
-```yaml
+--- key:2928b6dd0f
 type: NormalExercise 
 lang: r
 xp: 100 
