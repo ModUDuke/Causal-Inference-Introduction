@@ -773,11 +773,11 @@ test_object("Solution3")
 ## The Final Question: Do You Think the Ad Campaign Increased Attendance?
 
 ```yaml
-type: MultipleChoiceExercise 
+type: MultipleChoiceExercise
 lang: r
-xp: 50 
+xp: 50
 skills: 1
-key: ac9bc35c31   
+key: d4e59f0ac2
 ```
 
 We've been looking at the effect of a social media ad campaign on attendance for a local baseball team. We found a positive average treatment effect for the ad campaign, although we also have found out that our data also has two potential confounding variables. Now the owners of the Hammers walks up to you and asks, "Did the ad campaign work?" What do you tell them?
