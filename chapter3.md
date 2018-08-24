@@ -651,8 +651,8 @@ mround <- function(x,base){
 
 ```{r}
 cor(Baseball$temp,Baseball$attended)
-solution4<-"increase"
-solution5<-"decrease"
+Solution4<-"increase"
+Solution5<-"decrease"
 ```
 
 
