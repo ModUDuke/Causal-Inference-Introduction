@@ -535,7 +535,7 @@ test_function("merge", incorrect_msg = "Did you use the `merge` function?")
 
 ##Baseball Ad Campaign: Confounders, Part 2 - Did the Weather Affect Attendance Too?
 
---- key:4716574ac8
+```yaml
 type: NormalExercise 
 lang: r
 xp: 100 
@@ -647,7 +647,7 @@ test_object("Solution4")
 
 ##Baseball Ad Campaign: Confounders, Part 3 - Did the Team Performance Affect Attendance?
 
---- key:58c01cd2c7
+```yaml
 type: NormalExercise 
 lang: r
 xp: 100 
@@ -742,7 +742,7 @@ solution4<-"decrease"
 test_object("Solution3")
     test_object("Solution4")
     test_error()
-    success_msg("Good job. Negative correlations can often be confusing to interpret, and their real-world implications is not always intuitive. In this case, do people go to more baseball games when the team improves, or does the team improve when more people go to their games? We can't tell. This data just shows us that there is a negative correlation between these variables in our sample, not a causal effect.")"
+    success_msg("Good job. Negative correlations can often be confusing to interpret, and their real-world implications is not always intuitive. In this case, do people go to more baseball games when the team improves, or does the team improve when more people go to their games? We can't tell. This data just shows us that there is a negative correlation between these variables in our sample, not a causal effect.")
 ```
 
 
