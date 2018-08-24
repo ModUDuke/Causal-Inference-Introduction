@@ -781,17 +781,21 @@ key: d4e59f0ac2
 ```
 
 We've been looking at the effect of a social media ad campaign on attendance for a local baseball team. We found a positive average treatment effect for the ad campaign, although we also have found out that our data also has two potential confounding variables. Now the owners of the Hammers walks up to you and asks, "Did the ad campaign work?" What do you tell them?
+
  `@instructions`
 - Yes, the positive ATE shows that it was a great success.
 - Yes, the ads did seem to work, but this effect may have been confounded by other factors
 - No, there are too many other explanations for the attendance rates, so the ads clearly didn't work.
+
  `@hint`
+ 
  `@pre_exercise_code`
  ```{r}
  ```
- `@sct`
- ```{r}
-msg1 = "As a good analyst, you need to mention that there are more factors in attendance than just ads. So try again"
+ 
+`@sct`
+```{r}
+msg1 = "As a good analyst, you need to mention that there are more factors in attendance than just ads. So try again."
 msg2 = "Correct! The ad campaign had a large average treatment effect on attendance, however, people also do go to more games as the weather gets warmer and their team plays better, so we do have potential confounders. Congratulations! You have now finished the Causal Inference with R - Introduction course. To continue your exploration into causal inference and learn slightly more advanced techniques for statistical inference, we highly recommend you try our next course, 'Causal Inference with R - Experiments!"
 msg3 = "There's no need to be a Negative Nelly here, the data did show a large and positive effect. Try again."
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3))
