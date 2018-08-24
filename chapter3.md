@@ -639,11 +639,11 @@ mround <- function(x,base){
   
 # 4) Based on that correlation, if the temperature goes up by 5 degrees, would you expect the attendance to increase, decrease, or stay the same? Write "increase", "decrease", or "stay the same".
 
-  solution4<-""
+  Solution4<-""
 
 # 5) And based on that correlation, if you see that the attendance goes down by 200, would you expect to see the average high temperature increase, decrease, or stay the same? Write "increase", "decrease", or "stay the same".
 
-  solution5<-""
+  Solution5<-""
 ```
 
 
