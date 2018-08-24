@@ -535,12 +535,12 @@ test_function("merge", incorrect_msg = "Did you use the `merge` function?")
 
 ##Baseball Ad Campaign: Confounders, Part 2 - Did the Weather Affect Attendance Too?
 
---- key:bc9328e0b9
+```yaml
 type: NormalExercise 
 lang: r
 xp: 100 
 skills: 1
-key:   
+key: 5c37f21710 
 ```
 
 Now that we have calculated a positive average treatment effect of the ad campaign on stadium attendance, it's worth a little effort to see if we have any potential confounders in our data. And remember, there may be important confounders that are not in our data! But for now, let's explore the information we have by starting with a key factor to consider with sports attendance: the weather. 
@@ -647,12 +647,12 @@ test_object("Solution4")
 
 ##Baseball Ad Campaign: Confounders, Part 3 - Did the Team Performance Affect Attendance?
 
---- key:69174b3f02
+```yaml
 type: NormalExercise 
 lang: r
 xp: 100 
 skills: 1
-key:    
+key: 5c37f21710 
 ```
 
 Another variable that might be important is `ranking`, which reflects the quality of the team's performance. As the team improves, its ranking gets closer to #1, and it makes sense that people will be more interested to go to games if the team is good. But is that true in our sample? Let's find out.
