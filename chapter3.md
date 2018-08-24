@@ -547,4 +547,122 @@ test_function("merge", incorrect_msg = "Did you use the `merge` function?")
 ```
 
 
+---
+
+## Looking for Confounders, Part 2 - Did the Weather Affect Attendance Too?
+
+```yaml
+type: NormalExercise 
+lang: r
+xp: 100 
+skills: 1
+key: c24635cc57   
+```
+
+
+Now that we have calculated a positive average treatment effect of the ad campaign on stadium attendance, it's worth a little effort to see if we have any potential confounders in our data. And remember, there may be important confounders that are not in our data! But for now, let's explore the information we have by starting with a key factor to consider with sports attendance: the weather.
+
+
+`@instructions`
+- 1) Look at a summary of all the variables in the dataframe.
+- 2) Generate a bar graph of average high temperature vs. attendance.
+- 3) Calculate the correlation between monthly high temperature and baseball stadium attendance.
+- 4) What happens to the attendance when the temperature goes up?
+- 5) What happens to the temperature when the attendance goes down?
+
+`@hint`
+- The syntax for the cor() function is: cor(dataframe$variable1, dataframe$variable2)
+
+`@pre_exercise_code`
+
+```{r}
+n=62
+ set.seed(1)
+ #Create rnorm function that allows for min and max
+ rtnorm <- function(n, mean, sd, min = -Inf, max = Inf){
+     qnorm(runif(n, pnorm(min, mean, sd), pnorm(max, mean, sd)), mean, sd)
+ }
+ #Create rounding function that allows to round to numbers above 1
+mround <- function(x,base){
+     base*round(x/base)
+ }
+
+#Create scaling function that puts number between 0 and 1
+ scale <- function(x){
+     (x - min(x))/(max(x)-min(x))
+ }
+ #Dataframe
+ Baseball<-data.frame(id=rep(1:n,each=6))
+ Baseball$month=rep(1:6,n)
+ Baseball$ads.served=ifelse(Baseball$month<4,round(rtnorm(n=n,mean=1,sd=.5,min=0,max=3)),round(rtnorm(n=n,mean=5,sd=3,min=1,max=12)))
+ Baseball$temp<-rep(c(56,66,77,86,81,70),n)
+ Baseball$food<-rep(c(2,2,2,3,2,2),n)
+ Baseball$ranking<-rep(c(16,15,11,4,7,6),n)
+ Baseball$month=rep(c("April","May","June","July","August","September"),n)
+ #treatment condition
+ treatment<-sample(c(0,1),n,.5)
+ Baseball$treatment<-rep(treatment,each=6)
+ Baseball$ads.served[Baseball$month=="April" | Baseball$month=="May" | Baseball$month=="June"]<-0
+ Baseball$ads.served[Baseball$treatment==0]<-0
+ Baseball$attended<-round(
+     rtnorm(n=n,mean=3,sd=1.5,min=0,max=6)+
+         .3*Baseball$ads.served+
+         .0006*Baseball$temp^2+
+         .17*Baseball$ranking
+ )
+ Baseball$attended[Baseball$attended<0]<-0
+ Baseball<-Baseball[,c("id","month","attended","ads.served","treatment","temp","ranking")]
+ Baseball$attended
+```
+
+
+`@sample_code`
+
+```{r}
+# 1) We have sorted the merged dataframe `Baseball` by id and month for you. Although this is not necessary for this problem, it is often preferable to have longitudinal data sorted this way for conducting future analyses. To see what we have, select this code and hit the "Run Code" button:
+   
+ head(Baseball)
+
+# Good. You will notice some other variables that we have not used yet:
+#   temp: the average high temperature each month (in F)
+#   food: the average quality of stadium food (on a scale of 1-10)
+#   ranking: the average national ranking of the team (from 1 - 30)
+
+# 2) One of these variables, `temp`,  is a logical place to start, because it makes sense that people will go to more baseball games during good weather. Let's start by looking at a graph that shows the baseball attendance in our sample group vs. the average high temperatures for each month. We have generated this code for you, so select it and hit the "Run Code" button:
+
+   bytemp<-aggregate(attended~temp, Baseball, sum)
+   barplot(bytemp$attended, main="Attendance", xlab="Avg High Temp", names.arg=bytemp$temp, ylim=c(0,600))
+
+# 3) Great (and note that the x-axis shows the average monthly high temperatures, not the calendar months). Now let's find out if there's a statistical correlation between the variables `temp` and `attended`, so insert those variables into the cor() function and hit the "Run Code" button:
+  
+  cor()
+  
+# 4) Based on that correlation, if the temperature goes up by 5 degrees, would you expect the attendance to increase, decrease, or stay the same? Write "increase", "decrease", or "stay the same".
+
+  solution4<-""
+
+# 5) And based on that correlation, if you see that the attendance goes down by 200, would you expect to see the average high temperature increase, decrease, or stay the same? Write "increase", "decrease", or "stay the same".
+
+  solution5<-""
+```
+
+
+`@solution`
+
+```{r}
+cor(Baseball$temp,Baseball$attended)
+solution4<-"increase"
+solution5<-"decrease"
+```
+
+
+`@sct`
+
+```{r}
+test_object("Solution4")
+    test_object("Solution5")
+    test_error()
+    success_msg("Nice job. This result makes intuitive sense: people want to get outside more often when it gets warmer than when it's colder, and when it does get colder, they will likely go to fewer games. There are potential other complicating factors, like the other variables in our dataset, and some potential complicating factors that aren't in our dataset, like when kids are out of school for the summer and families are therefore more available to go to baseball games. So let's keep digging!")"
+```
+
 
