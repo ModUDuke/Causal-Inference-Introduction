@@ -787,12 +787,6 @@ We've been looking at the effect of a social media ad campaign on attendance for
 - Yes, the ads did seem to work, but this effect may have been confounded by other factors
 - No, there are too many other explanations for the attendance rates, so the ads clearly didn't work.
 
- `@hint`
- 
- `@pre_exercise_code`
- ```{r}
- ```
- 
 `@sct`
 ```{r}
 msg1 = "As a good analyst, you need to mention that there are more factors in attendance than just ads. So try again."
