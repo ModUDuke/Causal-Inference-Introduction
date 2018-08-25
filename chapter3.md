@@ -739,7 +739,7 @@ mround <- function(x,base){
 byranking<-aggregate(attended~ranking, Baseball, mean)
 plot(byranking$ranking, byranking$attended, type="l", main="Avg Attendance in Sample vs Team Ranking", ylab="Mean Games Attended per Month",xlab="Team National Ranking", ylim=c(0,10))
 
-# 2) This looks a bit more variable than the total attendance vs. temperature graph did (and note that the x-axis shows the average monthly rankings, not the calendar months). Now let's find out if there's a statistical correlation between the variables `ranking` and `attended`:
+# 2) This looks a bit different than the total attendance vs. temperature graph did (and note that the x-axis shows the average monthly rankings, not the calendar months). Now let's find out if there's a statistical correlation between the variables `ranking` and `attended`:
   
   cor()
   
