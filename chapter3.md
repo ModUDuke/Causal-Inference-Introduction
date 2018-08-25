@@ -681,7 +681,7 @@ key: e7a246aa66
 Another variable that might be important is `ranking`, which reflects the quality of the team's performance. As the team improves, its ranking gets closer to #1, and it makes sense that people will be more interested to go to games if the team is good. But is that true in our sample? Let's find out.
 
 `@instructions`
-- 1) Generate a bar graph of team national ranking vs. attendance.
+- 1) Generate a line graph of team national ranking vs. attendance.
 - 2) Calculate the correlation between team ranking and baseball stadium attendance.
 - 3) What happens to the attendance when the team gets better?
 - 4) What happens to the team ranking when the attendance goes down?
@@ -737,7 +737,7 @@ mround <- function(x,base){
 # 1)  Let's start by looking at a slightly different graph that shows the average baseball game attendance per individual in our sample group each month vs. the average team national ranking for each month. We have generated this code for you, so select it and hit the "Run Code" button:
 
 byranking<-aggregate(attended~ranking, Baseball, mean)
-barplot(byranking$attended, main="Avg Attendance in Sample vs Team Ranking", ylab="Mean Games Attended per Month",xlab="Team National Ranking", names.arg=byranking$ranking, ylim=c(0,10))
+plot(byranking$ranking, byranking$attended, type="l", main="Avg Attendance in Sample vs Team Ranking", ylab="Mean Games Attended per Month",xlab="Team National Ranking", ylim=c(0,10))
 
 # 2) This looks a bit more variable than the total attendance vs. temperature graph did (and note that the x-axis shows the average monthly rankings, not the calendar months). Now let's find out if there's a statistical correlation between the variables `ranking` and `attended`:
   
