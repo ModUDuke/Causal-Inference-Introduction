@@ -611,7 +611,7 @@ mround <- function(x,base){
          .17*Baseball$ranking
  )
  Baseball$attended[Baseball$attended<0]<-0
- Baseball<-Baseball[,c("id","month","attended","ads.served","treatment","temp","ranking")]
+ Baseball<-Baseball[,c("id","month","attended","ads.served","treatment","temp","food","ranking")]
  Baseball$attended
 ```
 
@@ -747,7 +747,7 @@ plot(byranking$ranking, byranking$attended, type="l", main="Avg Attendance in Sa
 
    Solution3<-""
 
-# 4) And based on that correlation, if you see that the attendance goes up by 100, would you expect the team's ranking to increase, decrease, or stay the same? Write "increase", "decrease", or "stay the same" as the solution.
+# 4) And based on that correlation, if you see that the attendance goes up by 100, would you expect the team's ranking value to increase, decrease, or stay the same? Write "increase", "decrease", or "stay the same" as the solution.
 
    Solution4<-""
 ```
@@ -755,7 +755,7 @@ plot(byranking$ranking, byranking$attended, type="l", main="Avg Attendance in Sa
 `@solution`
 ```{r}
 cor(Baseball$ranking,Baseball$attended)
-Solution3<-"decrease"
+Solution3<-"increase"
 Solution4<-"decrease"
 ```
 
