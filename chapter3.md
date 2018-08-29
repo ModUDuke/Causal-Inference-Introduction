@@ -678,7 +678,7 @@ skills: 1
 key: e7a246aa66
 ```
 
-Another variable that might be important is `ranking`, which reflects the quality of the team's performance. As the team improves, its ranking gets closer to #1, and it makes sense that people will be more interested to go to games if the team is good. But is that true in our sample? Let's find out.
+Another variable that might be important is `ranking`, which reflects the quality of the team's performance. As the team improves, its ranking gets closer to #1, and if they get worse, their ranking moves closer to #30. It makes sense that people will be more interested to go to games if the team is good, i.e. is ranked near #1. But is that true in our sample? Let's find out.
 
 `@instructions`
 - 1) Generate a line graph of team national ranking vs. attendance.
@@ -743,11 +743,11 @@ plot(byranking$ranking, byranking$attended, type="l", main="Avg Attendance in Sa
   
   cor()
   
-# 3) Based on that correlation, if the team's national ranking changes from #2 to #10, would you expect the attendance to increase, decrease, or stay the same? Write "increase", "decrease", or "stay the same" as the solution.
+# 3) Based on that correlation, if the team starts the month ranked #2 but ends the month ranked #10, would you expect the attendance to increase, decrease, or stay the same? Write "increase", "decrease", or "stay the same" as the solution.
 
    Solution3<-""
 
-# 4) And based on that correlation, if you see that the attendance goes up by 100, would you expect the team's ranking value to increase, decrease, or stay the same? Write "increase", "decrease", or "stay the same" as the solution.
+# 4) And based on that correlation, if you see that the attendance goes up by 100 in that same month, would you expect the team's ranking value to increase, decrease, or stay the same? Write "increase", "decrease", or "stay the same" as the solution.
 
    Solution4<-""
 ```
@@ -755,7 +755,7 @@ plot(byranking$ranking, byranking$attended, type="l", main="Avg Attendance in Sa
 `@solution`
 ```{r}
 cor(Baseball$ranking,Baseball$attended)
-Solution3<-"increase"
+Solution3<-"decrease"
 Solution4<-"decrease"
 ```
 
