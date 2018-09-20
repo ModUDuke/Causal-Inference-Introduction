@@ -220,12 +220,15 @@ set.seed(1)
 
 ```{r}
 # Note: Below is an example of how to examine the first few rows of the variable `fiber`, in dataset `soggy`.
+
     head(Soggy$fiber)
 
 # 1) Use the `head` function to examine the first few rows of the variable `time` in dataframe `Soggy`. 
 
 
-# 2) Use the `tail` function to examine the last few rows of all variables in dataframe `Soggy`
+# 2) Use the `tail` function (which has similar syntax) to examine the last few rows of all variables in dataframe `Soggy`.
+
+
 ```
 
 
@@ -308,13 +311,14 @@ set.seed(1)
 
 ```{r}
 # Note: Below is an example of how to examine the class and frequency of values for the variable `milk`, in dataset `Soggy`.
+
     class(Soggy$milk)
     table(Soggy$milk)
 
-# 1) Use the `class` function to examine the format of the variable `fiber` in dataframe `Soggy`
+# 1) Use the `class` function to examine the format of the variable `fiber` in dataframe `Soggy`.
 
       
-# 2) Use the `table` function to examine the distribution of `cereal` within the sample `Soggy`
+# 2) Use the `table` function to examine the distribution of `cereal` within the sample `Soggy`.
 ```
 
 
@@ -421,13 +425,16 @@ set.seed(1)
 `@sample_code`
 
 ```{r}
-# 1) Use the `mean` function to examine the mean `time` in dataframe `Soggy`
+# 1) Use the `mean` function to examine the mean `time` in dataframe `Soggy`:
+
     mean()
 
-# 2) Use the `median` function to examine the median `time` in dataframe `Soggy`
+# 2) Use the `median` function to examine the median `time` in dataframe `Soggy`.
 
 
 # 3) Use the `sd` function to examine the standard deviation of `time` in dataframe `Soggy`.
+
+
 ```
 
 
@@ -510,12 +517,17 @@ set.seed(1)
 
 ```{r}
 # Note: The next questions require you to subset the data. We provide an example of one way to subset data below. The following code estimates the maximum `time` for flakes that were in TechnoCrunch. The syntax can be interpreted as "show the max of the `time` variable in dataset `Soggy` where the `cereal` variable in dataset `Soggy` is "TechnoCrunch".
+
     max(Soggy$time[Soggy$cereal=="TechnoCrunch"])
     
 # 1) Use the `min` function to estimate the minimum `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`.
 
     
-# 2) Use the `summary` function to produce descriptive statistics for `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`
+    
+# 2) Use the `summary` function to produce descriptive statistics for `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`.
+
+
+
 ```
 
 
@@ -736,6 +748,7 @@ library(ggplot2)
 
 
 # 2) Using the `ggplot` function, generate a scatterplot and regression line showing the above correlation. To do this, replace "df", "x1", and "y1", with the dataset name, and names of the x and y axes. None of these should be in quotes.
+
   ggplot(data=df, aes(x=x1, y=y1)) + 
   geom_jitter(width = 0, height = 0.1) +
   geom_smooth(method = "lm", se = FALSE)
