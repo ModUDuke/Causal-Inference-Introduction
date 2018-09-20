@@ -316,13 +316,15 @@ set.seed(1)
 # 1) Look at the first few rows of dataframe, `Baseball` with function `head`.
 
 
+
 # Note: Notice that the first rows all have the same respondent id, but different months. In this case, the unit of analysis is not individuals or months, but what we could refer to as "person-months". Let's now determine our sample size of "person-months" and number of unique individuals.
 
+# 2) Identify how many observations (`rows`) are in dataframe, `Baseball` with function `nrow`. Assign this result to object "Solution1".
 
-# 2) Identify how many observations (`rows`) are in dataframe, `Baseball` with function `nrow`. Assign this result to object "Solution1"
     Solution1<-
 
 # 3) Identify how many unique individuals (`id`) were sampled in dataframe, `Baseball` with functions `length` and `unique`. To help, we provide sample code for how to determine how long the vector, Baseball$month is, and code for printing the unique months in our sample.
+
     length(Baseball$month)
     unique(Baseball$month)
     
@@ -424,12 +426,15 @@ set.seed(1)
 
 ```{r}
 # Note: We only want to compare the attendance of individuals in the treatment group during the months of the ad campaign to the months prior to the ad campagin. To do so, it would help to first create a variable that indicates which months are during the add campaign. As an example of how to code this, below shows how to create a variable `example` that indicates which months are prior to the ad campaign.
+
     example<-Baseball$month=="April" | Baseball$month=="May" | Baseball$month=="June"
 
 # 1) Create a variable called `ExpMonths` in data.frame `Baseball` that indicates whether the month is during the ad campaign (July, August, and September).
+
     Baseball$ExpMonths<-
 
-# 2) Calculate the ATE for individuals in the `Treatment` group by subtracting the average attendance (`attended`) of this group prior to the months of the experiment (`ExpMonths`==FALSE) from the average attendance (`attended`) of this group during the experiment (`ExpMonths`==TRUE). To help get you started, we fill in the first half of this equation.
+# 2) Calculate the ATE for individuals in the `Treatment` group by subtracting the average attendance (`attended`) of this group prior to the months of the experiment (`ExpMonths`==FALSE) from the average attendance (`attended`) of this group during the experiment (`ExpMonths`==TRUE). To help get you started, we fill in the first half of this equation, so fill in the second half.
+
     Solution2<- mean(Baseball$attended[Baseball$treatment==1 & Baseball$ExpMonths==TRUE]) -
 ```
 
@@ -525,6 +530,7 @@ set.seed(1)
 
 
 # 2) Merge `dfMonth` with dataframe `Baseball` by `month` with the `merge` function. The merge function requires three arguments, your first dataframe, your second dataframe, and the name of the column that you want to merge by. To accomplish this, replace 'x, y, and "variable"' in the code below with 'Baseball, dfMonth, and "month"'.
+
     Baseball<-merge(x,y,by="variable")
 ```
 
