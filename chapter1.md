@@ -6,42 +6,42 @@ description: 'This chapter will introduce you to the basic concepts behind causa
 ## Trailer for Causal Inference with R - Introduction
 
 ```yaml
-type: VideoExercise 
+type: VideoExercise
+key: f0b83a3301
 lang: r
-xp: 50 
+xp: 50
 skills: 1
-key: f0b83a3301 
-video_link: //player.vimeo.com/video/276321141  
+video_link: //player.vimeo.com/video/276321141
 ```
+
 
 ---
 
 ## Introduction to the Causal Inference Bootcamp
 
 ```yaml
-type: VideoExercise 
+type: VideoExercise
+key: 1b7bc85492
 lang: r
-xp: 50 
+xp: 50
 skills: 1
-key: 1b7bc85492 
-video_link: //player.vimeo.com/video/230621577  
+video_link: //player.vimeo.com/video/230621577
 ```
+
 
 ---
 
 ## Correlation vs Causation
 
 ```yaml
-type: MultipleChoiceExercise 
+type: MultipleChoiceExercise
+key: e9705bb45c
 lang: r
-xp: 50 
+xp: 50
 skills: 1
-key: e9705bb45c   
 ```
 
-
 One example we saw in the previous video was when a football player scored a touchdown on a running play. When we examine how two events are connected in our data, whether it's from a football match or from the business world, we often want to figure out which factors are most responsible for causing our outcome. In the case of the football play we saw in the video, how much credit should we give the **coach** for calling that play?
-
 
 `@instructions`
 - All the credit: he chose the players on the field, he chose the play, he’s in complete control
@@ -50,7 +50,6 @@ One example we saw in the previous video was when a football player scored a tou
 - It’s not a valid question: the astrological position of the sun and the stars determined the outcome of the play when the universe was created, not the coaches or players.
 
 `@sct`
-
 ```{r}
 msg1 = "While some people believe that people at the top of a power hierarchy have the most causal impact, others believe the opposite, and probably the truth lies somewhere in the middle. Try again."
 msg2 = "Correct, some of the credit. It’s the intuitive answer, and also the right one. The real world is really complex, and it can be hard to tell exactly what is the cause of an event. In general, without good data, it is best to assume that a variety of factors contribute to any outcome.)"
@@ -59,50 +58,49 @@ msg4 = "While some form of astrological determinism may provoke an interesting p
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
 
-
 ---
 
 ## Measurement
 
 ```yaml
-type: VideoExercise 
+type: VideoExercise
+key: 94317a4867
 lang: r
-xp: 50 
+xp: 50
 skills: 1
-key: 94317a4867 
-video_link: //player.vimeo.com/video/230621760  
+video_link: //player.vimeo.com/video/230621760
 ```
+
 
 ---
 
 ## Let’s Code: Comparing Breakfast Cereals, Part 1
 
 ```yaml
-type: VideoExercise 
+type: VideoExercise
+key: 5c0a93ad03
 lang: r
-xp: 50 
+xp: 50
 skills: 1
-key: 5c0a93ad03 
-video_link: //player.vimeo.com/video/276320362  
+video_link: //player.vimeo.com/video/276320362
 ```
+
 
 ---
 
 ## Comparing Breakfast Cereals: Outcome Variables
 
 ```yaml
-type: MultipleChoiceExercise 
+type: MultipleChoiceExercise
+key: 362bf33c36
 lang: r
-xp: 50 
+xp: 50
 skills: 1
-key: 362bf33c36   
 ```
-
 
 The food scientists at breakfast cereal manufacturer Puritan Wheat Inc. have developed a new breakfast cereal product called TechnoCrunch. It has a biodegradable nanomaterial coating designed to keep its flakes crispy in milk for longer than the flakes in its competitor cereal, NeoPuffs. Now Puritan Wheat wants to run an experiment to see if the formula works, so it compares the time it takes for TechnoCrunch to get soggy in milk versus the time it takes for NeoPuffs to get soggy. 
 
 In this experiment on the two cereals, which of the following is the outcome variable in Puritan Wheat's analysis?
-
 
 `@instructions`
 - The brand of cereal.
@@ -111,7 +109,6 @@ In this experiment on the two cereals, which of the following is the outcome var
 - Individual flakes.
 
 `@sct`
-
 ```{r}
 msg1 = "This is the experimental condition that causes the outcome, i.e. the treatment variable, also called the independent variable (because we have the freedom to manipulate its value in an experiment). Try again."
 msg2 = "This is likely correlated with how the dependent variable, but is not mentioned in the prompt. Try again"
@@ -120,22 +117,19 @@ msg4 = "Not quite. Try again"
 test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
 
-
 ---
 
 ## Comparing Breakfast Cereals: Units of Analysis
 
 ```yaml
-type: MultipleChoiceExercise 
+type: MultipleChoiceExercise
+key: 50d28d8b25
 lang: r
-xp: 50 
+xp: 50
 skills: 1
-key: 50d28d8b25   
 ```
 
-
 Puritan Wheat generates some data from a sample of individual flakes in a box of TechnoCrunch and from a box of its competitor's cereal, NeoPuff's. Puritan Wheat intends to examine the average time it takes for each flake to become soggy. What is the unit of analysis in this study?
-
 
 `@instructions`
 - The brand of cereal.
@@ -144,7 +138,6 @@ Puritan Wheat generates some data from a sample of individual flakes in a box of
 - Individual flakes.
 
 `@sct`
-
 ```{r}
 msg1 = "This is the experimental condition that causes the outcome, i.e. the treatment (a.k.a. independent) variable. Try again"
 msg2 = "Not quite. Try again"
@@ -153,19 +146,17 @@ msg4 = "Correct! The unit of analysis is 'what' or 'who' is being studied/sample
 test_mc(correct = 4, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
 
-
 ---
 
 ## Comparing Breakfast Cereals: Getting Familiar with the Data
 
 ```yaml
-type: NormalExercise 
+type: NormalExercise
+key: db20453890
 lang: r
-xp: 100 
+xp: 100
 skills: 1
-key: db20453890   
 ```
-
 
 Before hiring you to explore which cereal takes longer to get soggy, Puritan Wheat  wants to make sure you know how to look at the variables that it provides in its dataset, `Soggy`. Its variables are defined as follows:
 
@@ -177,13 +168,11 @@ Before hiring you to explore which cereal takes longer to get soggy, Puritan Whe
 
 To get familiar with the data, follow the instructions below:
 
-
 `@instructions`
 - 1) Use the `head` function to examine the first few rows of the variable `time` in dataframe `Soggy`
 - 2) Use the `tail` function to examine the last few rows of all variables in dataframe `Soggy`
 
 `@pre_exercise_code`
-
 ```{r}
 library(dplyr)
 n=731
@@ -215,9 +204,7 @@ set.seed(1)
   Soggy$cereal<-ifelse(Soggy$cereal==1,"TechnoCrunch","NeoPuffs")
 ```
 
-
 `@sample_code`
-
 ```{r}
 # Note: Below is an example of how to examine the first few rows of the variable `fiber`, in dataset `soggy`.
 
@@ -231,17 +218,13 @@ set.seed(1)
 
 ```
 
-
 `@solution`
-
 ```{r}
 head(Soggy$time)
     tail(Soggy)
 ```
 
-
 `@sct`
-
 ```{r}
 test_function("head", incorrect_msg = "Did you use the `head` function?")
 test_function("tail", incorrect_msg = "Did you use the `tail` function?")
@@ -250,31 +233,27 @@ test_error()
 success_msg("Good work! It is often important to get a sense of your data before running any analyses with it. Using the head and tail functions is a common and easy way to observe what your data actually looks like.")
 ```
 
-
 ---
 
 ## Comparing Breakfast Cereals: Variable Attributes and Distributions
 
 ```yaml
-type: NormalExercise 
+type: NormalExercise
+key: 7371edb7d2
 lang: r
-xp: 100 
+xp: 100
 skills: 1
-key: 7371edb7d2   
 ```
-
 
 Before comparing how long it actually takes for each flake of cereal in TechnoCrunch and NeoPuffs to get soggy, Puritan Wheat suggests we summarize information about some of the variables in its dataset, `Soggy`, in case there are any errors that might cause further analyses.
 
 Follow the instructions below:
-
 
 `@instructions`
 - 1) Use the `class` function to examine the format of the variable `fiber` in dataframe `Soggy`
 - 2) Use the `table` function to examine the distribution of `cereal` within the sample `Soggy`
 
 `@pre_exercise_code`
-
 ```{r}
 library(dplyr)
 n=731
@@ -306,9 +285,7 @@ set.seed(1)
   Soggy$cereal<-ifelse(Soggy$cereal==1,"TechnoCrunch","NeoPuffs")
 ```
 
-
 `@sample_code`
-
 ```{r}
 # Note: Below is an example of how to examine the class and frequency of values for the variable `milk`, in dataset `Soggy`.
 
@@ -321,17 +298,13 @@ set.seed(1)
 # 2) Use the `table` function to examine the distribution of `cereal` within the sample `Soggy`.
 ```
 
-
 `@solution`
-
 ```{r}
 class(Soggy$fiber)
     table(Soggy$cereal)
 ```
 
-
 `@sct`
-
 ```{r}
 test_function("class", incorrect_msg = "Did you use the `class` function?")
 test_function("table", incorrect_msg = "Did you use the `table` function?")
@@ -340,48 +313,47 @@ test_error()
 success_msg("Good work! The above functions will often come in handy as you continue to code in R. The class function is particularly important, because many functions only work with certain types of variables. For example, it is meaningless (and impossible) to estimate the 'mean' of a character variable.")
 ```
 
-
 ---
 
 ## Description
 
 ```yaml
-type: VideoExercise 
+type: VideoExercise
+key: f8ced7fb09
 lang: r
-xp: 50 
+xp: 50
 skills: 1
-key: f8ced7fb09 
-video_link: //player.vimeo.com/video/230622159  
+video_link: //player.vimeo.com/video/230622159
 ```
+
 
 ---
 
 ## Let’s Code: Comparing Breakfast Cereals, Part 2
 
 ```yaml
-type: VideoExercise 
+type: VideoExercise
+key: 28fcd63342
 lang: r
-xp: 50 
+xp: 50
 skills: 1
-key: 28fcd63342 
-video_link: //player.vimeo.com/video/276320339  
+video_link: //player.vimeo.com/video/276320339
 ```
+
 
 ---
 
 ## Comparing Breakfast Cereals: Means, Medians, and Standard Deviations
 
 ```yaml
-type: NormalExercise 
+type: NormalExercise
+key: caa5b2cf8b
 lang: r
-xp: 100 
+xp: 100
 skills: 1
-key: caa5b2cf8b   
 ```
 
-
 Before running any direct comparisons between TechnoCrunch and NeoPuffs, Puritan Wheat Inc. now wants you to get some detailed descriptive statistics about the `time` variable in its dataset. Using the dataframe `Soggy`, determine the following:
-
 
 `@instructions`
 - 1) Use the `mean` function to estimate the mean `time` in dataframe `Soggy`
@@ -389,7 +361,6 @@ Before running any direct comparisons between TechnoCrunch and NeoPuffs, Puritan
 - 3) Use the `sd` function to estimate the standard deviation of `time` in dataframe `Soggy`
 
 `@pre_exercise_code`
-
 ```{r}
 library(dplyr)
 n=731
@@ -421,9 +392,7 @@ set.seed(1)
   Soggy$cereal<-ifelse(Soggy$cereal==1,"TechnoCrunch","NeoPuffs")
 ```
 
-
 `@sample_code`
-
 ```{r}
 # 1) Use the `mean` function to examine the mean `time` in dataframe `Soggy`:
 
@@ -437,18 +406,14 @@ set.seed(1)
 
 ```
 
-
 `@solution`
-
 ```{r}
 mean(Soggy$time)
     median(Soggy$time)
     sd(Soggy$time)
 ```
 
-
 `@sct`
-
 ```{r}
 test_function("mean", incorrect_msg = "Did you use the `mean` function?")
 test_function("median", incorrect_msg = "Did you use the `median` function?")
@@ -458,29 +423,25 @@ test_error()
 success_msg("Good work! As a reminder, the difference in the median and mean of a variable is that the median represents the 'middle' value of a variable whereas the mean represents what we tpyicially think of as the `average` value of a variable. These statistics are often meaningfully (excuse the pun) different; for example, a variable with a much higher mean than median often has observations that are extreme outliers that are much higher than the rest of the observations. Also, remember that the standard deviation is a measure of a variable's variance. If this variable's standard deviation was very high, it would suggest that that most observed values of the variable `time` were not very centered around their mean.")
 ```
 
-
 ---
 
 ## Comparing Breakfast Cereals: Minimums, Maximums, and Summaries
 
 ```yaml
-type: NormalExercise 
+type: NormalExercise
+key: 0322894cdd
 lang: r
-xp: 100 
+xp: 100
 skills: 1
-key: 0322894cdd   
 ```
 
-
 Before running any direct comparisons between TechnoCrunch and NeoPuffs, Puritan Wheat Inc. now wants you to get some descriptive about flakes that are just in TechnoCrunch cereal. Using the dataframe `Soggy`, determine the following:
-
 
 `@instructions`
 - 1) Use the `min` function to estimate the minimum `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`
 - 2) Use the `summary` function to produce descriptive statistics for `time` in dataframe `Soggy` just for flakes that were in TechnoCrunch `cereal`
 
 `@pre_exercise_code`
-
 ```{r}
 library(dplyr)
 n=731
@@ -512,9 +473,7 @@ set.seed(1)
   Soggy$cereal<-ifelse(Soggy$cereal==1,"TechnoCrunch","NeoPuffs")
 ```
 
-
 `@sample_code`
-
 ```{r}
 # Note: The next questions require you to subset the data. We provide an example of one way to subset data below. The following code estimates the maximum `time` for flakes that were in TechnoCrunch. The syntax can be interpreted as "show the max of the `time` variable in dataset `Soggy` where the `cereal` variable in dataset `Soggy` is "TechnoCrunch".
 
@@ -530,17 +489,13 @@ set.seed(1)
 
 ```
 
-
 `@solution`
-
 ```{r}
 min(Soggy$time[Soggy$cereal=="TechnoCrunch"])
     summary(Soggy$time[Soggy$cereal=="TechnoCrunch"])
 ```
 
-
 `@sct`
-
 ```{r}
 test_function("min", incorrect_msg = "Did you use the `min` function?")
 test_function("summary", incorrect_msg = "Did you use the `summary` function?")
@@ -549,22 +504,19 @@ test_error()
 success_msg("Good work! As you may have noticed, the summary function is often a great tool for summarizing data, but in practice, you may find yourself needing the other functions as well. In addition, you will often need to `subset` or `select` values in a dataset or vector that meet a specific criteria. We recommend that you practice and become comfortable with subsetting techniques as you continue your learning!")
 ```
 
-
 ---
 
 ## Anscombe Quartet
 
 ```yaml
-type: MultipleChoiceExercise 
+type: MultipleChoiceExercise
+key: c229f94a13
 lang: r
-xp: 50 
+xp: 50
 skills: 1
-key: c229f94a13   
 ```
 
-
 On the right are a series of numerical distributions. The correlations between the x and y axis in each graph is about the same. What does this mean?
-
 
 `@instructions`
 - The graphs are identical.
@@ -573,7 +525,6 @@ On the right are a series of numerical distributions. The correlations between t
 - R's correlation function is broken.
 
 `@pre_exercise_code`
-
 ```{r}
 library(gridExtra)
 library(ggplot2)
@@ -616,16 +567,12 @@ plot4 <- ggplot(anscombe, aes(x=x4, y=y4)) + geom_point(size=circle.size, pch=21
 grid.arrange(plot1, plot2, plot3, plot4, top='Anscombe Quartet', bottom="Syntax to produce graphs borrowed from Sean Dolinar (stats.seandolinar.com-Tutorials)")
 ```
 
-
 `@sample_code`
-
 ```{r}
 grid.arrange(plot1, plot2, plot3, plot4, top='Anscombe Quadrant -- Correlation Demostration', bottom="Syntax to produce this graph borrowed from Sean Dolinar (stats.seandolinar.com)")
 ```
 
-
 `@sct`
-
 ```{r}
 msg1 = "Look at the graphs to the right of the page. Are you sure they look identical?"
 msg2 = "Yes. This is why statisticians have created so many different types of summary statistics, and why we encourage understanding so many of them."
@@ -634,81 +581,76 @@ msg4 = "Unless the webserver just broke, the correlation function is working per
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2,msg3,msg4))
 ```
 
-
 ---
 
 ## Correlation vs. Causation
 
 ```yaml
-type: VideoExercise 
+type: VideoExercise
+key: 0f66a8c3f0
 lang: r
-xp: 50 
+xp: 50
 skills: 1
-key: 0f66a8c3f0 
-video_link: //player.vimeo.com/video/230622365  
+video_link: //player.vimeo.com/video/230622365
 ```
+
 
 ---
 
 ## Learn Engineering by Eating Cheese?
 
 ```yaml
-type: MultipleChoiceExercise 
+type: MultipleChoiceExercise
+key: 4b7a7da2a4
 lang: r
-xp: 50 
+xp: 50
 skills: 1
-key: 4b7a7da2a4   
 ```
-
 
 ![](https://assets.datacamp.com/production/repositories/1444/datasets/fdf1e1ca75881f0c95ccd9c843580761cda5612e/chart.jpeg)
 
 As you can see in this chart, the per capita consumption of mozzarella cheese in the US is highly correlated with the number of PhDs awarded annually in Civil Engineering in the US. In fact, it’s a 95% correlation. Therefore, does this strong data prove that these two variables are **causally** connected?
-
 
 `@instructions`
 - Definitely. 95% correlations do not just happen in real life—there must be a cause and effect reason behind it, even if we don’t know what it is.
 - No. This is just a spurious correlation between random variables, and even very strong correlations do not imply causation.
 
 `@sct`
-
 ```{r}
 msg1 = "It can be so tempting to assume that any strong correlations in our data are telling us about the cause and effect relationships going on in real life, but don’t give into that temptation! We’ll need to do more to find a causality. Try again."
 msg2 = "Correct! You will find many correlations in your data, sometimes very strong ones like this, but that does not mean there’s any causal relationship between them. Sometimes a correlation may help you ask better questions about what’s going on, but don’t assume they are causal by themselves."
 test_mc(correct = 2, feedback_msgs = c(msg1,msg2))
 ```
 
-
 ---
 
 ## Let’s Code: A Superstitious Sports Fan
 
 ```yaml
-type: VideoExercise 
+type: VideoExercise
+key: d9d4a51011
 lang: r
-xp: 50 
+xp: 50
 skills: 1
-key: d9d4a51011 
-video_link: //player.vimeo.com/video/276320346  
+video_link: //player.vimeo.com/video/276320346
 ```
+
 
 ---
 
 ## A Superstitious Sports Fan
 
 ```yaml
-type: NormalExercise 
+type: NormalExercise
+key: bfa70779e1
 lang: r
-xp: 100 
+xp: 100
 skills: 1
-key: bfa70779e1   
 ```
-
 
 During last year's football season, Britney's home team, the Durham Dolphins, sadly lost the MegaBowl. As a huge fan, Britney always dressed up on game days in the team jersey and hat, but because the MegaBowl was a special occasion, for that game Britney also painted her nails in the team colors for extra good luck. But her team lost anyway. Britney is convinced that painting her nails hurt the Dolphin's performance, in part because Britney remembers the Dolphins losing when she previously painted her nails.  
 
 Using the dataset, `Nails`, find out whether Britney is at blame for the loss. Specifically:
-
 
 `@instructions`
 - 1) Using the `cor` function, estimate whether the variables `painted` and `wins` within the dataset `Nails` are correlated.
@@ -716,7 +658,6 @@ Using the dataset, `Nails`, find out whether Britney is at blame for the loss. S
 - 3) Based on the above, answer following: "Should Britney have painted her nails?"
 
 `@pre_exercise_code`
-
 ```{r}
 n=34
 set.seed(1)
@@ -740,9 +681,7 @@ library(ggplot2)
   Nails$wins<-rbinom(n,1,.8-Nails$painted*.1)
 ```
 
-
 `@sample_code`
-
 ```{r}
 # 1) Using the `cor` function, estimate whether the variables `painted` and `wins` within the dataset `Nails` are correlated.
 
@@ -757,9 +696,7 @@ library(ggplot2)
   Solution3<-""
 ```
 
-
 `@solution`
-
 ```{r}
 cor(Nails$painted,Nails$wins)
   ggplot(data=Nails, aes(x=wins, y=painted)) + 
@@ -767,14 +704,10 @@ cor(Nails$painted,Nails$wins)
   geom_smooth(method = "lm", se = FALSE)
 ```
 
-
 `@sct`
-
 ```{r}
 test_function("cor", incorrect_msg = "Did you use the `cor` function?")
 test_function("ggplot", incorrect_msg = "Did you use the `ggplot` function?")
 test_error()
 success_msg("Good work! We accepted all answers for Question 3, but we would argue that 'c)It depends how they look' was the most correct of them.")
 ```
-
-
