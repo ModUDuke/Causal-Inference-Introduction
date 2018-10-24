@@ -5,7 +5,7 @@ description: Welcome to the 1st course in our 7 part series on causal inference
   treatment effects, and how to explore and derive key summary statistics from dataframes.
   We’ll stay away from dense statistical math and focus instead on higher level concepts
   that data scientists need to always consider when examining and making inferences
-  about data. Instructors and Creators: Dr. Matt Masten (Duke University), James Speckart (Duke), Brian Aronson (Duke), Dr. Tyler Ransom (University of Oklahoma), Dr. Bentley Coffey (University of South Carolina), and Alexandra Cooper (Duke).
+  about data. Course Instructors and Creators are Dr. Matt Masten (Duke University), James Speckart (Duke), Brian Aronson (Duke), Dr. Tyler Ransom (University of Oklahoma), Dr. Bentley Coffey (University of South Carolina), and Alexandra Cooper (Duke).
 programming_language: r
 instructors:
 - matt.masten@duke.edu
